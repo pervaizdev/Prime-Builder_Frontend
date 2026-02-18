@@ -1,10 +1,11 @@
-import React from 'react'
-import Projects from "./projects/page.jsx"
+import React from "react";
+import StartPage from "./home/page.jsx";
 
-export default function Home () {
+export default function Home() {
   return (
     <>
-     <Projects/>
+      <StartPage />
     </>
-  )
+  );
 }
+
