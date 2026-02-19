@@ -47,7 +47,6 @@ export default function CardDetails({ project, InfoItem }) {
           value={project.priceRange}
         />
       </div>
-      
     </div>
   );
 }
