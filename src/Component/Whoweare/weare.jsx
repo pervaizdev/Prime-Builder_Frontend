@@ -6,7 +6,7 @@ import { FaGem, FaRocket } from "react-icons/fa";
 
 export default function WeAre() {
     return (
-        <div className="bg-white min-h-[60vh] relative top-[-110px] rounded-t-[60px] py-20">
+        <div className="bg-white min-h-[60vh] relative top-[-70px] rounded-t-[60px] py-5">
             <div className="container mx-auto mt-32 px-6">
 
                 {/* ================= WHO WE ARE ================= */}
@@ -60,12 +60,17 @@ export default function WeAre() {
 
                 {/* ================= STATS SECTION (NEW) ================= */}
                 <div className="mt-32 grid gap-8 lg:grid-cols-12">
-
-
                     <div className="lg:col-span-7 relative">
                         <div className="h-[520px] w-full overflow-hidden rounded-[36px] rounded-tl-[70px] bg-gray-200">
+                            <img src="/images/1 ba night.jpg" alt="" className="w-full h-full object-cover" />
                         </div>
-                        <div className="absolute top-0 left-0 bg-white h-[40px] w-[200px]  ">
+
+                        {/* Main white notch */}
+                        <div className="absolute top-0 left-0 bg-white h-[45px] w-[220px] rounded-br-[30px]">
+                            <div className="relative left-[-12px] top-[33px] h-24 w-24 rotate-90 border-l-[12px] border-b-[12px] border-white rounded-bl-4xl">
+                            </div>
+                        </div>
+                        <div className="absolute left-[208px] top-[-14px] h-8 w-8 rotate-90 border-l-[12px] border-b-[12px] border-white rounded-bl-4xl">
                         </div>
                     </div>
 
@@ -96,8 +101,7 @@ export default function WeAre() {
 
                             {/* Small Image */}
                             <div className="h-[240px] w-full overflow-hidden rounded-[28px] bg-gray-200">
-                                {/* Add your image here */}
-                                {/* <img src="/your-image2.jpg" className="h-full w-full object-cover" /> */}
+
                             </div>
 
                         </div>
@@ -134,4 +138,4 @@ function StatCard({ label, value, subtext }) {
             </div>
         </div>
     );
-}
+}  

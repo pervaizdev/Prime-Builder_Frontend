@@ -4,6 +4,13 @@ import Cards from '@/Component/Common/Cards/homecard'
 import HeroSection from '@/Component/HeroSection/HeroSection'
 import cardData from '@/data/cardData'
 import WeAre from '@/Component/Whoweare/weare'
+import Services from '@/Component/OurServices/servicespage'
+import DifferentSection from '@/Component/DifferentSection/DifferentSection'
+import TestimonialsSection from '@/Component/Testimonials/Testimonials'
+import ClientsSwiper from '@/Component/Swiper/ClientsSwiper'
+import Team from '@/Component/Team/Team'
+import CallBackSection from '@/Component/CallBackSection/callbacksection'
+import FooterSection from '@/Component/Footer/footer'
 
 export default function HomePage() {
   return (
@@ -21,6 +28,13 @@ export default function HomePage() {
         ))}
       </div>
       <WeAre />
+      <Services />
+      <DifferentSection />
+      <TestimonialsSection />
+      <ClientsSwiper />
+      <Team />
+      <CallBackSection />
+      <FooterSection />
       
     </div>
   )
