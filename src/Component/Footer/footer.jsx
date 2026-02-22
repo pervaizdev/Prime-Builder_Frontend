@@ -47,7 +47,6 @@ export default function FooterSection() {
                 <li>Contact</li>
               </ul>
             </div>
-
             {/* Right Column */}
             <div>
               <p className="text-lg font-semibold text-black">
