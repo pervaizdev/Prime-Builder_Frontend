@@ -1,96 +1,55 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import Image from "next/image";
-import { projectMedia } from "@/data/projectMedia";
-import {
-  HiOutlinePhoto,
-  HiOutlineMap,
-  HiOutlineVideoCamera,
-} from "react-icons/hi2";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Keyboard, Autoplay } from "swiper/modules";
 import "swiper/css";
 
+import { Autoplay } from "swiper/modules";
+import { projectMedia } from "@/data/projectMedia";
+
+import { FiImage, FiLayout, FiVideo } from "react-icons/fi";
+
 const TABS = [
-  { key: "photos", label: "Photos", Icon: HiOutlinePhoto },
-  { key: "plans", label: "Plans", Icon: HiOutlineMap },
-  { key: "videos", label: "Video", Icon: HiOutlineVideoCamera },
+  { key: "photos", label: "Photos", icon: <FiImage /> },
+  { key: "plans", label: "Plans", icon: <FiLayout /> },
+  { key: "videos", label: "Video", icon: <FiVideo /> },
 ];
 
-function Tabs({ active, onChange }) {
-  return (
-    <div className="flex gap-3">
-      {TABS.map(({ key, label, Icon }) => {
-        const isActive = active === key;
-        return (
-          <button
-            key={key}
-            onClick={() => onChange(key)}
-            className={`inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold transition
-              ${
-                isActive
-                  ? "border-lime-200 bg-lime-300 text-black"
-                  : "border-black/10 bg-white text-black/70 hover:bg-black/5"
-              }`}
-          >
-            <Icon className="text-lg" />
-            {label}
-          </button>
-        );
-      })}
-    </div>
-  );
-}
-
-function FocusSwiper({ items, type }) {
-  if (!items?.length) return null;
-
-  const isVideo = type === "video";
+function MediaSwiper({ items }) {
+  const SIDE_PEEK_PERCENT = 0.2;
+  const centerWidthPercent = (1 - SIDE_PEEK_PERCENT * 2) * 100;
 
   return (
-    <div className="relative h-[320px] md:h-[420px] lg:h-[540px]">
+    <div className="w-full pb-12">
       <Swiper
-        modules={[Keyboard, Autoplay]}
-        keyboard={{ enabled: true }}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
-        loop={true} // ✅ infinite loop
+        loop
         centeredSlides
-        spaceBetween={40}
-        breakpoints={{
-          0: { slidesPerView: 1.2 },
-          640: { slidesPerView: 1.8 },
-          1024: { slidesPerView: 3 },
+        slidesPerView="auto"
+        spaceBetween={20}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
         }}
-        className="h-full px-6 py-6"
+        modules={[Autoplay]}
+        className="mySwiper"
       >
         {items.map((item) => (
-          <SwiperSlide key={item.id} className="h-full">
-            {({ isActive }) => (
-              <div
-                className={`relative h-full w-full overflow-hidden rounded-[40px] border border-black/10 bg-white shadow-lg
-                  transition-all duration-500
-                  ${isActive ? "opacity-100 scale-100" : "opacity-40 scale-90"}`}
-                style={{ filter: isActive ? "none" : "blur(2px)" }}
-              >
-                {isVideo ? (
-                  <Image
-                    src={item.poster}
-                    alt={item.title || "Video"}
-                    fill
-                    className="object-cover"
-                  />
-                ) : (
-                  <Image
-                    src={item.src}
-                    alt={item.alt || "Media"}
-                    fill
-                    className="object-cover"
-                  />
-                )}
-              </div>
-            )}
+          <SwiperSlide
+            key={item.id}
+            className="!rounded-4xl overflow-hidden"
+            style={{ width: `${centerWidthPercent}%` }}
+          >
+            <div className="relative w-full h-[450px]">
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 90vw, 70vw"
+                priority
+              />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -98,26 +57,76 @@ function FocusSwiper({ items, type }) {
   );
 }
 
-export default function MediaSection() {
-  const [tab, setTab] = useState("photos");
+export default function ProjectMediaSection() {
+  const [activeTab, setActiveTab] = useState("photos");
 
-  const { items, type } = useMemo(() => {
-    if (tab === "videos") return { items: projectMedia.videos, type: "video" };
-    if (tab === "plans") return { items: projectMedia.plans, type: "image" };
-    return { items: projectMedia.photos, type: "image" };
-  }, [tab]);
+  const content = useMemo(() => {
+    if (activeTab === "photos") return { type: "images", items: projectMedia.photos };
+    if (activeTab === "plans") return { type: "images", items: projectMedia.plans };
+    if (activeTab === "videos") return { type: "videos", items: projectMedia.videos };
+  }, [activeTab]);
 
   return (
-    <section className="mx-auto max-w-7xl px-6 pt-16">
-      <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-        <h2 className="text-5xl font-extrabold text-black md:text-6xl">
+    <section className="w-full">
+      {/* Header */}
+      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <h2 className="text-4xl md:text-5xl font-semibold text-black">
           Media
         </h2>
-        <Tabs active={tab} onChange={setTab} />
+
+        <div className="flex flex-wrap items-center gap-3">
+          {TABS.map((tab) => {
+            const isActive = activeTab === tab.key;
+
+            return (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`flex items-center gap-2 rounded-full border px-6 py-3 text-sm md:text-base transition-all duration-300
+                  ${
+                    isActive
+                      ? "bg-[#E6F06A] border-[#E6F06A] text-black"
+                      : "bg-white border-gray-200 text-black hover:bg-gray-50"
+                  }
+                `}
+              >
+                <span className="text-lg">{tab.icon}</span>
+                <span className="font-medium">{tab.label}</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
-      <div className="mt-10">
-        <FocusSwiper items={items} type={type} />
+      {/* Content */}
+      <div className="mt-8">
+        {content.type === "images" && (
+          <MediaSwiper items={content.items} />
+        )}
+
+        {content.type === "videos" && (
+          <div className="grid gap-6 md:grid-cols-2">
+            {content.items.map((video) => (
+              <div
+                key={video.id}
+                className="rounded-4xl overflow-hidden border border-gray-200 bg-black"
+              >
+                <video
+                  src={video.src}
+                  controls
+                  className="w-full h-[450px] object-cover"
+                />
+                {video.title && (
+                  <div className="p-4 bg-white">
+                    <p className="text-sm font-medium text-black">
+                      {video.title}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

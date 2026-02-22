@@ -55,7 +55,7 @@ export default async function Page({ params }) {
         </div>
         <hr className="border mt-15" />
         <FeaturesAmenities />
-        <hr className="border mt-15" />
+        <hr className="border mt-15 mb-10" />
         <MediaSection/>
       </div>
     </>
