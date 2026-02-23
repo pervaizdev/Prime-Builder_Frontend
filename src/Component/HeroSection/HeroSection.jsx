@@ -1,10 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-
+import { MdArrowOutward } from "react-icons/md";
+const MotionLink = motion(Link);
 export default function HeroSection() {
+  const ref = useRef(null);
   const container = {
     hidden: {},
     show: {
@@ -20,17 +22,22 @@ export default function HeroSection() {
     show: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
+      transition: {
+        duration: 1.0,
+        delay: 0.1,
+        ease: [0.22, 1, 0.36, 1],
+      },
     },
   };
 
   return (
     <motion.div
+      ref={ref}
       className="relative z-10 mx-auto flex min-h-full max-w-6xl flex-col items-center justify-center px-4 text-center text-white"
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.35 }}
+      viewport={{ once: true, amount: 0.1 }}
     >
       {/* Headline */}
       <motion.h1
@@ -59,7 +66,7 @@ export default function HeroSection() {
 
       {/* Divider */}
       <motion.div
-        className="my-10 h-px w-full max-w-5xl bg-white/30"
+        className="my-10 h-px w-full mt-16 max-w-5xl bg-white/30"
         variants={fadeUp}
       />
 
@@ -67,6 +74,9 @@ export default function HeroSection() {
       <motion.div
         className="flex w-full max-w-5xl flex-col items-center justify-between gap-8 sm:flex-row sm:items-start"
         variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
       >
         <p className="text-left text-xl leading-snug sm:text-xl lg:text-2xl">
           We develop planned communities and premium projects
@@ -75,16 +85,23 @@ export default function HeroSection() {
           <br className="hidden sm:block" />
           investor-focused returns.
         </p>
-
-        <Link
+        <MotionLink
           href="/projects"
-          className="group inline-flex items-center rounded-full bg-white px-5 py-3 text-black shadow-md transition hover:shadow-lg"
+          whileHover={{ scale: 1.05 }}
+          
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          className="group inline-flex items-center rounded-full bg-white px-5 py-3 text-black shadow-md"
         >
           <span className="mr-4 font-semibold">View Projects</span>
-          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-lime-200 transition group-hover:scale-105">
-            ↗
-          </span>
-        </Link>
+
+          <motion.span
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-lime-200"
+            whileHover={{ rotate: 45 }}
+            transition={{ type: "spring", stiffness: 300, damping: 15 }}
+          >
+            <MdArrowOutward />
+          </motion.span>
+        </MotionLink>
       </motion.div>
     </motion.div>
   );
