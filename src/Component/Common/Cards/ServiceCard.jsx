@@ -24,11 +24,11 @@ export default function ServiceCard({
       {/* Content */}
       <div className="p-6 space-y-4">
         
-        <h3 className="text-xl font-semibold text-gray-900">
+        <h3 className="text-lg md:text-xl font-semibold text-gray-900">
           {title}
         </h3>
 
-        <p className="text-gray-600 text-sm leading-relaxed">
+        <p className="text-gray-600 md:text-sm leading-relaxed">
           {description}
         </p>
 
@@ -39,11 +39,8 @@ export default function ServiceCard({
           ))}
         </ul>
 
-        {/* Button */}
-        <button className="flex items-center gap-2 text-black font-medium hover:gap-3 transition-all">
-          Learn More
-          <FiArrowUpRight />
-        </button>
+
+      
 
       </div>
     </div>

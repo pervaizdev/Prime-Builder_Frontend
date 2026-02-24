@@ -1,23 +1,23 @@
 // data/cardData.js
 
 const cardData = [
-  {
+   {
     id: 1,
-    title: "High quality products",
+    title: "Prime & Connected Locations",
     description:
-      "The luxurious and exquisite design harmonious with the surrounding architecture provide the best living.",
+      "Our projects are strategically located near major highways, business districts, schools, and healthcare facilities for everyday convenience.",
   },
   {
     id: 2,
-    title: "Modern Architecture",
+    title: "Smart & Functional Design",
     description:
-      "Designed with elegance and innovation to create spaces that reflect style, comfort, and functionality.",
+      "Thoughtfully planned floor layouts that maximize natural light, ventilation, and usable space for modern family living.",
   },
   {
     id: 3,
-    title: "Premium Lifestyle",
+    title: "Secure Gated Communities",
     description:
-      "Experience a lifestyle enriched with comfort, convenience, and world-class amenities.",
+      "24/7 security, CCTV surveillance, controlled access, and family-friendly surroundings ensure peace of mind.",
   },
 ];
 

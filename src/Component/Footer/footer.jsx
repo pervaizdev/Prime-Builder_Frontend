@@ -1,54 +1,80 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 export default function FooterSection() {
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
+
+  const stagger = {
+    hidden: {},
+    show: {
+      transition: { staggerChildren: 0.1, delayChildren: 0.05 },
+    },
+  };
+
   return (
-    <footer
-      className="bg-cover bg-center pt-32 pb-16 bg-black/60 bg-blend-multiply"
-      style={{
-        backgroundImage: "url('/images/1 ba night.jpg')", // rename file (no spaces)
-      }}
-    >
+    <footer>
       <div className="mx-auto max-w-6xl px-6">
-        
         {/* White Card */}
-        <div className="rounded-[32px] bg-white px-10 py-14 shadow-2xl">
-          
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={stagger}
+          className="rounded-[32px] bg-white px-10 py-14 shadow-2xl"
+        >
           {/* Top Content */}
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
-            
-            {/* Left Column */}
-            <div>
-              <h2 className="text-2xl font-bold text-black">
-                <span className="text-lime-500">▰</span> spaciaz
+          <motion.div
+            variants={stagger}
+            className="grid grid-cols-1 gap-10 md:grid-cols-3"
+          >
+
+            <motion.div variants={fadeUp} className="flex flex-col items-center text-center">
+
+              {/* Logo */}
+              <img
+                src="/images/logo.png"
+                alt="Logo"
+                className="h-20 w-auto md:h- select-none"
+              />
+
+              {/* Company Name */}
+              <h2 className="mt-4 text-xl font-bold text-black">
+                Islamabad Prime Builder
               </h2>
 
-              <p className="mt-6 text-sm text-gray-500 leading-relaxed">
+              {/* Description */}
+              <p className="mt-6 text-xs text-gray-500 leading-relaxed max-w-sm">
                 We are creators of transformative spaces that inspire,
                 innovate, and endure.
               </p>
-            </div>
+
+            </motion.div>
 
             {/* Middle Column */}
-            <div className="grid grid-cols-2 gap-6 text-sm text-gray-600">
-              <ul className="space-y-3">
-                <li>About Us</li>
-                <li>Why Choose Us</li>
-                <li>Our Team</li>
-                <li>Solutions</li>
-                <li>Partners</li>
-                <li>Core Values</li>
-              </ul>
+            <motion.div
+              variants={fadeUp}
+              className="grid grid-cols-2 gap-6 text-sm text-gray-600"
+            >
+
 
               <ul className="space-y-3">
-                <li>Our Projects</li>
-                <li>News & Updates</li>
-                <li>Terms & Conditions</li>
-                <li>Support Center</li>
+                <li>Home</li>
+                <li>Projects</li>
+                <li>Awards</li>
                 <li>Contact</li>
               </ul>
-            </div>
+            </motion.div>
+
             {/* Right Column */}
-            <div>
+            <motion.div variants={fadeUp}>
               <p className="text-lg font-semibold text-black">
                 +(084) 123 - 45688
               </p>
@@ -60,17 +86,18 @@ export default function FooterSection() {
               <p className="mt-6 text-xs text-gray-500">
                 Facebook · Instagram · Youtube · Twitter
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Divider */}
-          <div className="my-10 border-t border-gray-200"></div>
+          <motion.div variants={fadeUp} className="my-10 border-t border-gray-200" />
 
           {/* Bottom */}
-          <p className="text-center text-xs text-gray-500">
-            © 2025 <span className="font-semibold text-black">Spaciaz</span>. All Rights Reserved.
-          </p>
-        </div>
+          <motion.p variants={fadeUp} className="text-center text-xs text-gray-500">
+            © 2026 <span className="font-semibold text-black">Islamabad Prime Builder</span>. All
+            Rights Reserved.
+          </motion.p>
+        </motion.div>
       </div>
     </footer>
   );

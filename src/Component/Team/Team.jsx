@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { FiX } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 const members = [
   {
@@ -32,27 +33,65 @@ const members = [
 ];
 
 export default function Team() {
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
+
+  const stagger = {
+    hidden: {},
+    show: {
+      transition: { staggerChildren: 0.12, delayChildren: 0.05 },
+    },
+  };
+
   return (
     <section className="bg-[#f5f5f5] py-24">
       {/* Badge */}
-      <div className="flex justify-center">
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+        className="flex justify-center"
+      >
         <div className="inline-flex items-center rounded-full w-[130px] border border-[#eed498] px-4 py-2 text-xs tracking-widest">
           <h2 className="text-black">WHO WE ARE</h2>
         </div>
-      </div>
+      </motion.div>
 
       {/* Heading */}
-      <div className="max-w-5xl mx-auto text-center mt-10">
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        className="max-w-5xl mx-auto text-center mt-10"
+      >
         <h1 className="text-black font-bold leading-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
           Meet Our <br /> Team
         </h1>
-      </div>
+      </motion.div>
 
       {/* Cards Row */}
-      <div className="max-w-7xl mx-auto mt-20 px-6">
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.15 }}
+        className="max-w-7xl mx-auto mt-20 px-6"
+      >
         <div className="flex flex-col md:flex-row items-center md:items-end justify-center gap-10 md:gap-14">
           {members.map((m, idx) => (
-            <div key={idx} className={`relative w-full md:w-[340px] ${m.offset}`}>
+            <motion.div
+              key={idx}
+              variants={fadeUp}
+              className={`relative w-full md:w-[340px] ${m.offset}`}
+            >
               {/* Card */}
               <div className={`relative ${m.height} rounded-[42px]`}>
                 {/* IMAGE WRAPPER (clipped) */}
@@ -66,14 +105,12 @@ export default function Team() {
                   />
                 </div>
 
-                {/* ===== TOP-RIGHT NOTCH (SMOOTH, NO SHARP EDGES) ===== */}
-                {/* Main notch block */}
+                {/* TOP-RIGHT NOTCH */}
                 <div className="absolute top-0 right-0 bg-[#f5f5f5] h-[74px] w-[74px] rounded-bl-[46px] z-20" />
-                {/* Corner smoothing patches (same trick as your WeAre component) */}
                 <div className="absolute right-[62px] top-[-12px] h-8 w-8 rotate-180 border-l-[12px] border-b-[12px] border-[#f5f5f5] rounded-bl-4xl z-30" />
                 <div className="absolute right-[-12px] top-[62px] h-8 w-8 rotate-180 border-l-[12px] border-b-[12px] border-[#f5f5f5] rounded-bl-4xl z-30" />
 
-                {/* Floating X button (sits inside notch) */}
+                {/* Floating X button */}
                 <div className="absolute top-0 right-0 z-40">
                   <div
                     className={[
@@ -87,7 +124,7 @@ export default function Team() {
                   </div>
                 </div>
 
-                {/* Gradient for contrast */}
+                {/* Gradient */}
                 <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/35 to-transparent z-10 rounded-b-[42px]" />
 
                 {/* Bottom label */}
@@ -103,10 +140,10 @@ export default function Team() {
                 </div>
               </div>
               {/* end card */}
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

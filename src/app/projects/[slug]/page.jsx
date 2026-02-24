@@ -3,10 +3,18 @@ import { notFound } from "next/navigation";
 import { projects } from "@/data/card";
 import CardDetails from "@/Component/CardDetails.jsx";
 import FeaturesAmenities from "@/Component/FeaturesAmenities";
-import Description from "@/Component/ProjectDescription.jsx"
+import Description from "@/Component/ProjectDescription.jsx";
 import MediaSection from "@/Component/MediaSection";
 import Location from "@/Component/Location"
 
+import {
+  AnimatedHeroTitle,
+  AnimatedSection,
+  AnimatedStagger,
+  AnimatedFadeUp,
+  AnimatedImage,
+  AnimatedDivider,
+} from "@/Component/AnimationWrappers";
 
 function InfoItem({ icon: Icon, label, value }) {
   return (
@@ -43,7 +51,7 @@ export default async function Page({ params }) {
       <div className="relative top-[-320] bg-white rounded-[60] px-8 mt-12">
         <CardDetails project={project} InfoItem={InfoItem} />
         <div className="mx-auto px-10 pt-14">
-          <div className="relative mt-12 h-[650] w-full overflow-hidden rounded-[40]">
+          <AnimatedImage className="relative mt-12 h-[650] w-full overflow-hidden rounded-[40]">
             <Image
               src={project.image}
               alt={project.title}
@@ -51,8 +59,11 @@ export default async function Page({ params }) {
               priority
               className="object-cover"
             />
-          </div>
-          <Description/>
+          </AnimatedImage>
+
+          <AnimatedSection>
+            <Description />
+          </AnimatedSection>
         </div>
         <hr className="border mt-15" />
         <FeaturesAmenities />
