@@ -7,7 +7,8 @@ export default function BackgroundVideo({
   overlayOpacity = "bg-black/45"
 }) {
   return (
-    <div className="absolute inset-0 w-full h-[1085px]">
+    <div className="container mx-auto">
+    <div className="absolute inset-0 w-full md:h-[1085px] h-[117vh]">
       
       {/* Video */}
       <video
@@ -25,6 +26,7 @@ export default function BackgroundVideo({
         <div className={`absolute inset-0 ${overlayOpacity}`} />
       )}
       
+    </div>
     </div>
   );
 }

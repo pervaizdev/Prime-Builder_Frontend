@@ -3,9 +3,16 @@ import { notFound } from "next/navigation";
 import { projects } from "@/data/card";
 import CardDetails from "@/Component/CardDetails.jsx";
 import FeaturesAmenities from "@/Component/FeaturesAmenities";
-import Description from "@/Component/ProjectDescription.jsx"
+import Description from "@/Component/ProjectDescription.jsx";
 import MediaSection from "@/Component/MediaSection";
-
+import {
+  AnimatedHeroTitle,
+  AnimatedSection,
+  AnimatedStagger,
+  AnimatedFadeUp,
+  AnimatedImage,
+  AnimatedDivider,
+} from "@/Component/AnimationWrappers";
 
 function InfoItem({ icon: Icon, label, value }) {
   return (
@@ -40,9 +47,12 @@ export default async function Page({ params }) {
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
       <div className="relative top-[-320] bg-white rounded-[60] px-8 py-12">
-        <CardDetails project={project} InfoItem={InfoItem} />
+        <AnimatedSection>
+          <CardDetails project={project} InfoItem={InfoItem} />
+        </AnimatedSection>
+
         <div className="mx-auto px-10 pt-14">
-          <div className="relative mt-12 h-[650] w-full overflow-hidden rounded-[40]">
+          <AnimatedImage className="relative mt-12 h-[650] w-full overflow-hidden rounded-[40]">
             <Image
               src={project.image}
               alt={project.title}
@@ -50,13 +60,24 @@ export default async function Page({ params }) {
               priority
               className="object-cover"
             />
-          </div>
-          <Description/>
+          </AnimatedImage>
+
+          <AnimatedSection>
+            <Description />
+          </AnimatedSection>
         </div>
-        <hr className="border mt-15" />
-        <FeaturesAmenities />
-        <hr className="border mt-15 mb-10" />
-        <MediaSection/>
+
+        <AnimatedDivider className="border mt-15" />
+
+        <AnimatedSection>
+          <FeaturesAmenities />
+        </AnimatedSection>
+
+        <AnimatedDivider className="border mt-15 mb-10" />
+
+        <AnimatedSection>
+          <MediaSection />
+        </AnimatedSection>
       </div>
     </>
   );

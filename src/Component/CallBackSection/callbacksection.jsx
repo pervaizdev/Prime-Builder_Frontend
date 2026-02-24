@@ -1,44 +1,88 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 export default function CallBackSection() {
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
+
+  const stagger = {
+    hidden: {},
+    show: {
+      transition: { staggerChildren: 0.1, delayChildren: 0.05 },
+    },
+  };
+
   return (
     <section className="bg-white text-black py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        
+      <div className="mx-auto max-w-7xl px-4 sm:px-">
+
         {/* Background Container */}
-        <div
-          className="rounded-[36px] bg-cover bg-center py-20 px-6 sm:px-10 md:px-16"
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="rounded-[36px] bg-cover bg-center py-20 px-2 sm:px-10 md:px-16"
           style={{
-            backgroundImage: "url('/images/1 ba night.jpg')", // replace with your image
+            backgroundImage: "url('/images/1 ba night.jpg')",
           }}
         >
           {/* White Card */}
-          <div className="mx-auto max-w-4xl rounded-3xl bg-white px-6 py-12 shadow-xl sm:px-12">
-            
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            className="mx-auto max-w-4xl rounded-3xl bg-white px-4 py-12 shadow-xl sm:px-12"
+          >
             {/* Badge */}
-            <div className="flex justify-center">
+            <motion.div variants={fadeUp} className="flex justify-center">
               <span className="rounded-full border border-lime-400 px-4 py-1 text-[10px] font-semibold tracking-[0.25em]">
                 QUICK EN
               </span>
-            </div>
+            </motion.div>
 
             {/* Title */}
-            <h2 className="mt-6 text-center text-xl font-extrabold leading-snug sm:text-2xl md:text-3xl">
+            <motion.h2
+              variants={fadeUp}
+              className="mt-6 text-center text-xl font-extrabold leading-snug sm:text-2xl md:text-3xl"
+            >
               Get specialist advice for residential,
               <br className="hidden sm:block" />
               commercial or property
-            </h2>
+            </motion.h2>
 
             {/* Form */}
-            <form className="mt-10">
+            <motion.form variants={stagger} className="mt-10">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <Input placeholder="Your Name*" />
-                <Input placeholder="Email*" />
-                <Input placeholder="Phone Number*" />
-                <Select placeholder="You inquiry about..." />
+                <motion.div variants={fadeUp}>
+                  <Input placeholder="Your Name*" />
+                </motion.div>
+
+                <motion.div variants={fadeUp}>
+                  <Input placeholder="Email*" />
+                </motion.div>
+
+                <motion.div variants={fadeUp}>
+                  <Input placeholder="Phone Number*" />
+                </motion.div>
+
+                <motion.div variants={fadeUp}>
+                  <Select placeholder="You inquiry about..." />
+                </motion.div>
               </div>
 
-              <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <motion.div
+                variants={fadeUp}
+                className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+              >
                 <p className="text-xs text-gray-500">
                   We're excited to connect with you!
                   <br />
@@ -54,10 +98,10 @@ export default function CallBackSection() {
                     →
                   </span>
                 </button>
-              </div>
-            </form>
-          </div>
-        </div>
+              </motion.div>
+            </motion.form>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
