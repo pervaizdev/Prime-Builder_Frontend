@@ -10,7 +10,7 @@ import { HiBars3BottomRight, HiXMark } from "react-icons/hi2";
 const NAV_ITEMS = [
     { name: "Home", path: "/" },
     { name: "Projects", path: "/projects" },
-    { name: "Awards", path: "/pages" },
+    { name: "Awards", path: "/awards" },
     { name: "Contact", path: "/contact" },
 ];
 
