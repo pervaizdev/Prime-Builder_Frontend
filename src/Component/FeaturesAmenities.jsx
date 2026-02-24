@@ -29,8 +29,22 @@ function FeatureCard({ title, desc, icon }) {
   return (
     <div className="relative rounded-[48] bg-linear-to-b from-[#f5f2ea] to-white px-8 pb-10 pt-20 text-center">
       <div className="absolute left-1/2 top-0 h-27 w-27 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white" />
+      <div
+        className="absolute top-[-10] left-43
+             w-8 h-8
+             border-r-16 
+             border-white
+             rounded-tr-full rotate-250"
+      />
+      <div
+        className="absolute top-[-10] left-12
+             w-8 h-10
+              border-r-10
+             border-white
+             rounded-tr-full rotate-325"
+      />
       <div className="absolute left-1/2 top-0 h-17 w-17 -translate-x-1/2 -translate-y-1/3 place-items-center rounded-full bg-lime-300">
-         <Icon className="text-4xl mt-4 text-black" />
+        <Icon className="text-4xl mt-4 text-black" />
       </div>
       <h3 className="text-xl font-bold text-black">{title}</h3>
       <p className="mt-5 text-black/50">{desc}</p>

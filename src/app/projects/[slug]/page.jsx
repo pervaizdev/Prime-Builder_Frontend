@@ -5,6 +5,7 @@ import CardDetails from "@/Component/CardDetails.jsx";
 import FeaturesAmenities from "@/Component/FeaturesAmenities";
 import Description from "@/Component/ProjectDescription.jsx"
 import MediaSection from "@/Component/MediaSection";
+import Location from "@/Component/Location"
 
 
 function InfoItem({ icon: Icon, label, value }) {
@@ -39,7 +40,7 @@ export default async function Page({ params }) {
         />
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
-      <div className="relative top-[-320] bg-white rounded-[60] px-8 py-12">
+      <div className="relative top-[-320] bg-white rounded-[60] px-8 mt-12">
         <CardDetails project={project} InfoItem={InfoItem} />
         <div className="mx-auto px-10 pt-14">
           <div className="relative mt-12 h-[650] w-full overflow-hidden rounded-[40]">
@@ -57,6 +58,7 @@ export default async function Page({ params }) {
         <FeaturesAmenities />
         <hr className="border mt-15 mb-10" />
         <MediaSection/>
+        <Location/>
       </div>
     </>
   );
