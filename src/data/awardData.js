@@ -6,7 +6,7 @@ export const awardSections = [
     description:
       "Flowbite helps you connect with friends, family and communities of people who share your interests. Connecting with your friends and family as well as discovering new ones is easy with features like Groups, Watch and Marketplace.",
     image: {
-      src: "/images/award.png", // put in /public/images/award.png
+      src: "/images/back night.jpg", 
       alt: "Real estate award",
     },
   },
@@ -16,7 +16,7 @@ export const awardSections = [
     description:
       "Recognizing innovation, dedication and performance in the real estate industry. Our awards highlight outstanding professionals who set new standards of success and trust.",
     image: {
-      src: "/images/award.png",
+      src: "/images/back night.jpg",
       alt: "Award trophy",
     },
   },
