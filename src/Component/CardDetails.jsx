@@ -11,14 +11,14 @@ export default function CardDetails({ project, InfoItem }) {
   return (
     <div className="pt-14 px-5">
       <div className="flex items-center gap-3">
-        <HiLocationMarker className="text-2xl text-lime-300" />
-        <p className=" font-bold text-black">{project.location}</p>
+        <HiLocationMarker className="text-xl lg:text-3xl text-lime-300" />
+        <p className=" font-bold text-sm lg:text-lg text-black">{project.location}</p>
       </div>
-      <h1 className="mt-5 text-7xl font-sans font-bold text-black">
+      <h1 className="mt-5 lg:text-7xl text-2xl font-sans font-bold text-black">
         {project.title}
       </h1>
       <hr className="my-12 border-black/20" />
-      <div className="grid grid-cols-2 lg:grid-cols-5">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-0">
         <InfoItem
           icon={HiOutlineCircleStack}
           label="Status"

@@ -3,16 +3,16 @@ import { awardSections } from "@/data/awardData";
 
 function AwardBlock({ title, description, image, reverse = false }) {
   return (
-    <div className="py-20"> {/* 👈 adds top & bottom space */}
+    <div className="py-15 lg:py-20"> {/* 👈 adds top & bottom space */}
       <div className="grid gap-14 grid-cols-1 lg:grid-cols-2 px-8">
         
         {/* Text */}
         <div className={reverse ? "lg:order-2" : "lg:order-1"}>
-          <h1 className="mb-8 text-4xl font-extrabold text-black">
+          <h1 className="mb-8 text-2xl lg:text-4xl font-extrabold text-black">
             {title}
           </h1>
 
-          <p className="text-lg text-black">
+          <p className="text-md lg:text-lg text-black">
             {description}
           </p>
         </div>

@@ -30,14 +30,14 @@ function FeatureCard({ title, desc, icon }) {
     <div className="relative rounded-[48] bg-linear-to-b from-[#f5f2ea] to-white px-8 pb-10 pt-20 text-center">
       <div className="absolute left-1/2 top-0 h-27 w-27 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white" />
       <div
-        className="absolute top-[-10] left-43
+        className="absolute top-[-10] left-47
              w-8 h-8
              border-r-16 
              border-white
              rounded-tr-full rotate-250"
       />
       <div
-        className="absolute top-[-10] left-12
+        className="absolute top-[-10] left-16
              w-8 h-10
               border-r-10
              border-white
@@ -55,11 +55,11 @@ function FeatureCard({ title, desc, icon }) {
 export default function FeaturesAmenities() {
   return (
     <div className="mt-20 px-6">
-      <h2 className="text-6xl font-bold font-sans text-black">
+      <h2 className="text-3xl lg:text-6xl font-bold font-sans text-black">
         Features & amenities
       </h2>
 
-      <div className="mt-23 grid gap-10 grid-cols-2 lg:grid-cols-4">
+      <div className="mt-23 grid gap-14 lg:gap-13 grid-cols-1 lg:grid-cols-4">
         {featuresAmenities.map((item) => (
           <FeatureCard key={item.id} {...item} />
         ))}

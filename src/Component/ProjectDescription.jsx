@@ -3,9 +3,9 @@ import React from "react";
 export default function ProjectDescription() {
   return (
     <>
-      <div className="mt-16 flex justify-between gap-24">
-        <div className="w-[55%]">
-          <h2 className="text-5xl font-bold text-black">Project description</h2>
+      <div className="mt-16 lg:flex justify-between lg:gap-24">
+        <div className="lg:w-[55%]">
+          <h2 className="text-3xl lg:text-5xl font-bold text-black">Project description</h2>
 
           <div className="mt-8 space-y-6 text-lg text-black/60">
             <p>
@@ -26,8 +26,8 @@ export default function ProjectDescription() {
             </p>
           </div>
         </div>
-        <div className="w-[35%] mt-5">
-          <h3 className="mt-2 text-xl font-bold font-sans text-black">
+        <div className="lg:w-[35%] mt-12 lg:mt-5">
+          <h3 className="mt-2 text-2xl font-bold font-sans text-black">
             Key Details
           </h3>
 

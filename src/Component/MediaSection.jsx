@@ -37,10 +37,10 @@ function MediaSwiper({ items }) {
         {items.map((item) => (
           <SwiperSlide
             key={item.id}
-            className="!rounded-4xl overflow-hidden"
+            className="rounded-4xl overflow-hidden"
             style={{ width: `${centerWidthPercent}%` }}
           >
-            <div className="relative w-full h-[450px]">
+            <div className="relative w-full h-122.5">
               <Image
                 src={item.src}
                 alt={item.alt}

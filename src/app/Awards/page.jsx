@@ -26,8 +26,8 @@ export default function Page() {
           </motion.h1>
         </div>
       </div>
-      <div className="relative top-[-60] bg-white rounded-[60] px-8 py-12">
-        <hr className="border-gray-700 my-12" />
+      <div className="relative top-[-75] lg:top-[-60] bg-white rounded-[35] lg:rounded-[60] lg:px-8 py-12">
+        <hr className="border-gray-700 mt-8 lg:mt-12" />
         <AwardSection />
       </div>
     </>

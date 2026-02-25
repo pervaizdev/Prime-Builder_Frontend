@@ -35,7 +35,7 @@ export default function ProjectPage() {
         />
         <div className="absolute inset-0 bg-black/40 flex items-center">
           <motion.h1
-            className="text-white font-sans font-bold ms-4 lg:ms-12 text-4xl lg:text-8xl"
+            className="text-white font-sans font-bold ms-4 lg:ms-12 text-4xl lg:text-8xl mt-10 lg:mt-0"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -46,9 +46,9 @@ export default function ProjectPage() {
       </div>
 
       {/* Projects Grid */}
-      <div className="relative top-[-60] bg-white rounded-[60] px-8 py-12">
+      <div className="relative top-[-40] lg:top-[-60] bg-white rounded-3xl lg:rounded-[60] px-4 lg:px-8 pt-12">
         <motion.hr
-          className="border-gray-700 my-20"
+          className="border-gray-700 mt-5 lg:mt-20"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -56,7 +56,7 @@ export default function ProjectPage() {
           style={{ transformOrigin: "left" }}
         />
         <motion.div
-          className="mx-auto gap-6 grid grid-cols-1 lg:grid-cols-3 mt-13 mb-30"
+          className="mx-auto gap-6 grid grid-cols-1 lg:grid-cols-2 mt-13 lg:mt-16 mb-30"
           variants={stagger}
           initial="hidden"
           whileInView="show"

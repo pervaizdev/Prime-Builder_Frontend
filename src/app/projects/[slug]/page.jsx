@@ -48,10 +48,10 @@ export default async function Page({ params }) {
         />
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
-      <div className="relative top-[-320] bg-white rounded-[60] px-8 mt-12">
+      <div className="relative top-[-180] lg:top-[-320] bg-white rounded-[35] lg:rounded-[60] px-8 mt-12">
         <CardDetails project={project} InfoItem={InfoItem} />
-        <div className="mx-auto px-10 pt-14">
-          <AnimatedImage className="relative mt-12 h-[650] w-full overflow-hidden rounded-[40]">
+        <div className="mx-auto px-0 lg:px-10 pt-14">
+          <AnimatedImage className="relative mt-12 h-[300] lg:h-[650] w-[360] lg:w-full overflow-hidden rounded-[40]">
             <Image
               src={project.image}
               alt={project.title}
