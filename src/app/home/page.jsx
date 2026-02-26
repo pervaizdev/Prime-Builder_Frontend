@@ -29,14 +29,12 @@ function Intro({ onDone }) {
         filter: "blur(0px)",
         transition: {
           duration: 0.9,
-          ease: [0.22, 1, 0.36, 1], // smooth/premium ease
+          ease: [0.22, 1, 0.36, 1], 
         },
       });
 
-      // Small premium pause
       await new Promise((r) => setTimeout(r, 220));
 
-      // 2) Fade overlay gently (don’t vanish instantly)
       overlay.start({
         opacity: 0,
         transition: {
@@ -45,18 +43,18 @@ function Intro({ onDone }) {
         },
       });
 
-      // 3) Cinematic zoom out (slower + smoother)
+      
       await logo.start({
-        scale: 6, // keep 5.5–6.5 for smoothness (7+ feels aggressive)
+        scale: 6, 
         opacity: 0,
-        filter: "blur(10px)", // optional but makes it feel buttery
+        filter: "blur(10px)",
         transition: {
-          duration: 1.25, // slower = smoother
+          duration: 1.25,
           ease: [0.22, 1, 0.36, 1],
         },
       });
 
-      // tiny delay to let the last frame settle
+   
       await new Promise((r) => setTimeout(r, 80));
 
       onDone();
@@ -103,10 +101,10 @@ export default function HomePage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <BackgroundVideo src="/Videos/Home.mp4" />
+          <BackgroundVideo src="/videos/PrimeMall.webm" />
           <HeroSection />
 
-          <div className=" container mx-auto relative z-10 p-2 md:p-0 mt-5 grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className=" container mx-auto relative z-10 p-2 md:p-0 mt-5 grid max-w-6xl grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
             {cardData.map((card) => (
               <Cards
                 key={card.id}

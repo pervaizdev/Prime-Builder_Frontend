@@ -2,90 +2,117 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, FreeMode } from "swiper/modules";
-import "swiper/css";
 
-const logos = [
-  { name: "Bechtel", src: "https://static.cdnlogo.com/logos/b/97/bechtel-unternehmen.svg" },
-  { name: "Bechtel", src: "https://static.cdnlogo.com/logos/b/97/bechtel-unternehmen.svg" },
-  { name: "Bechtel", src: "https://static.cdnlogo.com/logos/b/97/bechtel-unternehmen.svg" },
-  { name: "Bechtel", src: "https://static.cdnlogo.com/logos/b/97/bechtel-unternehmen.svg" },
+const partners = [
+  {
+    name: "Partner One",
+    src: "https://static.cdnlogo.com/logos/b/97/bechtel-unternehmen.svg",
+    description: "Strategic Development Partner",
+  },
+  {
+    name: "Partner Two",
+    src: "https://static.cdnlogo.com/logos/b/97/bechtel-unternehmen.svg",
+    description: "Infrastructure & Construction",
+  },
+
 ];
 
-const repeatedLogos = Array.from({ length: 8 }, () => logos).flat();
-
 export default function ClientsSwiper() {
+  const container = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.18, delayChildren: 0.15 } },
+  };
+
   const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 28 },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1] },
     },
   };
 
   return (
-    <section className="bg-white pb-12 md:pb-40">
+    <section className="bg-white pb-16 md:pb-40">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="border-t border-gray-100 md:pt-16 pt-0">
-          {/* Badge */}
+        <div className="border-t border-gray-100 pt-16 md:pt-20">
+          {/* Header */}
           <motion.div
-            variants={fadeUp}
+            variants={container}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
-            className="flex justify-center"
+            className="text-center mb-14"
           >
-            <p className="text-center text-[10px] md:text-sm font-black tracking-[0.4em] uppercase text-black inline-block bg-yellow-300 px-8 py-2.5 shadow-sm italic">
-              WE’RE PROUD TO PARTNER WITH BEST-IN-CLASS CLIENTS
-            </p>
+            <motion.p
+              variants={fadeUp}
+              className="text-[10px] md:text-xs font-black tracking-[0.4em] uppercase text-black inline-block bg-yellow-300 px-8 py-2.5 shadow-sm italic mb-6"
+            >
+              Trusted Partners
+            </motion.p>
+
+            <motion.h2
+              variants={fadeUp}
+              className="text-3xl md:text-4xl font-extrabold text-black"
+            >
+              Built on <span className="text-yellow-400">Strong Partnerships</span>
+            </motion.h2>
+
+            <motion.p
+              variants={fadeUp}
+              className="mt-4 text-gray-500 text-sm md:text-base max-w-xl mx-auto"
+            >
+              We collaborate with world-class organisations to deliver excellence at
+              every stage of development.
+            </motion.p>
           </motion.div>
 
-          {/* Swiper */}
+          {/* Partner Cards */}
           <motion.div
-            variants={fadeUp}
+            variants={container}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
-            className="mt-20 overflow-hidden"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto"
           >
-            <Swiper
-              modules={[Autoplay, FreeMode]}
-              loop
-              loopAdditionalSlides={30}
-              speed={12000}
-              autoplay={{
-                delay: 0,
-                disableOnInteraction: false,
-              }}
-              freeMode={{ enabled: true, momentum: false }}
-              allowTouchMove={false}
-              slidesPerView={2}
-              spaceBetween={40}
-              breakpoints={{
-                640: { slidesPerView: 3, spaceBetween: 60 },
-                1024: { slidesPerView: 5, spaceBetween: 100 },
-              }}
-              className="w-full swiper-linear-marquee homeswipper"
-            >
-              {repeatedLogos.map((logo, index) => (
-                <SwiperSlide
-                  key={index}
-                  className="flex items-center justify-center py-4 pointer-events-none"
-                >
+            {partners.map((partner, index) => (
+              <motion.div
+                key={`${partner.name}-${index}`}
+                variants={fadeUp}
+                className="group flex flex-col items-center justify-center gap-6 rounded-3xl border border-gray-100 bg-gray-50 px-10 py-12 shadow-sm hover:shadow-md hover:border-yellow-300 transition-all duration-300"
+              >
+                <div className="flex items-center justify-center h-14 w-full">
                   <Image
-                    src={logo.src}
-                    alt={logo.name}
-                    width={180}
-                    height={60}
+                    src={partner.src}
+                    alt={partner.name}
+                    width={160}
+                    height={56}
                     unoptimized
-                    className="md:h-[45px] object-contain"
+                    className="h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
                   />
-                </SwiperSlide>
-              ))}
-            </Swiper>
+                </div>
+
+                <div className="w-12 h-px bg-yellow-400 group-hover:w-20 transition-all duration-300" />
+
+                <div className="text-center">
+                  <p className="text-base font-bold text-black">{partner.name}</p>
+                  <p className="text-xs text-gray-400 mt-1 tracking-wide uppercase">
+                    {partner.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
+            viewport={{ once: true }}
+            className="mt-12 text-center text-xs text-gray-400 tracking-widest uppercase"
+          >
+            Partnering for long-term impact
+          </motion.p>
         </div>
       </div>
     </section>

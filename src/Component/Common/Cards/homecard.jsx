@@ -10,9 +10,9 @@ export default function HighQualityCard({ title, description }) {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.8,
+        duration: 1.2,
         ease: [0.22, 1, 0.36, 1],
-        staggerChildren: 0.2, // items inside will follow
+        staggerChildren: 0.2, 
       },
     },
   };

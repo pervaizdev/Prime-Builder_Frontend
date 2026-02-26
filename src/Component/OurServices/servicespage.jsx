@@ -7,13 +7,13 @@ import ServiceCard from "../Common/Cards/ServiceCard";
 export default function ServicesPage() {
     // Animation Variants
     const fadeUp = {
-        hidden: { opacity: 0, y: 30 },
+        hidden: { opacity: 0, y: 40 },
         show: {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.8,
-                ease: [0.22, 1, 0.36, 1],
+                duration: 1.2,
+                ease: [0.16, 1, 0.3, 1],
             },
         },
     };
@@ -22,8 +22,8 @@ export default function ServicesPage() {
         hidden: {},
         show: {
             transition: {
-                staggerChildren: 0.12,
-                delayChildren: 0.05,
+                staggerChildren: 0.15,
+                delayChildren: 0.2,
             },
         },
     };

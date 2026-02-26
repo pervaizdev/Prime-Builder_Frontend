@@ -7,16 +7,26 @@ import { HiOutlineUsers } from "react-icons/hi";
 import { RiTeamLine } from "react-icons/ri";
 
 export default function DifferentSection() {
-  const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
+  // Smooth premium fade-up for text/lines
+  const fadeUpSoft = {
+    hidden: { opacity: 0, y: 18 },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 1.0, ease: [0.16, 1, 0.3, 1] },
     },
   };
 
+  // General container stagger (sections / blocks)
   const stagger = {
+    hidden: {},
+    show: {
+      transition: { staggerChildren: 0.12, delayChildren: 0.15 },
+    },
+  };
+
+  // For animating each line inside a heading/paragraph
+  const lineStagger = {
     hidden: {},
     show: {
       transition: { staggerChildren: 0.12, delayChildren: 0.05 },
@@ -33,8 +43,8 @@ export default function DifferentSection() {
         className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center"
       >
         {/* LEFT IMAGE */}
-        <motion.div variants={fadeUp} className="relative">
-          <div className="rounded-[40px] overflow-hidden">
+        <motion.div variants={stagger} className="relative">
+          <motion.div variants={fadeUpSoft} className="rounded-[40px] overflow-hidden">
             <Image
               src="/images/1 ba night.jpg"
               alt="What makes us different"
@@ -42,11 +52,11 @@ export default function DifferentSection() {
               height={700}
               className="w-full h-[520px] object-cover"
             />
-          </div>
+          </motion.div>
 
           {/* Rating Card */}
           <motion.div
-            variants={fadeUp}
+            variants={fadeUpSoft}
             className="
               absolute bottom-10 left-10 w-[240px] rounded-2xl
               bg-white/10 backdrop-blur-xl
@@ -58,89 +68,107 @@ export default function DifferentSection() {
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/20 to-transparent" />
             <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/10" />
 
-            <h3 className="relative text-5xl font-extrabold text-yellow-300">
+            <motion.h3 variants={fadeUpSoft} className="relative text-5xl font-extrabold text-yellow-300">
               4.9
-            </h3>
+            </motion.h3>
 
-            <div className="relative flex justify-center -space-x-3 mt-4">
+            <motion.div variants={fadeUpSoft} className="relative flex justify-center -space-x-3 mt-4">
               <div className="w-9 h-9 rounded-full bg-blue-400 border-2 border-white/80" />
               <div className="w-9 h-9 rounded-full bg-green-400 border-2 border-white/80" />
               <div className="w-9 h-9 rounded-full bg-pink-400 border-2 border-white/80" />
-            </div>
+            </motion.div>
 
-            <div className="relative text-yellow-300 text-base mt-3 tracking-wide">
+            <motion.div variants={fadeUpSoft} className="relative text-yellow-300 text-base mt-3 tracking-wide">
               ★★★★★
-            </div>
+            </motion.div>
 
-            <p className="relative text-sm text-white/80 mt-3 font-medium">
+            <motion.p variants={fadeUpSoft} className="relative text-sm text-white/80 mt-3 font-medium">
               2k+ satisfied customers
-            </p>
+            </motion.p>
           </motion.div>
         </motion.div>
 
         {/* RIGHT CONTENT */}
-        <motion.div variants={fadeUp}>
-          <span className="inline-block px-4 py-1 text-sm border rounded-full mb-6">
+        <motion.div variants={stagger}>
+          {/* Badge */}
+          <motion.span
+            variants={fadeUpSoft}
+            className="inline-block px-4 py-1 text-sm border rounded-full mb-6"
+          >
             OUR COMMITMENT
-          </span>
+          </motion.span>
 
-          <h2 className="text-4xl font-bold mb-6">
-            What makes us <br /> different
-          </h2>
+          {/* Heading - animate each line */}
+          <motion.h2 variants={lineStagger} className="text-4xl font-bold mb-6 leading-tight">
+            <motion.span variants={fadeUpSoft} className="block">
+              What makes us
+            </motion.span>
+            <motion.span variants={fadeUpSoft} className="block">
+              different
+            </motion.span>
+          </motion.h2>
 
-          <p className="text-gray-600 mb-10">
-            It's not just about creating something good; it's about designing,
-            innovating, and collaborating to forge remarkable and unparalleled
-            experiences.
-          </p>
+          {/* Paragraph - animate each line */}
+          <motion.p variants={lineStagger} className="text-gray-600 mb-10">
+            <motion.span variants={fadeUpSoft} className="block">
+              It's not just about creating something good; it's about designing,
+            </motion.span>
+            <motion.span variants={fadeUpSoft} className="block">
+              innovating, and collaborating to forge remarkable and unparalleled
+            </motion.span>
+            <motion.span variants={fadeUpSoft} className="block">
+              experiences.
+            </motion.span>
+          </motion.p>
 
+          {/* Items container */}
           <motion.div variants={stagger} className="space-y-8">
             {/* Item 1 */}
-            <motion.div variants={fadeUp} className="flex gap-6 items-start">
-              <div className="bg-yellow-400 p-4 rounded-full">
+            <motion.div variants={fadeUpSoft} className="flex gap-6 items-start">
+              <motion.div variants={fadeUpSoft} className="bg-yellow-400 p-4 rounded-full">
                 <FiThumbsUp className="text-black text-xl" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-lg">
+              </motion.div>
+
+              <motion.div variants={lineStagger}>
+                <motion.h4 variants={fadeUpSoft} className="font-semibold text-lg">
                   Corporate Responsibility
-                </h4>
-                <p className="text-gray-600 text-sm">
-                  Our goal is zero incidents and our lost time frequency rate
-                  is industry leading.
-                </p>
-              </div>
+                </motion.h4>
+                <motion.p variants={fadeUpSoft} className="text-gray-600 text-sm">
+                  Our goal is zero incidents and our lost time frequency rate is industry leading.
+                </motion.p>
+              </motion.div>
             </motion.div>
 
             {/* Item 2 */}
-            <motion.div variants={fadeUp} className="flex gap-6 items-start">
-              <div className="bg-yellow-400 p-4 rounded-full">
+            <motion.div variants={fadeUpSoft} className="flex gap-6 items-start">
+              <motion.div variants={fadeUpSoft} className="bg-yellow-400 p-4 rounded-full">
                 <RiTeamLine className="text-black text-xl" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-lg">
+              </motion.div>
+
+              <motion.div variants={lineStagger}>
+                <motion.h4 variants={fadeUpSoft} className="font-semibold text-lg">
                   Experts with Team Spirit
-                </h4>
-                <p className="text-gray-600 text-sm">
-                  Our multi-skilled team provides innovative, forward-thinking
-                  solutions.
-                </p>
-              </div>
+                </motion.h4>
+                <motion.p variants={fadeUpSoft} className="text-gray-600 text-sm">
+                  Our multi-skilled team provides innovative, forward-thinking solutions.
+                </motion.p>
+              </motion.div>
             </motion.div>
 
             {/* Item 3 */}
-            <motion.div variants={fadeUp} className="flex gap-6 items-start">
-              <div className="bg-yellow-400 p-4 rounded-full">
+            <motion.div variants={fadeUpSoft} className="flex gap-6 items-start">
+              <motion.div variants={fadeUpSoft} className="bg-yellow-400 p-4 rounded-full">
                 <HiOutlineUsers className="text-black text-xl" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-lg">
+              </motion.div>
+
+              <motion.div variants={lineStagger}>
+                <motion.h4 variants={fadeUpSoft} className="font-semibold text-lg">
                   Diversity, Equity & Inclusion
-                </h4>
-                <p className="text-gray-600 text-sm">
-                  We work with both investors and developers to create
-                  landmarks that make an impact.
-                </p>
-              </div>
+                </motion.h4>
+                <motion.p variants={fadeUpSoft} className="text-gray-600 text-sm">
+                  We work with both investors and developers to create landmarks that make an impact.
+                </motion.p>
+              </motion.div>
             </motion.div>
           </motion.div>
         </motion.div>

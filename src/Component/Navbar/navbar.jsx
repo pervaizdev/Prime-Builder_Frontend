@@ -17,7 +17,7 @@ const NAV_ITEMS = [
 export default function Navbar() {
     const pathname = usePathname();
     const isHome = pathname === "/" || pathname === "/home";
-    const isTransparentNavbar = isHome || pathname === "/projects" || pathname === "/contact" || pathname === "/projects/[id]";
+    const isTransparentNavbar = isHome || pathname === "/projects" || pathname === "/contact" || pathname === "/awards" || pathname.startsWith("/projects/");
 
     const [open, setOpen] = useState(false);
 

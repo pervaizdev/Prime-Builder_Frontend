@@ -36,18 +36,16 @@ export default function TestimonialsSection() {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
     const [mounted, setMounted] = useState(false);
-
-    // Force a re-render after mount so the refs are attached to the DOM
     useEffect(() => {
         setMounted(true);
     }, []);
 
     const fadeUp = {
-        hidden: { opacity: 0, y: 30 },
+        hidden: { opacity: 0, y: 40 },
         show: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+            transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1] },
         },
     };
 
@@ -59,9 +57,7 @@ export default function TestimonialsSection() {
                 whileInView="show"
                 viewport={{ once: true, amount: 0.1 }}
             >
-                {/* ── White strip with concave wave dip ─────────────────────── */}
-                <div className="relative bg-white w-full h-[140px]">
-                    {/* SVG wave */}
+             <div className="relative bg-white w-full h-[140px]">
                     <svg
                         className="absolute bottom-[-41px] left-0 w-full"
                         viewBox="0 0 1440 140"
