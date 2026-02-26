@@ -1,101 +1,159 @@
 "use client";
 
+import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 22 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.08 } },
+};
+
+const footerLinks = [
+  { name: "Home", href: "/" },
+  { name: "Projects", href: "/projects" },
+  { name: "Awards", href: "/awards" },
+  { name: "Contact", href: "/contact" },
+];
+
+const socials = [
+  { name: "Facebook", href: "https://facebook.com" },
+  { name: "Instagram", href: "https://instagram.com" },
+  { name: "YouTube", href: "https://youtube.com" },
+  { name: "Twitter", href: "https://twitter.com" },
+];
+
 export default function FooterSection() {
-  const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
-
-  const stagger = {
-    hidden: {},
-    show: {
-      transition: { staggerChildren: 0.1, delayChildren: 0.05 },
-    },
-  };
-
   return (
-    <footer>
-      <div className="mx-auto max-w-6xl px-6">
-        {/* White Card */}
+    <footer className="bg-transparent">
+      <div className="mx-auto max-w-6xl px-6 pb-16">
+        {/* Card */}
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={stagger}
-          className="rounded-[32px] bg-white px-10 py-14 shadow-2xl"
+          className="rounded-[32px] bg-white/95 backdrop-blur-xl px-8 py-12 md:px-12 md:py-14 shadow-[0_30px_90px_rgba(0,0,0,0.12)] border border-black/5"
         >
-          {/* Top Content */}
+          {/* Top */}
           <motion.div
             variants={stagger}
-            className="grid grid-cols-1 gap-10 md:grid-cols-3"
+            className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-12"
           >
-
-            <motion.div variants={fadeUp} className="flex flex-col items-center text-center">
-
-              {/* Logo */}
-              <img
-                src="/images/logo.png"
-                alt="Logo"
-                className="h-20 w-auto md:h- select-none"
-              />
-
-              {/* Company Name */}
-              <h2 className="mt-4 text-xl font-bold text-black">
-                Islamabad Prime Builder
-              </h2>
-
-              {/* Description */}
-              <p className="mt-6 text-xs text-gray-500 leading-relaxed max-w-sm">
-                We are creators of transformative spaces that inspire,
-                innovate, and endure.
-              </p>
-
-            </motion.div>
-
-            {/* Middle Column */}
+            {/* Brand */}
             <motion.div
               variants={fadeUp}
-              className="grid grid-cols-2 gap-6 text-sm text-gray-600"
+              className="flex flex-col items-center text-center md:items-start md:text-left"
             >
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/images/logo.png"
+                  alt="Islamabad Prime Builder"
+                  width={72}
+                  height={72}
+                  className="h-16 w-auto select-none"
+                  priority={false}
+                />
+                <div className="leading-tight">
+                  <p className="text-lg font-extrabold text-black">
+                    Islamabad Prime
+                  </p>
+                  <p className="text-sm font-semibold text-gray-700">Builder</p>
+                </div>
+              </div>
 
+              <p className="mt-5 text-sm text-gray-600 leading-relaxed max-w-sm">
+                We build modern homes and landmark developments—designed for
+                lifestyle, built for long-term value, and delivered with
+                transparency.
+              </p>
+            </motion.div>
 
-              <ul className="space-y-3">
-                <li>Home</li>
-                <li>Projects</li>
-                <li>Awards</li>
-                <li>Contact</li>
+            {/* Links */}
+            <motion.div variants={fadeUp} className="md:justify-self-center">
+              <p className="text-sm font-bold text-black mb-4">Quick Links</p>
+
+              <ul className="space-y-3 text-sm text-gray-600">
+                {footerLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="inline-flex items-center gap-2 hover:text-black transition"
+                    >
+                      <span className="h-1.5 w-1.5 rounded-full bg-yellow-400/80" />
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </motion.div>
 
-            {/* Right Column */}
-            <motion.div variants={fadeUp}>
-              <p className="text-lg font-semibold text-black">
-                +(084) 123 - 45688
-              </p>
+            {/* Contact */}
+            <motion.div
+              variants={fadeUp}
+              className="md:justify-self-end text-center md:text-left"
+            >
+              <p className="text-sm font-bold text-black mb-4">Contact</p>
 
-              <p className="mt-3 text-lg font-semibold text-black underline underline-offset-4">
+              <a
+                href="tel:+9208412345688"
+                className="block text-lg font-semibold text-black hover:opacity-80 transition"
+              >
+                +92 084 123 45688
+              </a>
+
+              <a
+                href="mailto:spaciaz@example.com"
+                className="mt-2 inline-block text-sm font-semibold text-black underline underline-offset-4 hover:opacity-80 transition"
+              >
                 spaciaz@example.com
-              </p>
+              </a>
 
-              <p className="mt-6 text-xs text-gray-500">
-                Facebook · Instagram · Youtube · Twitter
-              </p>
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 md:justify-start">
+                {socials.map((s, idx) => (
+                  <span key={s.name} className="text-xs text-gray-500">
+                    <a
+                      href={s.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:text-black transition"
+                    >
+                      {s.name}
+                    </a>
+                    {idx !== socials.length - 1 && (
+                      <span className="mx-2 text-gray-300">·</span>
+                    )}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           </motion.div>
 
           {/* Divider */}
-          <motion.div variants={fadeUp} className="my-10 border-t border-gray-200" />
+          <motion.div
+            variants={fadeUp}
+            className="my-10 border-t border-gray-200/80"
+          />
 
           {/* Bottom */}
-          <motion.p variants={fadeUp} className="text-center text-xs text-gray-500">
-            © 2026 <span className="font-semibold text-black">Islamabad Prime Builder</span>. All
-            Rights Reserved.
+          <motion.p
+            variants={fadeUp}
+            className="text-center text-xs text-gray-500"
+          >
+            © 2026{" "}
+            <span className="font-semibold text-black">
+              Islamabad Prime Builder
+            </span>
+            . All Rights Reserved.
           </motion.p>
         </motion.div>
       </div>

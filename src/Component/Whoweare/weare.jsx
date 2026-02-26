@@ -5,23 +5,22 @@ import WhoWeAreHeader from "./WhoWeAreHeader";
 import WhoWeAreStats from "./WhoWeAreStats";
 
 export default function WeAre() {
-    // Shared animation variants
     const container = {
         hidden: {},
         show: {
             transition: {
-                staggerChildren: 0.12,
-                delayChildren: 0.05,
+                staggerChildren: 0.15,
+                delayChildren: 0.2,
             },
         },
     };
 
     const fadeUp = {
-        hidden: { y: 26, opacity: 0 },
+        hidden: { y: 40, opacity: 0 },
         show: {
             y: 0,
             opacity: 1,
-            transition: { duration: 1.0, ease: [0.22, 1, 0.36, 1] },
+            transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1], },
         },
     };
 

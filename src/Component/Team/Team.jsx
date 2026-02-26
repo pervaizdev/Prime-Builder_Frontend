@@ -34,11 +34,11 @@ const members = [
 
 export default function Team() {
   const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 40 },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
     },
   };
 
@@ -50,7 +50,7 @@ export default function Team() {
   };
 
   return (
-    <section className="bg-[#f5f5f5] py-24">
+    <section className="bg-[#f5f5f5] py-15">
       {/* Badge */}
       <motion.div
         variants={fadeUp}
@@ -72,8 +72,8 @@ export default function Team() {
         viewport={{ once: true, amount: 0.2 }}
         className="max-w-5xl mx-auto text-center mt-10"
       >
-        <h1 className="text-black font-bold leading-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
-          Meet Our <br /> Team
+        <h1 className="text-black font-bold leading-tight text-3xl sm:text-5xl md:text-xl lg:text-6xl">
+          Meet Our Team
         </h1>
       </motion.div>
 
@@ -83,7 +83,7 @@ export default function Team() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.15 }}
-        className="max-w-7xl mx-auto mt-20 px-6"
+        className="max-w-7xl mx-auto mt-10 px-6"
       >
         <div className="flex flex-col md:flex-row items-center md:items-end justify-center gap-10 md:gap-14">
           {members.map((m, idx) => (

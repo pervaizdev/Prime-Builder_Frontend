@@ -12,20 +12,20 @@ export default function HeroSection() {
     show: {
       transition: {
         staggerChildren: 0.12,
-        delayChildren: 0.05,
+        delayChildren: 0.2,
       },
     },
   };
 
   const fadeUp = {
-    hidden: { y: 24, opacity: 0 },
+    hidden: { y: 40, opacity: 0 },
     show: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 1.0,
+        duration: 1.2,
         delay: 0.1,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.16, 1, 0.3, 1],
       },
     },
   };
@@ -78,17 +78,26 @@ export default function HeroSection() {
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
       >
-        <p className="text-left text-xl leading-snug sm:text-xl lg:text-2xl">
-          We develop planned communities and premium projects
-          <br className="hidden sm:block" />
-          with strong locations, quality construction, and
-          <br className="hidden sm:block" />
-          investor-focused returns.
-        </p>
+        <motion.p
+          className="text-left text-xl leading-snug sm:text-xl lg:text-2xl"
+          variants={container}
+        >
+          <motion.span className="block" variants={fadeUp}>
+            We develop planned communities and premium projects
+          </motion.span>
+
+          <motion.span className="block" variants={fadeUp}>
+            with strong locations, quality construction, and
+          </motion.span>
+
+          <motion.span className="block" variants={fadeUp}>
+            investor-focused returns.
+          </motion.span>
+        </motion.p>
         <MotionLink
           href="/projects"
           whileHover={{ scale: 1.05 }}
-          
+
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
           className="group inline-flex items-center rounded-full bg-white px-5 py-3 text-black shadow-md"
         >
