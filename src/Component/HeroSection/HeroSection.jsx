@@ -41,7 +41,7 @@ export default function HeroSection() {
     >
       {/* Headline */}
       <motion.h1
-        className="mt-56 text-4xl text-[#eed498] font-extrabold leading-tight sm:text-6xl lg:text-7xl"
+        className="mt-70 text-4xl text-[#eed498] font-extrabold leading-tight sm:text-6xl lg:text-7xl"
         variants={fadeUp}
       >
         Islamabad
@@ -56,17 +56,17 @@ export default function HeroSection() {
 
       {/* Sub headline */}
       <motion.p
-        className="mt-5 max-w-3xl text-base font-semibold text-[#FFFFFFB3] sm:text-lg lg:text-xl"
+        className="max-w-3xl text-base mt-6 font-semibold text-[#FFFFFFB3] sm:text-lg lg:text-xl"
         variants={fadeUp}
       >
-        Building modern homes and landmark developments in Islamabad —
-        designed for lifestyle, built for long-term value, and delivered with
-        transparency.
+        At Islamabad Prime Builders, we’re a passionate team that genuinely
+        cares about the impact of what we build focusing on quality,
+        sustainability, and creating spaces that serve generations to come.
       </motion.p>
 
       {/* Divider */}
       <motion.div
-        className="my-10 h-px w-full mt-16 max-w-5xl bg-white/30"
+        className="my-10 h-px w-full mt-43 max-w-5xl bg-white/30"
         variants={fadeUp}
       />
 
@@ -83,21 +83,20 @@ export default function HeroSection() {
           variants={container}
         >
           <motion.span className="block" variants={fadeUp}>
-            We develop planned communities and premium projects
+            We create innovative communities and premium developments,
           </motion.span>
 
           <motion.span className="block" variants={fadeUp}>
-            with strong locations, quality construction, and
+            combining international quality standards with timely delivery
           </motion.span>
 
           <motion.span className="block" variants={fadeUp}>
-            investor-focused returns.
+            to ensure lasting value for homeowners and investors a like.
           </motion.span>
         </motion.p>
         <MotionLink
           href="/projects"
           whileHover={{ scale: 1.05 }}
-
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
           className="group inline-flex items-center rounded-full bg-white px-5 py-3 text-black shadow-md"
         >

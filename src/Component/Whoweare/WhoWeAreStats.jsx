@@ -38,7 +38,7 @@ export default function WhoWeAreStats() {
 
   return (
     <motion.div
-      className="mt-16 grid gap-8 lg:grid-cols-12"
+      className="mt-30 grid gap-8 lg:grid-cols-12"
       variants={container}
       initial="hidden"
       whileInView="show"
@@ -48,7 +48,7 @@ export default function WhoWeAreStats() {
       <motion.div className="lg:col-span-7 relative" variants={fadeUpSlow}>
         <div className="h-[520px] w-full overflow-hidden rounded-[36px] rounded-tl-[70px] bg-gray-200">
           <img
-            src="/images/1 ba night.jpg"
+            src="/images/sold img.jpg"
             alt=""
             className="w-full h-full object-cover"
           />
@@ -63,47 +63,40 @@ export default function WhoWeAreStats() {
       </motion.div>
 
       {/* Right cards */}
-      <motion.div className="lg:col-span-5" variants={container}>
-        <motion.div className="grid gap-8 sm:grid-cols-2" variants={container}>
+      <motion.div className="lg:col-span-5" variants={fadeUp}>
+        <motion.div className="grid gap-8 sm:grid-cols-2" >
           <StatCard
             label="GLOBAL REACH"
-            value="85"
-            subtextLines={["offices worldwide"]}
+            value="15"
+            subtextLines={["Offices Worldwide"]}
             fadeUp={fadeUp}
             container={container}
           />
 
           <StatCard
-            label="LOCAL EXPERTISE"
-            value="1,500"
-            subtextLines={["employees"]}
+            label="Satisfied Clients"
+            value="800"
+            subtextLines={["Clients"]}
             fadeUp={fadeUp}
             container={container}
           />
 
           <StatCard
             label="OUR IMPACT"
-            value="248"
-            subtextLines={["projects done"]}
+            value="2"
+            subtextLines={["Projects Done"]}
             fadeUp={fadeUp}
             container={container}
           />
 
-          {/* Small image */}
-          <motion.div
-            variants={fadeUpSlow}
-            className="h-[240px] w-full overflow-hidden rounded-[28px] bg-gray-200"
-          >
-            <motion.img
-              src="/images/1 ba night.jpg"
-              alt="Small"
-              className="w-full h-full object-cover"
-              initial={{ scale: 1.12 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-              viewport={{ once: true, amount: 0.4 }}
-            />
-          </motion.div>
+          <StatCard
+            label="STRATEGIC PARTNERS"
+            value="4"
+            subtextLines={["Business Collaborations"]}
+            fadeUp={fadeUp}
+            container={container}
+          />
+
         </motion.div>
       </motion.div>
     </motion.div>

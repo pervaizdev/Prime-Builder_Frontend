@@ -3,21 +3,21 @@
 const cardData = [
    {
     id: 1,
-    title: "Prime & Connected Locations",
+    title: "INNOVATION",
     description:
-      "Our projects are strategically located near major highways, business districts, schools, and healthcare facilities for everyday convenience.",
+      "Our passion is to build innovative design for Homes and Businesses",
   },
   {
     id: 2,
-    title: "Smart & Functional Design",
+    title: "QUALITY",
     description:
-      "Thoughtfully planned floor layouts that maximize natural light, ventilation, and usable space for modern family living.",
+      "We don't just talk about quality; we actively Do it through high-class standard, and adhere To international design standards.",
   },
   {
     id: 3,
-    title: "Secure Gated Communities",
+    title: "DELIVERY",
     description:
-      "24/7 security, CCTV surveillance, controlled access, and family-friendly surroundings ensure peace of mind.",
+      "We have a track history of delivering Projects on time and even ahead of schedule.",
   },
 ];
 
