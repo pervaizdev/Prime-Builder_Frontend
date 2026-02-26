@@ -15,7 +15,6 @@ const TABS = [
   { key: "plans", label: "Plans", icon: <FiLayout /> },
   { key: "videos", label: "Video", icon: <FiVideo /> },
 ];
-
 function MediaSwiper({ items }) {
   return (
     // overflow-hidden here clips the side-peek slides cleanly
