@@ -63,7 +63,7 @@ export default function Page({ params }) {
           className="object-cover"
         />
 
-        <div className="absolute inset-0 bg-black/40 flex items-center">
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <motion.div
             className="ms-4 lg:ms-12"
             variants={heroContainer}
@@ -72,15 +72,22 @@ export default function Page({ params }) {
           >
             <motion.h1
               variants={fadeUp}
-              className="text-[#eece9c]  font-sans font-bold text-4xl lg:text-8xl mt-10 lg:mt-0"
+              className="text-[#eece9c]  font-sans font-bold text-center text-4xl lg:text-8xl mt-10 lg:mt-0"
             >
               Projects Details
             </motion.h1>
+            <motion.p
+              variants={fadeUp}
+              className="mt-5 lg:ms-15 lg:mt-10 lg:w-140 text-center text-xs lg:text-lg"
+            >
+              Built with quality construction and contemporary design, it
+              ensures comfort, security, and strong investment value.
+            </motion.p>
           </motion.div>
         </div>
       </div>
 
-      <div className="relative -top-20 lg:-top-25 bg-white rounded-[35px] lg:rounded-[60px] px-4 lg:px-8">
+      <div className="relative -top-15 lg:-top-25 bg-white rounded-[35px] lg:rounded-[60px] px-4 lg:px-8">
         <AnimatedSection className="pt-2">
           <CardDetails project={project} InfoItem={InfoItem} />
         </AnimatedSection>
@@ -97,7 +104,7 @@ export default function Page({ params }) {
           </AnimatedImage>
 
           <AnimatedSection>
-            <Description />
+            <Description project={project} />
           </AnimatedSection>
         </div>
 
@@ -110,7 +117,7 @@ export default function Page({ params }) {
         <AnimatedDivider className="border mt-15 mb-10" />
 
         <AnimatedSection>
-          <MediaSection />
+          <MediaSection project={project} />
         </AnimatedSection>
 
         <AnimatedSection>

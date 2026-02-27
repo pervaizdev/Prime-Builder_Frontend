@@ -4,10 +4,7 @@ import React, { useMemo, useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-
 import { Autoplay } from "swiper/modules";
-import { projectMedia } from "@/data/projectMedia";
-
 import { FiImage, FiLayout, FiVideo } from "react-icons/fi";
 
 const TABS = [
@@ -15,9 +12,9 @@ const TABS = [
   { key: "plans", label: "Plans", icon: <FiLayout /> },
   { key: "videos", label: "Video", icon: <FiVideo /> },
 ];
+
 function MediaSwiper({ items }) {
   return (
-    // overflow-hidden here clips the side-peek slides cleanly
     <div className="w-full pb-12 overflow-hidden">
       <Swiper
         loop
@@ -32,14 +29,11 @@ function MediaSwiper({ items }) {
         className="w-full"
       >
         {items.map((item) => (
-          <SwiperSlide
-            key={item.id}
-            className="rounded-4xl overflow-hidden"
-          >
-            <div className="relative w-full h-[490px]">
+          <SwiperSlide key={item.id} className="rounded-4xl overflow-hidden">
+            <div className="relative w-full h-122.5">
               <Image
                 src={item.src}
-                alt={item.alt}
+                alt={item.alt || "Media"}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 95vw, 80vw"
@@ -53,15 +47,18 @@ function MediaSwiper({ items }) {
   );
 }
 
-
-export default function ProjectMediaSection() {
+export default function ProjectMediaSection({ project }) {
   const [activeTab, setActiveTab] = useState("photos");
 
+  const media = project?.media ?? { photos: [], plans: [], videos: [] };
+
   const content = useMemo(() => {
-    if (activeTab === "photos") return { type: "images", items: projectMedia.photos };
-    if (activeTab === "plans") return { type: "images", items: projectMedia.plans };
-    if (activeTab === "videos") return { type: "videos", items: projectMedia.videos };
-  }, [activeTab]);
+    if (activeTab === "photos") return { type: "images", items: media.photos };
+    if (activeTab === "plans") return { type: "images", items: media.plans };
+    return { type: "videos", items: media.videos };
+  }, [activeTab, media.photos, media.plans, media.videos]);
+
+  const hasItems = content.items && content.items.length > 0;
 
   return (
     <section className="w-full">
@@ -80,9 +77,10 @@ export default function ProjectMediaSection() {
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
                 className={`flex items-center gap-2 rounded-full border px-6 py-3 text-sm md:text-base transition-all duration-300
-                  ${isActive
-                    ? "bg-[#E6F06A] border-[#E6F06A] text-black"
-                    : "bg-white border-gray-200 text-black hover:bg-gray-50"
+                  ${
+                    isActive
+                      ? "bg-[#E6F06A] border-[#E6F06A] text-black"
+                      : "bg-white border-gray-200 text-black hover:bg-gray-50"
                   }
                 `}
               >
@@ -96,11 +94,17 @@ export default function ProjectMediaSection() {
 
       {/* Content */}
       <div className="mt-8">
-        {content.type === "images" && (
+        {!hasItems && (
+          <div className="rounded-3xl border border-gray-200 bg-white p-8 text-black/60">
+            No media available.
+          </div>
+        )}
+
+        {hasItems && content.type === "images" && (
           <MediaSwiper items={content.items} />
         )}
 
-        {content.type === "videos" && (
+        {hasItems && content.type === "videos" && (
           <div className="flex flex-col gap-8">
             {content.items.map((video) => (
               <div
@@ -110,15 +114,8 @@ export default function ProjectMediaSection() {
                 <video
                   src={video.src}
                   controls
-                  className="w-full h-[300px] md:h-[560px] object-cover"
+                  className="w-full h-75 md:h-140 object-cover"
                 />
-                {video.title && (
-                  <div className="px-5 py-4 bg-white">
-                    <p className="text-sm font-medium text-black">
-                      {video.title}
-                    </p>
-                  </div>
-                )}
               </div>
             ))}
           </div>

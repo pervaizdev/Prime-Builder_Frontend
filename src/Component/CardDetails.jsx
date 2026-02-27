@@ -6,9 +6,8 @@ import {
   HiOutlineCalendarDays,
   HiOutlineBuildingOffice2,
   HiOutlineCircleStack,
+  HiOutlineBuildingLibrary
 } from "react-icons/hi2";
-import { FaStore } from "react-icons/fa";
-import { HiOutlineOfficeBuilding } from "react-icons/hi";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -49,7 +48,7 @@ export default function CardDetails({ project, InfoItem }) {
 
       <motion.div
         variants={stagger}
-        className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-0"
+        className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8"
       >
         <motion.div variants={fadeUp}>
           <InfoItem
@@ -67,16 +66,9 @@ export default function CardDetails({ project, InfoItem }) {
         </motion.div>
         <motion.div variants={fadeUp}>
           <InfoItem
-            icon={HiOutlineOfficeBuilding}
-            label="Offices"
-            value={project.offices}
-          />
-        </motion.div>
-        <motion.div variants={fadeUp}>
-          <InfoItem
-            icon={FaStore}
-            label="Shopes"
-            value={project.shopes}
+            icon={HiOutlineBuildingLibrary}
+            label="Floors"
+            value={project.floor}
           />
         </motion.div>
         <motion.div variants={fadeUp}>

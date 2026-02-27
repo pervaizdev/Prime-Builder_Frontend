@@ -15,18 +15,19 @@ export default function Page() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/40 flex items-center">
-          <motion.h1
-            className="text-[#eece9c] font-sans font-bold ms-4 lg:ms-12 text-4xl lg:text-8xl"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          >
-            Our Awards
-          </motion.h1>
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+          <motion.div className="ms-4 lg:ms-12" initial="hidden" animate="show">
+            <motion.h1 className="text-[#eece9c]  font-sans font-bold text-center text-4xl lg:text-8xl mt-10 lg:mt-0">
+              Awards
+            </motion.h1>
+            <motion.p className="mt-5 lg:ms-10 lg:mt-10 lg:w-140 text-center text-xs lg:text-lg">
+              It stands as a symbol of trust, long-term investment value, and a
+              commitment to delivering outstanding standards.
+            </motion.p>
+          </motion.div>
         </div>
       </div>
-      <div className="relative top-[-75] lg:top-[-100] bg-white rounded-[35] lg:rounded-[60] lg:px-8 py-12">
+      <div className="relative top-[-70] lg:top-[-100] bg-white rounded-[35] lg:rounded-[60] lg:px-8 py-12">
         <hr className="border-gray-700 mt-8 lg:mt-12" />
         <AwardSection />
       </div>
