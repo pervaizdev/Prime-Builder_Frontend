@@ -54,50 +54,39 @@ export default function Page({ params }) {
 
   return (
     <>
-      {/* Hero */}
-      <div className="relative h-[35vh] w-full lg:h-[95vh]">
+      <div className="relative w-full h-[35vh] lg:h-[95vh]">
         <Image
-          src="/footer-bg.jpeg"
+          src="/images/2b.jpg"
           alt="Background"
           fill
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/45" />
 
-        {/* Animated title */}
-        <motion.div
-          className="absolute inset-0 flex flex-col justify-end pb-10 lg:pb-20 px-6 lg:px-14"
-          variants={heroContainer}
-          initial="hidden"
-          animate="show"
-        >
-          <motion.p
-            variants={fadeUp}
-            className="text-xs font-bold tracking-[0.35em] uppercase text-lime-300 mb-3"
-          >
-            Project Detail
-          </motion.p>
-         
+        <div className="absolute inset-0 bg-black/40 flex items-center">
           <motion.div
-            variants={fadeUp}
-            className="flex items-center gap-2 mt-4 text-white/70 text-sm"
+            className="ms-4 lg:ms-12"
+            variants={heroContainer}
+            initial="hidden"
+            animate="show"
           >
-            <span className="text-lime-300 text-lg">📍</span>
-            {project.location}
+            <motion.h1
+              variants={fadeUp}
+              className="text-[#eece9c] font-sans font-bold text-4xl lg:text-8xl mt-10 lg:mt-0"
+            >
+              Projects Details
+            </motion.h1>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
 
-      {/* White card content */}
-      <div className="relative top-[-80px] lg:top-[-180px] bg-white rounded-[35px] lg:rounded-[60px] px-4 lg:px-8">
-
+      <div className="relative -top-20 lg:-top-25 bg-white rounded-[35px] lg:rounded-[60px] px-4 lg:px-8">
         <AnimatedSection className="pt-2">
           <CardDetails project={project} InfoItem={InfoItem} />
         </AnimatedSection>
 
         <div className="mx-auto px-0 lg:px-10 pt-14">
-          <AnimatedImage className="relative mt-12 h-[300px] lg:h-[650px] w-full overflow-hidden rounded-[40px]">
+          <AnimatedImage className="relative mt-12 h-75 lg:h-162.5 w-full overflow-hidden rounded-[40px]">
             <Image
               src={project.image}
               alt={project.title}
@@ -131,4 +120,3 @@ export default function Page({ params }) {
     </>
   );
 }
-

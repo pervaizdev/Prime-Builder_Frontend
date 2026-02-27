@@ -2,9 +2,9 @@
 export const awardSections = [
   {
     id: 1,
-    title: "Let’s find more that brings us together.",
+    title: "ICCI Business Excellence Award",
     description:
-      "Flowbite helps you connect with friends, family and communities of people who share your interests. Connecting with your friends and family as well as discovering new ones is easy with features like Groups, Watch and Marketplace.",
+      "We are honored to have received the ICCI Business Excellence Award in the category of Best SME (Small Size), presented by the Islamabad Chamber of Commerce & Industry (ICCI). This prestigious recognition is awarded to organizations that demonstrate outstanding business performance, strong governance practices, innovation, and sustainable growth within Pakistan’s SME sector.",
     image: {
       src: "/images/back night.jpg", 
       alt: "Real estate award",

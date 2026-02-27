@@ -50,7 +50,7 @@ export default function Team() {
   };
 
   return (
-    <section className="bg-[#f5f5f5] py-15">
+    <section className="bg-[#f5f5f5] py-25">
       {/* Badge */}
       <motion.div
         variants={fadeUp}
@@ -59,8 +59,8 @@ export default function Team() {
         viewport={{ once: true, amount: 0.3 }}
         className="flex justify-center"
       >
-        <div className="inline-flex items-center rounded-full w-[130px] border border-[#eed498] px-4 py-2 text-xs tracking-widest">
-          <h2 className="text-black">WHO WE ARE</h2>
+        <div className="inline-flex items-center rounded-full w-[150px] border border-[#eed498] px-4 py-2 text-xs tracking-widest">
+          <h2 className="text-black">MEET OUR TEAM</h2>
         </div>
       </motion.div>
 
@@ -73,7 +73,7 @@ export default function Team() {
         className="max-w-5xl mx-auto text-center mt-10"
       >
         <h1 className="text-black font-bold leading-tight text-3xl sm:text-5xl md:text-xl lg:text-6xl">
-          Meet Our Team
+          See Our Founders
         </h1>
       </motion.div>
 
@@ -90,7 +90,7 @@ export default function Team() {
             <motion.div
               key={idx}
               variants={fadeUp}
-              className={`relative w-full md:w-[340px] ${m.offset}`}
+              className={`relative w-[340px] ${m.offset}`}
             >
               {/* Card */}
               <div className={`relative ${m.height} rounded-[42px]`}>

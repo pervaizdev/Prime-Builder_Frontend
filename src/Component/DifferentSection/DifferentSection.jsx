@@ -2,11 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FiThumbsUp } from "react-icons/fi";
-import { HiOutlineUsers } from "react-icons/hi";
-import { RiTeamLine } from "react-icons/ri";
+import { FiTrendingUp } from "react-icons/fi";
+import { FaHardHat, FaCity } from "react-icons/fa";
 
-export default function DifferentSection() {
+export default function   DifferentSection() {
   // Smooth premium fade-up for text/lines
   const fadeUpSoft = {
     hidden: { opacity: 0, y: 18 },
@@ -50,7 +49,7 @@ export default function DifferentSection() {
               alt="What makes us different"
               width={600}
               height={700}
-              className="w-full h-[520px] object-cover"
+              className="w-full h-[560px] object-cover"
             />
           </motion.div>
 
@@ -111,13 +110,13 @@ export default function DifferentSection() {
           {/* Paragraph - animate each line */}
           <motion.p variants={lineStagger} className="text-gray-600 mb-10">
             <motion.span variants={fadeUpSoft} className="block">
-              It's not just about creating something good; it's about designing,
+              We focus on building projects that combine strong construction, modern 
             </motion.span>
             <motion.span variants={fadeUpSoft} className="block">
-              innovating, and collaborating to forge remarkable and unparalleled
+              design, and prime locations. Whether you are looking to invest your
             </motion.span>
             <motion.span variants={fadeUpSoft} className="block">
-              experiences.
+              savings or find a place for your family or business, our developments are designed to meet your needs today and increase in value in the future.
             </motion.span>
           </motion.p>
 
@@ -125,48 +124,48 @@ export default function DifferentSection() {
           <motion.div variants={stagger} className="space-y-8">
             {/* Item 1 */}
             <motion.div variants={fadeUpSoft} className="flex gap-6 items-start">
-              <motion.div variants={fadeUpSoft} className="bg-yellow-400 p-4 rounded-full">
-                <FiThumbsUp className="text-black text-xl" />
+              <motion.div variants={fadeUpSoft} className="bg-black p-4 rounded-full">
+                <FiTrendingUp className="text-white text-xl" />
               </motion.div>
 
               <motion.div variants={lineStagger}>
                 <motion.h4 variants={fadeUpSoft} className="font-semibold text-lg">
-                  Corporate Responsibility
+                  Safe & Profitable Investment
                 </motion.h4>
                 <motion.p variants={fadeUpSoft} className="text-gray-600 text-sm">
-                  Our goal is zero incidents and our lost time frequency rate is industry leading.
+                  Property in Islamabad is growing fast. Investing here is a smart and safe way to grow your money over time.
                 </motion.p>
               </motion.div>
             </motion.div>
 
             {/* Item 2 */}
             <motion.div variants={fadeUpSoft} className="flex gap-6 items-start">
-              <motion.div variants={fadeUpSoft} className="bg-yellow-400 p-4 rounded-full">
-                <RiTeamLine className="text-black text-xl" />
+              <motion.div variants={fadeUpSoft} className="bg-black p-4 rounded-full">
+                <FaHardHat className="text-white text-xl" />
               </motion.div>
 
               <motion.div variants={lineStagger}>
                 <motion.h4 variants={fadeUpSoft} className="font-semibold text-lg">
-                  Experts with Team Spirit
+                  Strong & Modern Construction
                 </motion.h4>
                 <motion.p variants={fadeUpSoft} className="text-gray-600 text-sm">
-                  Our multi-skilled team provides innovative, forward-thinking solutions.
+                  We build with quality materials and modern designs to make sure our projects are safe, beautiful, and long-lasting.
                 </motion.p>
               </motion.div>
             </motion.div>
 
             {/* Item 3 */}
             <motion.div variants={fadeUpSoft} className="flex gap-6 items-start">
-              <motion.div variants={fadeUpSoft} className="bg-yellow-400 p-4 rounded-full">
-                <HiOutlineUsers className="text-black text-xl" />
+              <motion.div variants={fadeUpSoft} className="bg-black p-4 rounded-full">
+                <FaCity className="text-white text-xl" />
               </motion.div>
 
               <motion.div variants={lineStagger}>
                 <motion.h4 variants={fadeUpSoft} className="font-semibold text-lg">
-                  Diversity, Equity & Inclusion
+                  Complete Lifestyle in One Place
                 </motion.h4>
                 <motion.p variants={fadeUpSoft} className="text-gray-600 text-sm">
-                  We work with both investors and developers to create landmarks that make an impact.
+                 Prime Mall & Suites offers homes, shops, and leisure spaces all in one location giving you comfort, convenience, and luxury together.
                 </motion.p>
               </motion.div>
             </motion.div>

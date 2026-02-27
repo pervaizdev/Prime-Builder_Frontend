@@ -14,7 +14,6 @@ import TestimonialsSection from "@/Component/Testimonials/Testimonials";
 import ClientsSwiper from "@/Component/Swiper/ClientsSwiper";
 import Team from "@/Component/Team/Team";
 import CallBackSection from "@/Component/CallBackSection/callbacksection";
-import FooterSection from "@/Component/Footer/footer";
 
 function Intro({ onDone }) {
   const logo = useAnimation();
@@ -104,7 +103,7 @@ export default function HomePage() {
           <BackgroundVideo src="/videos/PrimeMall.webm" />
           <HeroSection />
 
-          <div className=" container mx-auto relative z-10 p-2 md:p-0 mt-5 grid max-w-6xl grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+          <div className=" container mx-auto relative z-10 p-2 md:p-0 mt-7 grid max-w-6xl grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
             {cardData.map((card) => (
               <Cards
                 key={card.id}
@@ -114,7 +113,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          <WeAre />
+          <WeAre  />
           <Services />
           <DifferentSection />
           <TestimonialsSection />
