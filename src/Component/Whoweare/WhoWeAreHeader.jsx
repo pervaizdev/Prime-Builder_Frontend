@@ -24,7 +24,7 @@ export default function WhoWeAreHeader({ container, fadeUp, fadeUpSlow }) {
         </motion.h2>
       </motion.div>
 
-      <div className="ms-[-200] mt-10">
+      <div className="ms-[-200]">
         {/* Animate heading line-by-line */}
         <motion.h2
           className="text-4xl font-extrabold leading-tight text-black md:text-5xl"

@@ -65,17 +65,7 @@ export default function Team() {
       </motion.div>
 
       {/* Heading */}
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-        className="max-w-5xl mx-auto text-center mt-10"
-      >
-        <h1 className="text-black font-bold leading-tight text-3xl sm:text-5xl md:text-xl lg:text-6xl">
-          See Our Founders
-        </h1>
-      </motion.div>
+      
 
       {/* Cards Row */}
       <motion.div

@@ -103,7 +103,7 @@ export default function HomePage() {
           <BackgroundVideo src="/videos/PrimeMall.webm" />
           <HeroSection />
 
-          <div className=" container mx-auto relative z-10 p-2 md:p-0 mt-7 grid max-w-6xl grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+          {/* <div className=" container mx-auto relative z-10 p-2 md:p-0 mt-7 grid max-w-6xl grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
             {cardData.map((card) => (
               <Cards
                 key={card.id}
@@ -111,7 +111,7 @@ export default function HomePage() {
                 description={card.description}
               />
             ))}
-          </div>
+          </div> */}
 
           <WeAre  />
           <Services />

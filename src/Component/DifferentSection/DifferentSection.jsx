@@ -54,7 +54,7 @@ export default function   DifferentSection() {
           </motion.div>
 
           {/* Rating Card */}
-          <motion.div
+          {/* <motion.div
             variants={fadeUpSoft}
             className="
               absolute bottom-10 left-10 w-[240px] rounded-2xl
@@ -84,7 +84,7 @@ export default function   DifferentSection() {
             <motion.p variants={fadeUpSoft} className="relative text-sm text-white/80 mt-3 font-medium">
               2k+ satisfied customers
             </motion.p>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
 
         {/* RIGHT CONTENT */}

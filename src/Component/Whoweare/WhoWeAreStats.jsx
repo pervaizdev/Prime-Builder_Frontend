@@ -48,7 +48,7 @@ export default function WhoWeAreStats() {
       <motion.div className="lg:col-span-7 relative" variants={fadeUpSlow}>
         <div className="h-[520px] w-full overflow-hidden rounded-[36px] rounded-tl-[70px] bg-gray-200">
           <img
-            src="/images/sold img.jpg"
+            src="/images/sold image.png"
             alt=""
             className="w-full h-full object-cover"
           />
