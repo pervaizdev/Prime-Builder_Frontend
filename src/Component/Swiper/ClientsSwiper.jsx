@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 
 const partners = [
   {
-    name: "Partner One",
-    src: "https://static.cdnlogo.com/logos/b/97/bechtel-unternehmen.svg",
-    description: "Strategic Development Partner",
+    name: "Islamabad Prime Builder",
+    src: "/images/logo.png",
+    description: "Building modern spaces for living, business, and investment in Islamabad.",
   },
   {
-    name: "Partner Two",
-    src: "https://static.cdnlogo.com/logos/b/97/bechtel-unternehmen.svg",
-    description: "Infrastructure & Construction",
+    name: "Islamabad Tea Company",
+    src: "/images/partner logo.png",
+    description: "Delivering quality tea and unforgettable taste experiences.",
   },
 
 ];
@@ -46,7 +46,7 @@ export default function ClientsSwiper() {
           >
             <motion.p
               variants={fadeUp}
-              className="text-[10px] md:text-xs font-black tracking-[0.4em] uppercase text-black inline-block bg-yellow-300 px-8 py-2.5 shadow-sm italic mb-6"
+              className="text-[10px] md:text-xs font-black tracking-[0.4em] uppercase text-white inline-block bg-black px-8 py-2.5 shadow-sm  mb-10"
             >
               Trusted Partners
             </motion.p>

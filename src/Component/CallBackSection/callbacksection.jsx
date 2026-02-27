@@ -45,7 +45,7 @@ export default function CallBackSection() {
             {/* Badge */}
             <motion.div variants={fadeUp} className="flex justify-center">
               <span className="rounded-full border border-lime-400 px-4 py-1 text-[10px] font-semibold tracking-[0.25em]">
-                QUICK EN
+                QUICK IN TOUCH
               </span>
             </motion.div>
 

@@ -32,7 +32,7 @@ const testimonials = [
     },
 ];
 
-export default function TestimonialsSection() {
+export default function     TestimonialsSection() {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
     const [mounted, setMounted] = useState(false);
@@ -92,22 +92,16 @@ export default function TestimonialsSection() {
                                 </defs>
                                 <text fill="#111" fontSize="12" fontWeight="700" letterSpacing="2">
                                     <textPath href="#circlePath" startOffset="50%" textAnchor="middle">
-                                        • WHAT PEOPLE SAYS • WHAT PEOPLE SAYS • WHAT PEOPLE SAYS
+                                        • Islamabad Prime Builders • Islamabad Prime Builders
                                     </textPath>
                                 </text>
                             </motion.svg>
 
                             {/* Image background circle */}
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-[110px] h-[110px] rounded-full overflow-hidden relative border-4 border-white shadow-xl">
-                                    <Image src="/project_2.jpg" alt="testimonial-bg" fill className="object-cover" />
-
-                                    {/* Center Quote Icon */}
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <div className="w-[50px] h-[50px] rounded-full bg-white flex items-center justify-center shadow-lg">
-                                            <FaQuoteRight className="text-[#111] text-xl translate-y-px" />
-                                        </div>
-                                    </div>
+                                <div className="w-[110px] h-[110px] rounded-full overflow-hidden relative border-4 border-white bg-black shadow-xl">
+                                    <Image src="/images/logo.png" alt="testimonial-bg" fill className="object-fit" />
+                                    
                                 </div>
                             </div>
                         </div>

@@ -34,7 +34,7 @@ export default function ProjectPage() {
       {/* Hero Banner */}
       <div className="relative w-full h-[35vh] lg:h-[95vh]">
         <Image
-          src="/footer-bg.jpeg"
+          src="/images/2b.jpg"
           alt="Background"
           fill
           priority
@@ -51,7 +51,7 @@ export default function ProjectPage() {
           >
             <motion.h1
               variants={fadeUp}
-              className="text-white font-sans font-bold text-4xl lg:text-8xl mt-10 lg:mt-0"
+              className="text-[#eece9c] font-sans font-bold text-4xl lg:text-8xl mt-10 lg:mt-0"
             >
               Our Projects
             </motion.h1>
@@ -60,9 +60,9 @@ export default function ProjectPage() {
       </div>
 
       {/* Projects Grid */}
-      <div className="relative top-[-40] lg:top-[-60] bg-white rounded-3xl lg:rounded-[60] px-4 lg:px-8 pt-12">
+      <div className="relative top-[-40] lg:top-[-100] bg-white rounded-3xl lg:rounded-[60] px-4 lg:px-8 pt-12">
         <motion.hr
-          className="border-gray-700 mt-5 lg:mt-20"
+          className="border-gray-700 mt-5 lg:mt-10"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -71,7 +71,7 @@ export default function ProjectPage() {
         />
 
         <motion.div
-          className="mx-auto gap-6 grid grid-cols-1 lg:grid-cols-2 mt-13 lg:mt-16 mb-30"
+          className="mx-auto gap-6 grid grid-cols-1 lg:grid-cols-2 mt-13 lg:mt-25 mb-30"
           variants={stagger}
           initial="hidden"
           whileInView="show"

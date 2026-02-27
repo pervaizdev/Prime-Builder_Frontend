@@ -14,7 +14,6 @@ import TestimonialsSection from "@/Component/Testimonials/Testimonials";
 import ClientsSwiper from "@/Component/Swiper/ClientsSwiper";
 import Team from "@/Component/Team/Team";
 import CallBackSection from "@/Component/CallBackSection/callbacksection";
-import FooterSection from "@/Component/Footer/footer";
 
 function Intro({ onDone }) {
   const logo = useAnimation();

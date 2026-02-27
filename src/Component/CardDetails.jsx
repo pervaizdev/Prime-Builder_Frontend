@@ -3,12 +3,12 @@
 import { motion } from "framer-motion";
 import { HiLocationMarker } from "react-icons/hi";
 import {
-  HiOutlineSquares2X2,
   HiOutlineCalendarDays,
   HiOutlineBuildingOffice2,
   HiOutlineCircleStack,
-  HiOutlineCurrencyDollar,
 } from "react-icons/hi2";
+import { FaStore } from "react-icons/fa";
+import { HiOutlineOfficeBuilding } from "react-icons/hi";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -27,7 +27,7 @@ const stagger = {
 export default function CardDetails({ project, InfoItem }) {
   return (
     <motion.div
-      className="pt-14 px-5"
+      className="pt-14 px-10"
       variants={stagger}
       initial="hidden"
       whileInView="show"
@@ -55,7 +55,7 @@ export default function CardDetails({ project, InfoItem }) {
           <InfoItem
             icon={HiOutlineCircleStack}
             label="Status"
-            value={project.status === "COMPLETED" ? "Completed" : "Under Construction"}
+            value={project.status}
           />
         </motion.div>
         <motion.div variants={fadeUp}>
@@ -67,9 +67,16 @@ export default function CardDetails({ project, InfoItem }) {
         </motion.div>
         <motion.div variants={fadeUp}>
           <InfoItem
-            icon={HiOutlineSquares2X2}
-            label="Project Area"
-            value={project.projectArea}
+            icon={HiOutlineOfficeBuilding}
+            label="Offices"
+            value={project.offices}
+          />
+        </motion.div>
+        <motion.div variants={fadeUp}>
+          <InfoItem
+            icon={FaStore}
+            label="Shopes"
+            value={project.shopes}
           />
         </motion.div>
         <motion.div variants={fadeUp}>
@@ -77,13 +84,6 @@ export default function CardDetails({ project, InfoItem }) {
             icon={HiOutlineCalendarDays}
             label="Commencement date"
             value={project.commencementDate}
-          />
-        </motion.div>
-        <motion.div variants={fadeUp}>
-          <InfoItem
-            icon={HiOutlineCurrencyDollar}
-            label="Price Range"
-            value={project.priceRange}
           />
         </motion.div>
       </motion.div>

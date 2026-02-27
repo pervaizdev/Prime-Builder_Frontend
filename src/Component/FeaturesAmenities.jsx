@@ -2,27 +2,18 @@
 
 import { motion } from "framer-motion";
 import { featuresAmenities } from "@/data/featuresAmenities";
-
-import {
-  HiOutlineShieldCheck,
-  HiOutlineVideoCamera,
-  HiOutlineWrenchScrewdriver,
-  HiOutlineLifebuoy,
-  HiOutlineFire,
-  HiOutlineFaceSmile,
-  HiOutlineSparkles,
-  HiOutlineGlobeAlt,
-} from "react-icons/hi2";
+import { FiShield } from "react-icons/fi";
+import { FaBolt, FaPlaneDeparture, FaLeaf } from "react-icons/fa";
+import { MdSolarPower } from "react-icons/md";
+import { GiFireExtinguisher } from "react-icons/gi";
 
 const iconMap = {
-  shield: HiOutlineShieldCheck,
-  camera: HiOutlineVideoCamera,
-  dumbbell: HiOutlineSparkles,
-  kids: HiOutlineFaceSmile,
-  tools: HiOutlineWrenchScrewdriver,
-  pool: HiOutlineLifebuoy,
-  fire: HiOutlineFire,
-  garden: HiOutlineGlobeAlt,
+  shield: FiShield,
+  camera: FaBolt,
+  dumbbell: FaPlaneDeparture,
+  kids: FaLeaf,
+  tools: MdSolarPower,
+  pool: GiFireExtinguisher,
 };
 
 const fadeUp = {
@@ -49,21 +40,21 @@ function FeatureCard({ title, desc, icon }) {
     >
       <div className="absolute left-1/2 top-0 h-27 w-27 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white" />
       <div
-        className="absolute top-[-10] left-45
-             w-8 h-8
-             border-r-16 
+        className="absolute top-[-12] left-60
+             w-8 h-14
+             border-l-15 
              border-white
-             rounded-tr-full rotate-250"
+             rounded-tl-full rotate-38"
       />
       <div
-        className="absolute top-[-10] left-15
+        className="absolute top-[-12] left-32
              w-8 h-14
-              border-r-10
+              border-r-15
              border-white
              rounded-tr-full rotate-323"
       />
-      <div className="absolute left-1/2 top-0 h-17 w-17 -translate-x-1/2 -translate-y-1/3 place-items-center rounded-full bg-lime-300">
-        <Icon className="text-4xl mt-4 text-black" />
+      <div className="absolute left-1/2 top-0 h-17 w-17 -translate-x-1/2 -translate-y-1/3 place-items-center rounded-full bg-black">
+        <Icon className="text-4xl mt-4 text-[#eece9c]" />
       </div>
       <h3 className="text-xl font-bold text-black">{title}</h3>
       <p className="mt-5 text-black/50">{desc}</p>
@@ -73,7 +64,7 @@ function FeatureCard({ title, desc, icon }) {
 
 export default function FeaturesAmenities() {
   return (
-    <div className="mt-20 px-6">
+    <div className="mt-20 mb-25 px-6">
       <motion.h2
         className="text-3xl lg:text-6xl font-bold font-sans text-black"
         initial={{ opacity: 0, y: 28 }}
@@ -85,7 +76,7 @@ export default function FeaturesAmenities() {
       </motion.h2>
 
       <motion.div
-        className="mt-23 grid gap-14 lg:gap-13 grid-cols-1 lg:grid-cols-4"
+        className="mt-23 grid gap-14 lg:gap-13 grid-cols-1 lg:grid-cols-3"
         variants={stagger}
         initial="hidden"
         whileInView="show"
