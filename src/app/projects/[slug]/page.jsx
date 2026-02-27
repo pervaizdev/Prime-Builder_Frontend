@@ -72,7 +72,7 @@ export default function Page({ params }) {
           >
             <motion.h1
               variants={fadeUp}
-              className="text-[#eece9c] font-sans font-bold text-4xl lg:text-8xl mt-10 lg:mt-0"
+              className="text-[#eece9c]  font-sans font-bold text-4xl lg:text-8xl mt-10 lg:mt-0"
             >
               Projects Details
             </motion.h1>

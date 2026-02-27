@@ -96,7 +96,7 @@ export default function ClientsSwiper() {
 
                 <div className="text-center">
                   <p className="text-base font-bold text-black">{partner.name}</p>
-                  <p className="text-xs text-gray-400 mt-1 tracking-wide uppercase">
+                  <p className="text-xs text-gray-400 mt-1 tracking-wide">
                     {partner.description}
                   </p>
                 </div>

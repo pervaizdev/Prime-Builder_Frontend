@@ -37,11 +37,11 @@ export default function ProjectCard({ item }) {
 
             {/* Top badges */}
             <div className="flex justify-between">
-              <span className="rounded-full bg-lime-300 px-4 py-2 text-xs font-bold text-black shadow-sm">
+              <span className="rounded-full bg-[#f5f5f5] px-4 py-2 text-xs font-bold text-black shadow-sm">
                 {item.status}
               </span>
 
-              <span className="rounded-full bg-blue-300 px-4 py-2 text-xs font-bold text-black shadow-sm">
+              <span className="rounded-full bg-[#eece9c] px-4 py-2 text-xs font-bold text-black shadow-sm">
                 {item.availability}
               </span>
             </div>

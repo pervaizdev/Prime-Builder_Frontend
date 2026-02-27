@@ -92,7 +92,7 @@ export default function     TestimonialsSection() {
                                 </defs>
                                 <text fill="#111" fontSize="12" fontWeight="700" letterSpacing="2">
                                     <textPath href="#circlePath" startOffset="50%" textAnchor="middle">
-                                        • Islamabad Prime Builders • Islamabad Prime Builders
+                                        • Islamabad Prime Builders• Islamabad Prime Builders• Islamabad•
                                     </textPath>
                                 </text>
                             </motion.svg>
@@ -100,7 +100,7 @@ export default function     TestimonialsSection() {
                             {/* Image background circle */}
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <div className="w-[110px] h-[110px] rounded-full overflow-hidden relative border-4 border-white bg-black shadow-xl">
-                                    <Image src="/images/logo.png" alt="testimonial-bg" fill className="object-fit" />
+                                    <Image src="/images/logo.png" alt="testimonial-bg" fill className="object-cover" />
                                     
                                 </div>
                             </div>

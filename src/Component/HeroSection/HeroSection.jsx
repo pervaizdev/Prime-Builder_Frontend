@@ -71,7 +71,7 @@ export default function HeroSection() {
       />
 
       {/* Bottom row */}
-      <motion.div
+      {/* <motion.div
         className="flex w-full max-w-5xl flex-col items-center justify-between gap-8 sm:flex-row sm:items-start"
         variants={fadeUp}
         initial="hidden"
@@ -110,7 +110,7 @@ export default function HeroSection() {
             <MdArrowOutward />
           </motion.span>
         </MotionLink>
-      </motion.div>
+      </motion.div> */}
     </motion.div>
   );
 }
