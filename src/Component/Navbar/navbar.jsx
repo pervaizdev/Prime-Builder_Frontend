@@ -30,8 +30,8 @@ export default function Navbar() {
         <motion.header
             id="main-navbar"
             className={[
-                "w-full z-50",
-                isTransparentNavbar ? "absolute mt-6 md:mt-10" : "sticky top-0 mt-0 backdrop-blur",
+                "w-full z-1",
+                isTransparentNavbar ? "fixed top-0 mt-6 md:mt-10" : "sticky top-0 mt-0 backdrop-blur",
             ].join(" ")}
             initial={{ y: -150 }}
             animate={{ y: 0 }}

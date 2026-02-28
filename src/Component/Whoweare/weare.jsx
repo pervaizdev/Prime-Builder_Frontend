@@ -37,8 +37,8 @@ export default function WeAre() {
     };
 
     return (
-        <div className="bg-white min-h-[60vh] relative top-[-70px] rounded-t-[60px] py-5">
-            <div className="container mx-auto mt-20 px-6">
+        <div className="bg-white min-h-[20vh] relative top-[-px] md:rounded-t-[60px] rounded-t-[30px] py-5">
+            <div className="container mx-auto lg:mt-20 mt-15 px-6">
                 <WhoWeAreHeader
                     container={container}
                     fadeUp={fadeUp}

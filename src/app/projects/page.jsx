@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import ProjectCard from "../../Component/Cards";
 import { projects } from "../../data/card";
+import FooterSection from "@/Component/Footer/footer";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -30,8 +31,10 @@ const heroContainer = {
 
 export default function ProjectPage() {
   return (
-    <>
-      <div className="relative w-full h-[35vh] lg:h-[95vh]">
+    < >
+      {/* ✅ Sticky Hero (doesn't scroll away; content will scroll over it) */}
+      <div className="sticky top-0 z-0 w-full h-[80vh] lg:h-[99vh] overflow-hidden ">
+        <div className="relative"></div>
         <Image
           src="/images/2b.jpg"
           alt="Background"
@@ -39,7 +42,7 @@ export default function ProjectPage() {
           priority
           className="object-cover"
         />
-
+        <div className="absolute inset-0 bg-black/40"></div>
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <motion.div
             className="ms-4 lg:ms-12"
@@ -49,32 +52,34 @@ export default function ProjectPage() {
           >
             <motion.h1
               variants={fadeUp}
-              className="text-[#eece9c] font-sans text-center font-bold text-4xl lg:text-8xl mt-20 lg:mt-0"
+              className="text-white font-sans text-center font-bold text-5xl lg:text-8xl mt-20 lg:mt-0"
             >
               Our Projects
             </motion.h1>
+
             <motion.p
               variants={fadeUp}
-              className="mt-5 lg:mt-10 lg:w-140 text-center text-xs lg:text-lg"
+              className="mt-5 lg:mt-10 lg:w-140 text-center text-xl lg:text-lg text-white/90"
             >
-              Islamabad Prime Builder is a trusted real estate developer
-              delivering premium residential and commercial projects.
+              A showcase of our completed and ongoing projects built with precision,
+              transparency, and a commitment to excellence.
             </motion.p>
           </motion.div>
         </div>
       </div>
 
-      <div className="relative top-[-40] lg:top-[-100] bg-white rounded-3xl lg:rounded-[60] px-4 lg:px-8 pt-12">
-        <motion.hr
-          className="border-gray-700 mt-5 lg:mt-10"
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          style={{ transformOrigin: "left" }}
-        />
+      {/* ✅ Content Panel scrolls ABOVE hero */}
+      <div className="relative z-10 mt-[-30px] lg:-mt-16 bg-white rounded-t-3xl lg:rounded-t-[60px] px-4 lg:px-8 pt-12">   <motion.hr
+        className="border-gray-700 mt-5 lg:mt-10"
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        style={{ transformOrigin: "left" }}
+      />
+
         <motion.div
-          className="mx-auto gap-6 grid grid-cols-1 lg:grid-cols-2 mt-13 lg:mt-25 mb-30"
+          className="mx-auto gap-6 grid grid-cols-1 lg:grid-cols-2 mt-13 lg:mt-25 pb-30"
           variants={stagger}
           initial="hidden"
           whileInView="show"
@@ -86,7 +91,10 @@ export default function ProjectPage() {
             </motion.div>
           ))}
         </motion.div>
+        <FooterSection />
       </div>
+
+
     </>
   );
 }

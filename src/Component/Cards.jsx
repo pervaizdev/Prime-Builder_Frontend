@@ -6,6 +6,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function ProjectCard({ item }) {
+  const isCompleted = item.status === "Completed";
+
   return (
     <motion.div
       whileHover={{ y: -6 }}
@@ -13,7 +15,7 @@ export default function ProjectCard({ item }) {
       className="group"
     >
       <Link href={`/projects/${item.id}`} className="block">
-        <div className="relative h-[520px] w-full overflow-hidden rounded-[30px] shadow-lg">
+        <div className="relative h-[520px] w-full overflow-hidden rounded-[30px] shadow-xl">
 
           {/* Image */}
           <motion.div
@@ -29,27 +31,39 @@ export default function ProjectCard({ item }) {
             />
           </motion.div>
 
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-opacity duration-500 group-hover:from-black/80" />
+          {/* Dark Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-all duration-500 group-hover:from-black/80" />
 
           {/* Content */}
           <div className="absolute inset-0 flex flex-col p-7 text-white">
 
-            {/* Top badges */}
-            <div className="flex justify-between">
-              <span className="rounded-full bg-[#f5f5f5] px-4 py-2 text-xs font-bold text-black shadow-sm">
+            {/* Top Badges */}
+            <div className="flex items-start justify-between gap-3">
+
+              {/* Status Badge */}
+              <span
+                className={`rounded-full px-4 py-2 text-xs font-semibold backdrop-blur-md border transition ${
+                  isCompleted
+                    ? "bg-white/90 text-black border-white/40"
+                    : "bg-black/60 text-white border-white/20"
+                }`}
+              >
                 {item.status}
               </span>
 
-              <span className="rounded-full bg-[#eece9c] px-4 py-2 text-xs font-bold text-black shadow-sm">
+              {/* Availability Badge (Luxury Gold) */}
+              <span
+                className="rounded-full px-4 py-2 text-xs font-semibold 
+                bg-[#eece9c] text-black border border-[#e5c488]/60"
+              >
                 {item.availability}
               </span>
             </div>
 
-            {/* Bottom content */}
+            {/* Bottom Content */}
             <div className="mt-auto">
               <div className="flex items-center gap-3">
-                <HiLocationMarker className="text-2xl text-lime-300" />
+                <HiLocationMarker className="text-2xl text-[#eece9c]" />
                 <p className="font-semibold text-sm tracking-wide">
                   {item.location}
                 </p>
@@ -61,6 +75,7 @@ export default function ProjectCard({ item }) {
                 {item.title}
               </h3>
             </div>
+
           </div>
         </div>
       </Link>

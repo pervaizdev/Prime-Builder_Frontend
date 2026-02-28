@@ -14,6 +14,7 @@ import TestimonialsSection from "@/Component/Testimonials/Testimonials";
 import ClientsSwiper from "@/Component/Swiper/ClientsSwiper";
 import Team from "@/Component/Team/Team";
 import CallBackSection from "@/Component/CallBackSection/callbacksection";
+import FooterSection from "@/Component/Footer/footer";
 
 function Intro({ onDone }) {
   const logo = useAnimation();
@@ -28,7 +29,7 @@ function Intro({ onDone }) {
         filter: "blur(0px)",
         transition: {
           duration: 0.9,
-          ease: [0.22, 1, 0.36, 1], 
+          ease: [0.22, 1, 0.36, 1],
         },
       });
 
@@ -42,9 +43,9 @@ function Intro({ onDone }) {
         },
       });
 
-      
+
       await logo.start({
-        scale: 6, 
+        scale: 6,
         opacity: 0,
         filter: "blur(10px)",
         transition: {
@@ -53,7 +54,7 @@ function Intro({ onDone }) {
         },
       });
 
-   
+
       await new Promise((r) => setTimeout(r, 80));
 
       onDone();
@@ -99,28 +100,25 @@ export default function HomePage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="relative"
         >
-          <BackgroundVideo src="/videos/PrimeMall.webm" />
-          <HeroSection />
+          {/* HERO AREA (Made sticky so the video stays fixed behind the scrolling page) */}
+          <section className="sticky top-[0px] h-[100vh] w-full overflow-hidden z-0">
+            <BackgroundVideo src="/videos/PrimeMall.webm" />
+            <HeroSection />
+          </section>
 
-          {/* <div className=" container mx-auto relative z-10 p-2 md:p-0 mt-7 grid max-w-6xl grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
-            {cardData.map((card) => (
-              <Cards
-                key={card.id}
-                title={card.title}
-                description={card.description}
-              />
-            ))}
-          </div> */}
-
-          <WeAre  />
-          <Services />
-          <DifferentSection />
-          <TestimonialsSection />
-          <ClientsSwiper />
-          <Team />
-          <CallBackSection />
-      
+          {/* REST OF PAGE (relative z-10 puts these blocks ON TOP of the sticky video) */}
+          <div className="relative z-10">
+            <WeAre />
+            <Services />
+            <DifferentSection />
+            <TestimonialsSection />
+            <ClientsSwiper />
+            <Team />
+            <CallBackSection />
+            <FooterSection />
+          </div>  
         </motion.div>
       )}
     </div>
