@@ -3,10 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-    FaInstagram,
-    FaYoutube,
-} from "react-icons/fa6";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 22 },
@@ -30,29 +26,24 @@ const footerLinks = [
 ];
 
 const socials = [
-  {
-    icon: FaInstagram,
-    label: "Instagram",
-    href: "https://www.instagram.com/IslamabadPrimeBuilders",
-  },
-  {
-    icon: FaYoutube,
-    label: "YouTube",
-    href: "https://www.youtube.com/@IslamabadPrimeBuilders",
-  },
+  { name: "Facebook", href: "https://facebook.com" },
+  { name: "Instagram", href: "https://instagram.com" },
+  { name: "YouTube", href: "https://youtube.com" },
+  { name: "Twitter", href: "https://twitter.com" },
 ];
 
 export default function FooterSection() {
   return (
-    <footer className="bg-transparent">
+    <footer className="bg-white">
       <div className="mx-auto max-w-6xl px-6 pb-16">
         {/* Card */}
+        
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={stagger}
-          className="rounded-[32px] bg-white/95 backdrop-blur-xl px-8 py-12 md:px-12 md:py-14 shadow-[0_30px_90px_rgba(0,0,0,0.12)] border border-black/5"
+          className="relative z-1 rounded-[32px] bg-white/95 backdrop-blur-xl px-8 py-12 md:px-12 md:py-14 shadow-[0_30px_90px_rgba(0,0,0,0.12)] border border-black/5"
         >
           {/* Top */}
           <motion.div
@@ -128,18 +119,21 @@ export default function FooterSection() {
                 spaciaz@example.com
               </a>
 
-              <div className="flex gap-3 mt-6">
-                {socials.map((s, i) => (
-                  <a
-                    key={i}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={s.label}
-                    className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f5f2ea] text-black/70 hover:bg-black hover:text-white transition-all duration-300"
-                  >
-                    <s.icon className="text-sm" />
-                  </a>
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 md:justify-start">
+                {socials.map((s, idx) => (
+                  <span key={s.name} className="text-xs text-gray-500">
+                    <a
+                      href={s.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:text-black transition"
+                    >
+                      {s.name}
+                    </a>
+                    {idx !== socials.length - 1 && (
+                      <span className="mx-2 text-gray-300">·</span>
+                    )}
+                  </span>
                 ))}
               </div>
             </motion.div>

@@ -1,7 +1,6 @@
 "use client";
 
 import { use } from "react";
-
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/card";
@@ -54,7 +53,8 @@ export default function Page({ params }) {
 
   return (
     <>
-      <div className="relative w-full h-[35vh] lg:h-[95vh]">
+      {/* FIXED HERO BACKGROUND */}
+      <div className="fixed inset-0 -z-10 h-[80vh] lg:h-[95vh] w-full">
         <Image
           src="/images/2b.jpg"
           alt="Background"
@@ -62,23 +62,25 @@ export default function Page({ params }) {
           priority
           className="object-cover"
         />
-
+         <div className="absolute inset-0 bg-black/40 "></div>
+        {/* Overlay + centered text */}
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <motion.div
-            className="ms-4 lg:ms-12"
+            className="px-4 lg:px-12"
             variants={heroContainer}
             initial="hidden"
             animate="show"
           >
             <motion.h1
               variants={fadeUp}
-              className="text-[#eece9c]  font-sans font-bold text-center text-4xl lg:text-8xl mt-10 lg:mt-0"
+              className="text-white font-sans font-bold text-center text-5xl lg:text-8xl mt-10 lg:mt-0"
             >
               Projects Details
             </motion.h1>
+
             <motion.p
               variants={fadeUp}
-              className="mt-5 lg:ms-15 lg:mt-10 lg:w-140 text-center text-xs lg:text-lg"
+              className="mt-5 lg:mt-10 max-w-2xl mx-auto text-center text-lg lg:text-lg text-white/90"
             >
               Built with quality construction and contemporary design, it
               ensures comfort, security, and strong investment value.
@@ -87,7 +89,11 @@ export default function Page({ params }) {
         </div>
       </div>
 
-      <div className="relative -top-15 lg:-top-25 bg-white rounded-[35px] lg:rounded-[60px] px-4 lg:px-8">
+      {/* Spacer so content starts after hero height */}
+      <div className="h-[35vh] lg:h-[95vh] " />
+
+      {/* SCROLLING CONTENT (moves up over the fixed hero) */}
+      <div className="relative z-10 mt-[250px] lg:-mt-15 bg-white rounded-t-[35px] lg:rounded-t-[60px] px-4 lg:px-8 pb-16">
         <AnimatedSection className="pt-2">
           <CardDetails project={project} InfoItem={InfoItem} />
         </AnimatedSection>

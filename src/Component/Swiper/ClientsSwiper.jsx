@@ -33,7 +33,7 @@ export default function ClientsSwiper() {
   };
 
   return (
-    <section className="bg-white pb-16 md:pb-40">
+    <section className="bg-white pb-16 md:pb-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="border-t border-gray-100 pt-16 md:pt-20">
           {/* Header */}

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { FiTrendingUp } from "react-icons/fi";
 import { FaHardHat, FaCity } from "react-icons/fa";
 
-export default function   DifferentSection() {
+export default function DifferentSection() {
   // Smooth premium fade-up for text/lines
   const fadeUpSoft = {
     hidden: { opacity: 0, y: 18 },
@@ -39,7 +39,7 @@ export default function   DifferentSection() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.15 }}
-        className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center"
+        className="max-w-7xl mx-auto md:px-6 px-2 grid lg:grid-cols-2 gap-16 items-center"
       >
         {/* LEFT IMAGE */}
         <motion.div variants={stagger} className="relative">
@@ -49,7 +49,7 @@ export default function   DifferentSection() {
               alt="What makes us different"
               width={600}
               height={700}
-              className="w-full h-[560px] object-cover"
+              className="w-full md:h-[560px] h-[400px] object-cover"
             />
           </motion.div>
 
@@ -90,15 +90,16 @@ export default function   DifferentSection() {
         {/* RIGHT CONTENT */}
         <motion.div variants={stagger}>
           {/* Badge */}
+          {/* Badge */}
           <motion.span
             variants={fadeUpSoft}
-            className="inline-block px-4 py-1 text-sm border rounded-full mb-6"
+            className="block w-fit mx-auto md:mx-0 px-4 py-1 text-sm border rounded-full mb-6"
           >
             OUR COMMITMENT
           </motion.span>
 
           {/* Heading - animate each line */}
-          <motion.h2 variants={lineStagger} className="text-4xl font-bold mb-6 leading-tight">
+          <motion.h2 variants={lineStagger} className="text-4xl md:text-start text-center font-bold mb-6 leading-tight">
             <motion.span variants={fadeUpSoft} className="block">
               What makes us
             </motion.span>
@@ -108,9 +109,9 @@ export default function   DifferentSection() {
           </motion.h2>
 
           {/* Paragraph - animate each line */}
-          <motion.p variants={lineStagger} className="text-gray-600 mb-10">
+          <motion.p variants={lineStagger} className="text-gray-600 mb-10 px-3 md:px-0">
             <motion.span variants={fadeUpSoft} className="block">
-              We focus on building projects that combine strong construction, modern 
+              We focus on building projects that combine strong construction, modern
             </motion.span>
             <motion.span variants={fadeUpSoft} className="block">
               design, and prime locations. Whether you are looking to invest your
@@ -121,7 +122,7 @@ export default function   DifferentSection() {
           </motion.p>
 
           {/* Items container */}
-          <motion.div variants={stagger} className="space-y-8">
+          <motion.div variants={stagger} className="space-y-8 px-3 md:px-0">
             {/* Item 1 */}
             <motion.div variants={fadeUpSoft} className="flex gap-6 items-start">
               <motion.div variants={fadeUpSoft} className="bg-black p-4 rounded-full">
@@ -165,7 +166,7 @@ export default function   DifferentSection() {
                   Complete Lifestyle in One Place
                 </motion.h4>
                 <motion.p variants={fadeUpSoft} className="text-gray-600 text-sm">
-                 Prime Mall & Suites offers homes, shops, and leisure spaces all in one location giving you comfort, convenience, and luxury together.
+                  Prime Mall & Suites offers homes, shops, and leisure spaces all in one location giving you comfort, convenience, and luxury together.
                 </motion.p>
               </motion.div>
             </motion.div>

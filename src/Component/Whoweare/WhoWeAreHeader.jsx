@@ -8,7 +8,7 @@ import AnimatedLines from "./AnimatedLines";
 export default function WhoWeAreHeader({ container, fadeUp, fadeUpSlow }) {
   return (
     <motion.div
-      className="grid items-start md:grid-cols-[400px_1fr]"
+      className="grid items-start md:grid-cols-[400px_1fr] " 
       variants={container}
       initial="hidden"
       whileInView="show"
@@ -17,17 +17,16 @@ export default function WhoWeAreHeader({ container, fadeUp, fadeUpSlow }) {
       {/* Pill */}
       <motion.div
         variants={fadeUp}
-        className="inline-flex items-center rounded-full w-[130px] border border-[#eed498] px-4 py-2 text-xs tracking-widest"
+        className="inline-flex jusitems-center rounded-full w-[130px] border border-[#eed498] px-4 py-2 text-xs tracking-widest  mx-auto md:mx-0"
       >
         <motion.h2 variants={fadeUp} className="text-black">
           WHO WE ARE
         </motion.h2>
       </motion.div>
 
-      <div className="ms-[-200]">
-        {/* Animate heading line-by-line */}
+      <div className="md:ms-[-200] ms-0">
         <motion.h2
-          className="text-4xl font-extrabold leading-tight text-black md:text-5xl"
+          className="text-4xl font-extrabold leading-tight text-black md:text-5xl md:text-start text-center md:mt-0 mt-5 "
           variants={container}
         >
           <motion.span className="block" variants={fadeUpSlow}>

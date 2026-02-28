@@ -50,7 +50,7 @@ export default function Team() {
   };
 
   return (
-    <section className="bg-[#f5f5f5] py-25">
+    <section className="bg-[#f5f5f5] py-20">
       {/* Badge */}
       <motion.div
         variants={fadeUp}

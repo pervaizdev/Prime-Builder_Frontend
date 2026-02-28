@@ -14,29 +14,38 @@ const TABS = [
 ];
 
 function MediaSwiper({ items }) {
+  const SIDE_PEEK_PERCENT = 0.2;
+  const centerWidthPercent = (1 - SIDE_PEEK_PERCENT * 2) * 100;
+
   return (
+    // overflow-hidden here clips the side-peek slides cleanly
     <div className="w-full pb-12 overflow-hidden">
       <Swiper
         loop
         centeredSlides
-        slidesPerView={1.15}
+        slidesPerView="auto"
         spaceBetween={20}
+        observer={true}
+        observeParents={true}
         autoplay={{
-          delay: 2800,
+          delay: 2500,
           disableOnInteraction: false,
         }}
         modules={[Autoplay]}
-        className="w-full"
+        className="mySwiper"
       >
         {items.map((item) => (
-          <SwiperSlide key={item.id} className="rounded-4xl overflow-hidden">
-            <div className="relative w-full h-122.5">
+          <SwiperSlide
+            key={item.id}
+            className="rounded-4xl overflow-hidden"
+          >
+            <div className="relative w-full h-[490px]">
               <Image
                 src={item.src}
                 alt={item.alt || "Media"}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 95vw, 80vw"
+                sizes="(max-width: 768px) 90vw, 70vw"
                 priority
               />
             </div>
@@ -46,6 +55,7 @@ function MediaSwiper({ items }) {
     </div>
   );
 }
+
 
 export default function ProjectMediaSection({ project }) {
   const [activeTab, setActiveTab] = useState("photos");
@@ -77,10 +87,9 @@ export default function ProjectMediaSection({ project }) {
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
                 className={`flex items-center gap-2 rounded-full border px-6 py-3 text-sm md:text-base transition-all duration-300
-                  ${
-                    isActive
-                      ? "bg-[#E6F06A] border-[#E6F06A] text-black"
-                      : "bg-white border-gray-200 text-black hover:bg-gray-50"
+                  ${isActive
+                    ? "bg-[#E6F06A] border-[#E6F06A] text-black"
+                    : "bg-white border-gray-200 text-black hover:bg-gray-50"
                   }
                 `}
               >
@@ -104,18 +113,25 @@ export default function ProjectMediaSection({ project }) {
           <MediaSwiper items={content.items} />
         )}
 
-        {hasItems && content.type === "videos" && (
+        {content.type === "videos" && (
           <div className="flex flex-col gap-8">
             {content.items.map((video) => (
               <div
                 key={video.id}
-                className="w-full rounded-4xl overflow-hidden border border-gray-200 bg-black"
+                className="rounded-4xl overflow-hidden border border-gray-200 bg-black"
               >
                 <video
                   src={video.src}
                   controls
-                  className="w-full h-75 md:h-140 object-cover"
+                  className="w-full h-[300px] md:h-[560px] object-cover"
                 />
+                {video.title && (
+                  <div className="px-5 py-4 bg-white">
+                    <p className="text-sm font-medium text-black">
+                      {video.title}
+                    </p>
+                  </div>
+                )}
               </div>
             ))}
           </div>

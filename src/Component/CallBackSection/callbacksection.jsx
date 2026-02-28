@@ -3,44 +3,67 @@
 import { motion } from "framer-motion";
 
 export default function CallBackSection() {
+  // ✅ more noticeable + smoother
   const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 32 },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+      transition: {
+        duration: 1.25,
+        delay: 0.08,
+        ease: [0.22, 1, 0.36, 1],
+        type: "tween",
+      },
     },
   };
 
   const stagger = {
     hidden: {},
     show: {
-      transition: { staggerChildren: 0.1, delayChildren: 0.05 },
+      transition: {
+        staggerChildren: 0.14,
+        delayChildren: 0.15,
+      },
+    },
+  };
+
+  // ✅ keep background subtle (don’t fight the card motion)
+  const parentFade = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1],
+        type: "tween",
+      },
     },
   };
 
   return (
     <section className="bg-white text-black py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-">
-
+      <div className="mx-auto max-w-7xl px-2">
         {/* Background Container */}
         <motion.div
-          variants={fadeUp}
+          variants={parentFade}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="rounded-[36px] bg-cover bg-center py-20 px-2 sm:px-10 md:px-16"
+          viewport={{ once: true, amount: 0.25 }}
+          className="rounded-[25px] md:rounded-[36px] bg-cover bg-center py-20 px-2 sm:px-10 md:px-16"
           style={{
             backgroundImage: "url('/images/1 ba night.jpg')",
+            willChange: "opacity",
           }}
         >
-          {/* White Card */}
+          {/* White Card (noticeable slide-up) */}
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.25 }}
             className="mx-auto max-w-4xl rounded-3xl bg-white px-4 py-12 shadow-xl sm:px-12"
+            style={{ willChange: "transform, opacity" }}
           >
             {/* Badge */}
             <motion.div variants={fadeUp} className="flex justify-center">
@@ -108,7 +131,6 @@ export default function CallBackSection() {
 }
 
 /* Reusable Inputs */
-
 function Input({ placeholder }) {
   return (
     <input
