@@ -8,10 +8,7 @@ import {
     HiOutlineMapPin,
     HiOutlineClock,
 } from "react-icons/hi2";
-import {
-    FaInstagram,
-    FaYoutube,
-} from "react-icons/fa6";
+import { FaInstagram, FaYoutube } from "react-icons/fa6";
 import { MdArrowOutward } from "react-icons/md";
 
 const fadeUp = {
@@ -41,7 +38,7 @@ const contactInfo = [
         icon: HiOutlineEnvelope,
         label: "Email",
         value: "Info@IslamabadPrimeBuilders.com",
-        href: "Info@IslamabadPrimeBuilders.com",
+        href: "mailto:Info@IslamabadPrimeBuilders.com",
     },
     {
         icon: HiOutlineMapPin,
@@ -58,16 +55,16 @@ const contactInfo = [
 ];
 
 const socials = [
-  {
-    icon: FaInstagram,
-    label: "Instagram",
-    href: "https://www.instagram.com/IslamabadPrimeBuilders",
-  },
-  {
-    icon: FaYoutube,
-    label: "YouTube",
-    href: "https://www.youtube.com/@IslamabadPrimeBuilders",
-  },
+    {
+        icon: FaInstagram,
+        label: "Instagram",
+        href: "https://www.instagram.com/IslamabadPrimeBuilders",
+    },
+    {
+        icon: FaYoutube,
+        label: "YouTube",
+        href: "https://www.youtube.com/@IslamabadPrimeBuilders",
+    },
 ];
 
 export default function ContactPage() {
@@ -89,29 +86,16 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="bg-white">
-            {/* Hero Section */}
-            <section className="relative w-full h-[35vh] lg:h-[60vh]">
+        <div>
+            {/* FIXED HERO (NOT SCROLLABLE) */}
+            <section className="fixed inset-0 -z-10 h-[80vh] lg:h-[98vh] w-full">
                 <div
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: "url('/footer-bg.jpeg')" }}
+                    style={{ backgroundImage: "url('/images/contact.png')" }}
                 />
-                <div className="absolute inset-0 bg-black/50" />
+                <div className="absolute inset-0 bg-black/70" />
 
                 <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-                    <motion.span
-                        className="inline-block rounded-full border border-[#eed498] px-6 py-2 text-xs tracking-[0.3em] text-white/80 uppercase mb-6"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                            duration: 0.7,
-                            delay: 0.1,
-                            ease: [0.22, 1, 0.36, 1],
-                        }}
-                    >
-                        Contact Us
-                    </motion.span>
-
                     <motion.h1
                         className="text-white font-extrabold text-4xl sm:text-5xl lg:text-7xl leading-tight"
                         initial={{ opacity: 0, y: 40 }}
@@ -135,19 +119,21 @@ export default function ContactPage() {
                             ease: [0.22, 1, 0.36, 1],
                         }}
                     >
-                        Have a question or want to discuss your next project?
-                        We&apos;d love to hear from you.
+                        Have a question or want to discuss your next project? We&apos;d love
+                        to hear from you.
                     </motion.p>
                 </div>
             </section>
 
-            {/* Main Content */}
-            <section className="relative -top-15 bg-white rounded-t-[60px] py-20">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="grid lg:grid-cols-5 gap-16">
+            {/* Spacer so content starts after hero height */}
+            <div className="h-[35vh] lg:h-[98vh]" />
+
+            {/* SCROLLING CONTENT (comes up over the fixed hero) */}
+            <section className="relative w-full overflow-hidden bg-white md:rounded-t-[60px] rounded-[20px] py-20 md:mt-[-60px] mt-[240px] z-10">
+                <div className="max-w-7xl mx-auto md:px-6 px-2">
+                    <div className="grid lg:grid-cols-2 gap-16 overflow-hidden">
                         {/* LEFT — Contact Info */}
                         <motion.div
-                            className="lg:col-span-2"
                             variants={stagger}
                             initial="hidden"
                             whileInView="show"
@@ -155,14 +141,13 @@ export default function ContactPage() {
                         >
                             <motion.span
                                 variants={fadeUp}
-                                className="inline-block rounded-full border border-[#eed498] px-4 py-2 text-[10px] tracking-[0.25em] font-semibold text-black uppercase"
+                                className="block w-fit mx-auto lg:mx-0 rounded-full border border-[#eed498] px-4 py-2 text-[10px] tracking-[0.25em] font-semibold text-black uppercase"
                             >
                                 Reach Out
                             </motion.span>
-
                             <motion.h2
                                 variants={fadeUp}
-                                className="mt-6 text-3xl sm:text-4xl font-extrabold text-black leading-tight"
+                                className="mt-6 text-3xl sm:text-4xl font-extrabold text-black leading-tight text-center lg:text-left"
                             >
                                 Let&apos;s Build
                                 <br />
@@ -171,7 +156,7 @@ export default function ContactPage() {
 
                             <motion.p
                                 variants={fadeUp}
-                                className="mt-4 text-black/50 leading-relaxed"
+                                className="mt-4 text-black/50 leading-relaxed text-center lg:text-left"
                             >
                                 Whether you&apos;re looking for a new home, investment
                                 opportunity, or partnership — we&apos;re here to help.
@@ -231,7 +216,7 @@ export default function ContactPage() {
 
                         {/* RIGHT — Contact Form */}
                         <motion.div
-                            className="lg:col-span-3"
+
                             variants={stagger}
                             initial="hidden"
                             whileInView="show"
@@ -239,17 +224,17 @@ export default function ContactPage() {
                         >
                             <motion.div
                                 variants={fadeUp}
-                                className="rounded-[36px] bg-linear-to-br from-[#faf8f4] to-white border border-black/5 p-8 sm:p-12 shadow-xl"
+                                className="rounded-[36px] bg-linear-to-br from-[#faf8f4] to-white border border-black/5 p-6 sm:p-12 "
                             >
                                 <h3 className="text-2xl font-extrabold text-black">
                                     Send Us a Message
                                 </h3>
                                 <p className="mt-2 text-sm text-black/50">
-                                    Fill in the form below and we&apos;ll get back to you
-                                    within 24 hours.
+                                    Fill in the form below and we&apos;ll get back to you within
+                                    24 hours.
                                 </p>
 
-                                <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+                                <form onSubmit={handleSubmit} className="mt-8 space-y-5 text-black">
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                         <motion.div variants={fadeUp}>
                                             <label className="block text-xs font-semibold text-black/50 uppercase tracking-wider mb-2">
@@ -259,7 +244,7 @@ export default function ContactPage() {
                                                 name="name"
                                                 value={formData.name}
                                                 onChange={handleChange}
-                                                placeholder="John Doe"
+                                                placeholder="Your Name"
                                                 required
                                                 className="h-13 w-full rounded-full bg-white border border-black/10 px-6 text-sm outline-none focus:ring-2 focus:ring-[#eed498] focus:border-transparent transition-all"
                                             />
@@ -274,7 +259,7 @@ export default function ContactPage() {
                                                 type="email"
                                                 value={formData.email}
                                                 onChange={handleChange}
-                                                placeholder="john@example.com"
+                                                placeholder="Your Email"
                                                 required
                                                 className="h-13 w-full rounded-full bg-white border border-black/10 px-6 text-sm outline-none focus:ring-2 focus:ring-[#eed498] focus:border-transparent transition-all"
                                             />
@@ -289,7 +274,7 @@ export default function ContactPage() {
                                                 type="tel"
                                                 value={formData.phone}
                                                 onChange={handleChange}
-                                                placeholder="+92 300 1234567"
+                                                placeholder="Your Phone"
                                                 required
                                                 className="h-13 w-full rounded-full bg-white border border-black/10 px-6 text-sm outline-none focus:ring-2 focus:ring-[#eed498] focus:border-transparent transition-all"
                                             />
@@ -344,11 +329,7 @@ export default function ContactPage() {
                                             type="submit"
                                             whileHover={{ scale: 1.03 }}
                                             whileTap={{ scale: 0.97 }}
-                                            transition={{
-                                                type: "spring",
-                                                stiffness: 300,
-                                                damping: 20,
-                                            }}
+                                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
                                             className="inline-flex items-center gap-3 rounded-full bg-[#eed498] px-8 py-4 text-sm font-bold text-black hover:shadow-lg hover:shadow-[#eed498]/30 transition-shadow cursor-pointer"
                                         >
                                             Send Message

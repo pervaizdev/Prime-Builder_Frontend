@@ -41,14 +41,14 @@ export default function HeroSection() {
     >
       {/* Headline */}
       <motion.h1
-        className="mt-70 text-4xl text-[#eed498] font-extrabold leading-tight sm:text-6xl lg:text-7xl"
+        className="mt-70 text-4xl font-extrabold leading-tight shimmer-gold drop-shadow-[0_0_14px_rgba(238,212,152,0.45)] sm:text-6xl lg:text-7xl"
         variants={fadeUp}
       >
         Islamabad
       </motion.h1>
 
       <motion.h1
-        className="text-4xl font-extrabold text-[#eed498] leading-tight sm:text-6xl lg:text-7xl"
+        className="text-4xl font-extrabold leading-tight shimmer-gold drop-shadow-[0_0_14px_rgba(238,212,152,0.45)] sm:text-6xl lg:text-7xl"
         variants={fadeUp}
       >
         Prime Builder
