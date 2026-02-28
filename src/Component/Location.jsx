@@ -1,7 +1,7 @@
 import { projects } from "@/data/card.js";
 
 export default function LocationMapCard() {
-  const project = projects.find((p) => p.id === "p1");
+  const project = projects.find((p) => p.id === "prime-mall");
 
   return (
     <div className="lg:px-6 mt-16">

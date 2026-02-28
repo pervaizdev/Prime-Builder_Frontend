@@ -9,10 +9,8 @@ import {
     HiOutlineClock,
 } from "react-icons/hi2";
 import {
-    FaFacebookF,
     FaInstagram,
     FaYoutube,
-    FaXTwitter,
 } from "react-icons/fa6";
 import { MdArrowOutward } from "react-icons/md";
 
@@ -42,8 +40,8 @@ const contactInfo = [
     {
         icon: HiOutlineEnvelope,
         label: "Email",
-        value: "info@primebuilder.com",
-        href: "mailto:info@primebuilder.com",
+        value: "Info@IslamabadPrimeBuilders.com",
+        href: "Info@IslamabadPrimeBuilders.com",
     },
     {
         icon: HiOutlineMapPin,
@@ -54,16 +52,22 @@ const contactInfo = [
     {
         icon: HiOutlineClock,
         label: "Working Hours",
-        value: "Mon - Sat: 9AM - 6PM",
+        value: "24 Hours",
         href: null,
     },
 ];
 
 const socials = [
-    { icon: FaFacebookF, label: "Facebook", href: "#" },
-    { icon: FaInstagram, label: "Instagram", href: "#" },
-    { icon: FaYoutube, label: "YouTube", href: "#" },
-    { icon: FaXTwitter, label: "Twitter", href: "#" },
+  {
+    icon: FaInstagram,
+    label: "Instagram",
+    href: "https://www.instagram.com/IslamabadPrimeBuilders",
+  },
+  {
+    icon: FaYoutube,
+    label: "YouTube",
+    href: "https://www.youtube.com/@IslamabadPrimeBuilders",
+  },
 ];
 
 export default function ContactPage() {
@@ -132,13 +136,13 @@ export default function ContactPage() {
                         }}
                     >
                         Have a question or want to discuss your next project?
-                        We'd love to hear from you.
+                        We&apos;d love to hear from you.
                     </motion.p>
                 </div>
             </section>
 
             {/* Main Content */}
-            <section className="relative top-[-60px] bg-white rounded-t-[60px] py-20">
+            <section className="relative -top-15 bg-white rounded-t-[60px] py-20">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid lg:grid-cols-5 gap-16">
                         {/* LEFT — Contact Info */}
@@ -160,7 +164,7 @@ export default function ContactPage() {
                                 variants={fadeUp}
                                 className="mt-6 text-3xl sm:text-4xl font-extrabold text-black leading-tight"
                             >
-                                Let's Build
+                                Let&apos;s Build
                                 <br />
                                 Something Great
                             </motion.h2>
@@ -169,8 +173,8 @@ export default function ContactPage() {
                                 variants={fadeUp}
                                 className="mt-4 text-black/50 leading-relaxed"
                             >
-                                Whether you're looking for a new home, investment
-                                opportunity, or partnership — we're here to help.
+                                Whether you&apos;re looking for a new home, investment
+                                opportunity, or partnership — we&apos;re here to help.
                             </motion.p>
 
                             {/* Info Items */}
@@ -241,7 +245,7 @@ export default function ContactPage() {
                                     Send Us a Message
                                 </h3>
                                 <p className="mt-2 text-sm text-black/50">
-                                    Fill in the form below and we'll get back to you
+                                    Fill in the form below and we&apos;ll get back to you
                                     within 24 hours.
                                 </p>
 

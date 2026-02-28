@@ -7,7 +7,7 @@ function AwardBlock({ title, description, image, reverse = false }) {
       <div className="grid gap-14 grid-cols-1 lg:grid-cols-2 px-8">
         
         {/* Text */}
-        <div className={reverse ? "lg:order-2" : "lg:order-1"}>
+        <div className={`${reverse ? "lg:order-2" : "lg:order-1"} mt-20`}>
           <h1 className="mb-8 text-2xl lg:text-4xl font-extrabold text-black">
             {title}
           </h1>
@@ -24,7 +24,7 @@ function AwardBlock({ title, description, image, reverse = false }) {
               src={image.src}
               alt={image.alt}
               fill
-              className="rounded-xl object-cover"
+              className="rounded-xl object-fit"
             />
           </div>
         </div>

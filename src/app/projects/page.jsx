@@ -31,7 +31,6 @@ const heroContainer = {
 export default function ProjectPage() {
   return (
     <>
-      {/* Hero Banner */}
       <div className="relative w-full h-[35vh] lg:h-[95vh]">
         <Image
           src="/images/2b.jpg"
@@ -41,8 +40,7 @@ export default function ProjectPage() {
           className="object-cover"
         />
 
-        <div className="absolute inset-0 bg-black/40 flex items-center">
-          {/* Hero Text (variants method) */}
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <motion.div
             className="ms-4 lg:ms-12"
             variants={heroContainer}
@@ -51,15 +49,21 @@ export default function ProjectPage() {
           >
             <motion.h1
               variants={fadeUp}
-              className="text-[#eece9c] font-sans font-bold text-4xl lg:text-8xl mt-10 lg:mt-0"
+              className="text-[#eece9c] font-sans text-center font-bold text-4xl lg:text-8xl mt-20 lg:mt-0"
             >
               Our Projects
             </motion.h1>
+            <motion.p
+              variants={fadeUp}
+              className="mt-5 lg:mt-10 lg:w-140 text-center text-xs lg:text-lg"
+            >
+              Islamabad Prime Builder is a trusted real estate developer
+              delivering premium residential and commercial projects.
+            </motion.p>
           </motion.div>
         </div>
       </div>
 
-      {/* Projects Grid */}
       <div className="relative top-[-40] lg:top-[-100] bg-white rounded-3xl lg:rounded-[60] px-4 lg:px-8 pt-12">
         <motion.hr
           className="border-gray-700 mt-5 lg:mt-10"
@@ -69,7 +73,6 @@ export default function ProjectPage() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           style={{ transformOrigin: "left" }}
         />
-
         <motion.div
           className="mx-auto gap-6 grid grid-cols-1 lg:grid-cols-2 mt-13 lg:mt-25 mb-30"
           variants={stagger}
