@@ -8,7 +8,7 @@ export const projects = [
     mapUrl:
       "https://www.google.com/maps?q=Plot%20%23%205,%20Kunwar%20TopCity-1,%20Sahara%20Kashmir%20Rd,%20Islamabad&output=embed",
     title: "Prime Mall",
-    image: "/images/P1.webp",
+    image: "/images/p1.webp",
 
     projectType: "Commercial",
     floor: "8",
