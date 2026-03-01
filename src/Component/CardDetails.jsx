@@ -6,7 +6,11 @@ import {
   HiOutlineCalendarDays,
   HiOutlineBuildingOffice2,
   HiOutlineCircleStack,
-  HiOutlineBuildingLibrary
+  HiOutlineBuildingOffice,
+  HiOutlineShoppingBag,
+  HiOutlineHomeModern,
+  HiOutlineCake,
+  HiOutlineHome,
 } from "react-icons/hi2";
 
 const fadeUp = {
@@ -23,7 +27,40 @@ const stagger = {
   show: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
 };
 
+const shouldShow = (value) => {
+  if (value === null || value === undefined) return false;
+  if (typeof value === "number") return value !== 0;
+  if (typeof value === "string") {
+    const v = value.trim();
+    if (v === "") return false;
+    const n = Number(v);
+    if (!Number.isNaN(n) && n === 0) return false;
+    return true;
+  }
+  return true;
+};
+
 export default function CardDetails({ project, InfoItem }) {
+  const infoItems = [
+    { icon: HiOutlineCircleStack, label: "Status", value: project.status },
+    {
+      icon: HiOutlineBuildingOffice2,
+      label: "Project Type",
+      value: project.projectType,
+    },
+    { icon: HiOutlineBuildingOffice2, label: "Floors", value: project.floor },
+    { icon: HiOutlineBuildingOffice, label: "Offices", value: project.offices },
+    { icon: HiOutlineShoppingBag, label: "Shops", value: project.shopes },
+    { icon: HiOutlineHomeModern, label: "Studios", value: project.studios },
+    { icon: HiOutlineCake, label: "Restaurants", value: project.restaurant },
+    { icon: HiOutlineHome , label: "Bedrooms", value: project.bedrooms },
+    {
+      icon: HiOutlineCalendarDays,
+      label: "Commencement date",
+      value: project.commencementDate,
+    },
+  ].filter((item) => shouldShow(item.value));
+
   return (
     <motion.div
       className="pt-14 px-10"
@@ -34,7 +71,9 @@ export default function CardDetails({ project, InfoItem }) {
     >
       <motion.div variants={fadeUp} className="flex items-center gap-3">
         <HiLocationMarker className="text-xl lg:text-3xl text-lime-300" />
-        <p className="font-bold text-sm lg:text-lg text-black">{project.location}</p>
+        <p className="font-bold text-sm lg:text-lg text-black">
+          {project.location}
+        </p>
       </motion.div>
 
       <motion.h1
@@ -50,36 +89,12 @@ export default function CardDetails({ project, InfoItem }) {
         variants={stagger}
         className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8"
       >
-        <motion.div variants={fadeUp}>
-          <InfoItem
-            icon={HiOutlineCircleStack}
-            label="Status"
-            value={project.status}
-          />
-        </motion.div>
-        <motion.div variants={fadeUp}>
-          <InfoItem
-            icon={HiOutlineBuildingOffice2}
-            label="Project Type"
-            value={project.projectType}
-          />
-        </motion.div>
-        <motion.div variants={fadeUp}>
-          <InfoItem
-            icon={HiOutlineBuildingLibrary}
-            label="Floors"
-            value={project.floor}
-          />
-        </motion.div>
-        <motion.div variants={fadeUp}>
-          <InfoItem
-            icon={HiOutlineCalendarDays}
-            label="Commencement date"
-            value={project.commencementDate}
-          />
-        </motion.div>
+        {infoItems.map((item) => (
+          <motion.div key={item.label} variants={fadeUp}>
+            <InfoItem icon={item.icon} label={item.label} value={item.value} />
+          </motion.div>
+        ))}
       </motion.div>
     </motion.div>
   );
 }
-

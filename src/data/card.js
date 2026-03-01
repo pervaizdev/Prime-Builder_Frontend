@@ -12,6 +12,11 @@ export const projects = [
 
     projectType: "Commercial",
     floor: "8",
+    shopes:"24",
+    offices:"84",
+    studios:null,
+    bedrooms:null,
+    restaurant:null,
     commencementDate: "20 Aug, 2020",
 
     description: [
@@ -46,9 +51,11 @@ export const projects = [
         { id: "p4", src: "/images/m9.jpg", alt: "Photo 9" },
         { id: "p5", src: "/images/m10.jpg", alt: "Photo 10" },
       ],
-      plans: [{ id: "pl1", src: "/images/mp1.png", alt: "Plan 1" }],
-      plans: [{ id: "pl2", src: "/images/mp2.png", alt: "Plan 2" }],
-      plans: [{ id: "pl3", src: "/images/mp3.png", alt: "Plan 3" }],
+      plans: [
+        { id: "pl1", src: "/images/mp1.png", alt: "Plan 1" } ,
+        { id: "pl2", src: "/images/mp2.png", alt: "Plan 2" }, 
+        { id: "pl3", src: "/images/mp3.png", alt: "Plan 3" }
+      ],
       videos: [{ id: "v1", src: "/videos/prime2.mp4" }],
     },
   },
@@ -65,6 +72,11 @@ export const projects = [
 
     projectType: "Commercial and Apartment",
     floor: "8",
+    shopes:"79",
+    offices:null,
+    studios:"36",
+    bedrooms:"24",
+    restaurant:"3",
     commencementDate: "12 Mar, 2026",
 
     description: [

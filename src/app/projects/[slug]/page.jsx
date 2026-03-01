@@ -53,7 +53,6 @@ export default function Page({ params }) {
 
   return (
     <>
-      {/* FIXED HERO BACKGROUND */}
       <div className="fixed inset-0 -z-10 h-[80vh] lg:h-[95vh] w-full">
         <Image
           src="/images/2b.jpg"
@@ -63,7 +62,6 @@ export default function Page({ params }) {
           className="object-cover"
         />
          <div className="absolute inset-0 bg-black/40 "></div>
-        {/* Overlay + centered text */}
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <motion.div
             className="px-4 lg:px-12"
@@ -93,7 +91,7 @@ export default function Page({ params }) {
       <div className="h-[35vh] lg:h-[95vh] " />
 
       {/* SCROLLING CONTENT (moves up over the fixed hero) */}
-      <div className="relative z-10 mt-[250px] lg:-mt-15 bg-white rounded-t-[35px] lg:rounded-t-[60px] px-4 lg:px-8 pb-16">
+      <div className="relative z-10 mt-62.5 lg:-mt-15 bg-white rounded-t-[35px] lg:rounded-t-[60px] px-4 lg:px-8 pb-16">
         <AnimatedSection className="pt-2">
           <CardDetails project={project} InfoItem={InfoItem} />
         </AnimatedSection>
