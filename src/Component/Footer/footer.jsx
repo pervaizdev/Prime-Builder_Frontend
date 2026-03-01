@@ -44,7 +44,7 @@ export default function FooterSection() {
     <footer className="bg-white">
       <div className="mx-auto max-w-6xl md:px-6 pb-16">
         {/* Card */}
-        
+
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -87,10 +87,15 @@ export default function FooterSection() {
             </motion.div>
 
             {/* Links */}
-            <motion.div variants={fadeUp} className="md:justify-self-center">
-              <p className="text-sm font-bold text-black mb-4">Quick Links</p>
+            <motion.div
+              variants={fadeUp}
+              className="text-center md:text-left md:justify-self-center"
+            >
+              <p className="text-sm font-bold text-black mb-4">
+                Quick Links
+              </p>
 
-              <ul className="space-y-3 text-sm text-gray-600">
+              <ul className="space-y-3 text-sm text-gray-600 flex flex-col items-center md:items-start">
                 {footerLinks.map((link) => (
                   <li key={link.name}>
                     <Link
@@ -126,20 +131,20 @@ export default function FooterSection() {
                 spaciaz@example.com
               </a>
 
-              <div className="mt-6 flex gap-3">
-  {socials.map((s, i) => (
-    <a
-      key={i}
-      href={s.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={s.label}
-      className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f5f2ea] text-black/70 hover:bg-black hover:text-white transition-all duration-300"
-    >
-      <s.icon className="text-sm" />
-    </a>
-  ))}
-</div>
+              <div className="mt-6 flex justify-center md:justify-start gap-3">
+                {socials.map((s, i) => (
+                  <a
+                    key={i}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f5f2ea] text-black/70 hover:bg-black hover:text-white transition-all duration-300"
+                  >
+                    <s.icon className="text-sm" />
+                  </a>
+                ))}
+              </div>
             </motion.div>
           </motion.div>
 

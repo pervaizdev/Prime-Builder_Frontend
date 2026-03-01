@@ -134,7 +134,7 @@ export default function ContactPage() {
 
       {/* SCROLLING CONTENT */}
       <section className="relative w-full overflow-hidden bg-white md:rounded-t-[60px] rounded-[20px] md:mt-[-60px] mt-[240px] z-10">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="max-w-7xl mx-auto px-3 md:px-12">
           <div className="grid lg:grid-cols-2 mt-20 gap-16 overflow-hidden">
             {/* LEFT — Contact Info */}
             <motion.div
@@ -203,10 +203,10 @@ export default function ContactPage() {
 
               {/* Social Links - GRID */}
               <motion.div variants={fadeUp} className="mt-12 grid gap-4">
-                <p className="text-xs font-semibold uppercase tracking-wider text-black/40 text-center lg:text-left">
+                <p className="text-xs font-semibold uppercase tracking-wider text-black/40 ">
                   Follow Us
                 </p>
-                <div className="grid grid-flow-col auto-cols-max gap-3 justify-center lg:justify-start">
+                <div className="grid grid-flow-col auto-cols-max gap-3 justify-start">
                   {socials.map((s, i) => (
                     <a
                       key={i}
@@ -362,7 +362,7 @@ export default function ContactPage() {
 
         {/* Map Section */}
         <motion.div
-          className="max-w-7xl mx-auto px-6 mt-20"
+          className="max-w-7xl mx-auto px-3 mt-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
