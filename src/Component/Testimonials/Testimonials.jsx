@@ -106,8 +106,9 @@ export default function TestimonialsSection() {
                   <Image
                     src="/images/logo.png"
                     alt="testimonial-bg"
-                    fill
-                    className="object-cover"
+                    width={100}
+                    height={100}
+                    className="absolute inset-0 m-auto h-[79%] w-[72%] object-cover"
                   />
                 </div>
               </div>

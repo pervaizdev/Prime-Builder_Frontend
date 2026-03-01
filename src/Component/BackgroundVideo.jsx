@@ -4,7 +4,7 @@ export default function BackgroundVideo({
   src,
   type = "video/mp4",
   overlay = true,
-  overlayOpacity = "bg-black/45",
+  overlayOpacity = "bg-black/35",
 }) {
   return (
     <div className="absolute inset-0 z-0">

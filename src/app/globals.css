@@ -67,6 +67,29 @@ body {
   height: 80px;
   width: 80px;
 }
+/* globals.css (or any loaded css file) */
+@keyframes shimmerText {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.shimmer-gold {
+  background: linear-gradient(
+    90deg,
+    #d4af37,
+    #f6e27a,
+    #eed498,
+    #ffffff,
+    #eed498,
+    #f6e27a,
+    #d4af37
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmerText 6s linear infinite;
+}
 
 .premium-border-glow {
   position: relative;
@@ -143,7 +166,20 @@ body {
   }
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+}
 
+::-webkit-scrollbar-track {
+  background: #111111;
+}
 
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d4af37, #b8962e);
+  border-radius: 9999px;
+  border: 2px solid #111111;
+}
 
-
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #e6c65c, #c9a227);
+}
