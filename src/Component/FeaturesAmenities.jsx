@@ -39,18 +39,10 @@ function FeatureCard({ title, desc, icon }) {
     >
       <div className="absolute left-1/2 top-0 h-27 w-27 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white" />
       <div
-        className="absolute top-[-12] left-60
-             w-8 h-14
-             border-l-15 
-             border-white
-             rounded-tl-full rotate-38"
+        className=" absolute -top-[13px] right-[124px] w-8 h-14 border-l-15 border-white rounded-tl-full rotate-38"
       />
       <div
-        className="absolute top-[-12] left-32
-             w-8 h-14
-              border-r-15
-             border-white
-             rounded-tr-full rotate-323"
+        className="absolute left-[126px] -top-[13px] w-8 h-14 border-r-15 border-white rounded-tr-full rotate-323"
       />
       <div className="absolute left-1/2 top-0 h-17 w-17 -translate-x-1/2 -translate-y-1/3 place-items-center rounded-full bg-black">
         <Icon className="text-4xl mt-4 text-[#eece9c]" />

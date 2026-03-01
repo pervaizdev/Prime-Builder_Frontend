@@ -23,12 +23,11 @@ function MediaSwiper({ items }) {
       <Swiper
         loop
         centeredSlides
-        slidesPerView="auto"
-        spaceBetween={20}
+        slidesPerView={1.25}
         observer={true}
         observeParents={true}
         autoplay={{
-          delay: 2500,
+          delay: 2800,
           disableOnInteraction: false,
         }}
         modules={[Autoplay]}
@@ -39,13 +38,13 @@ function MediaSwiper({ items }) {
             key={item.id}
             className="rounded-4xl overflow-hidden"
           >
-            <div className="relative w-full h-[490px]">
+            <div className="relative w-full h-[75vh]">
               <Image
                 src={item.src}
                 alt={item.alt || "Media"}
                 fill
+                quality={95}
                 className="object-cover"
-                sizes="(max-width: 768px) 90vw, 70vw"
                 priority
               />
             </div>
@@ -102,7 +101,7 @@ export default function ProjectMediaSection({ project }) {
       </div>
 
       {/* Content */}
-      <div className="mt-8">
+      <div className="mt-18">
         {!hasItems && (
           <div className="rounded-3xl border border-gray-200 bg-white p-8 text-black/60">
             No media available.
