@@ -22,7 +22,7 @@ const fadeUp = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -53,7 +53,7 @@ export default function Page({ params }) {
 
   return (
     <>
-      <div className="fixed inset-0 -z-10 h-[80vh] lg:h-[95vh] w-full">
+      <div className="fixed inset-0 -z-10 h-[90vh] lg:h-[95vh] w-full">
         <Image
           src="/images/2b.jpg"
           alt="Background"
@@ -88,16 +88,16 @@ export default function Page({ params }) {
       </div>
 
       {/* Spacer so content starts after hero height */}
-      <div className="h-[35vh] lg:h-[95vh] " />
+      <div className="h-[45vh] lg:h-[95vh] " />
 
       {/* SCROLLING CONTENT (moves up over the fixed hero) */}
       <div className="relative z-10 mt-62.5 lg:-mt-15 bg-white rounded-t-[35px] lg:rounded-t-[60px] px-4 lg:px-8 pb-16">
-        <AnimatedSection className="pt-2">
+        <AnimatedSection className="pt-2 container mx-auto">
           <CardDetails project={project} InfoItem={InfoItem} />
         </AnimatedSection>
 
         <div className="mx-auto px-0 lg:px-10 pt-2 md:pt-14">
-          <AnimatedImage className="relative mt-12 h-[400px] lg:h-162.5 w-full overflow-hidden rounded-[40px]">
+          <AnimatedImage className="relative container mx-auto mt-12 h-[400px] lg:h-162.5 w-full overflow-hidden rounded-[40px]">
             <Image
               src={project.image}
               alt={project.title}
@@ -107,25 +107,25 @@ export default function Page({ params }) {
             />
           </AnimatedImage>
 
-          <AnimatedSection>
+          <AnimatedSection className="container mx-auto">
             <Description project={project} />
           </AnimatedSection>
         </div>
 
         <AnimatedDivider className="border mt-15" />
 
-        <AnimatedSection>
+        <AnimatedSection className="container mx-auto">
           <FeaturesAmenities />
         </AnimatedSection>
 
         <AnimatedDivider className="border mt-15 mb-10" />
 
-        <AnimatedSection>
+        <AnimatedSection >
           <MediaSection project={project} />
         </AnimatedSection>
 
-        <AnimatedSection>
-          <Location />
+        <AnimatedSection className="container mx-auto">
+          <Location project={project}/>
         </AnimatedSection>
       </div>
     </>

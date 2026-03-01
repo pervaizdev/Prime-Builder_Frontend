@@ -14,17 +14,17 @@ import {
 } from "react-icons/hi2";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 40 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 1.0, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
 const stagger = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
+  show: { transition: { staggerChildren: 0.2, delayChildren: 0.3 } },
 };
 
 const shouldShow = (value) => {

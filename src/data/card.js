@@ -6,17 +6,17 @@ export const projects = [
     availability: "Booking Available",
     location: "TopCity-1",
     mapUrl:
-      "https://www.google.com/maps?q=Plot%20%23%205,%20Kunwar%20TopCity-1,%20Sahara%20Kashmir%20Rd,%20Islamabad&output=embed",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.8757274976506!2d72.85799887445984!3d33.58257574238622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df99451f7f9ac7%3A0xd5f412e595daa5b9!2sPrime%20Mall!5e0!3m2!1sen!2s!4v1772365007240!5m2!1sen!2s",
     title: "Prime Mall",
     image: "/images/p1.webp",
 
     projectType: "Commercial",
     floor: "8",
-    shopes:"24",
-    offices:"84",
-    studios:null,
-    bedrooms:null,
-    restaurant:null,
+    shopes: "24",
+    offices: "84",
+    studios: null,
+    bedrooms: null,
+    restaurant: null,
     commencementDate: "20 Aug, 2020",
 
     description: [
@@ -52,8 +52,8 @@ export const projects = [
         { id: "p5", src: "/images/m10.jpg", alt: "Photo 10" },
       ],
       plans: [
-        { id: "pl1", src: "/images/mp1.png", alt: "Plan 1" } ,
-        { id: "pl2", src: "/images/mp2.png", alt: "Plan 2" }, 
+        { id: "pl1", src: "/images/mp1.png", alt: "Plan 1" },
+        { id: "pl2", src: "/images/mp2.png", alt: "Plan 2" },
         { id: "pl3", src: "/images/mp3.png", alt: "Plan 3" }
       ],
       videos: [{ id: "v1", src: "/videos/prime2.mp4" }],
@@ -66,17 +66,17 @@ export const projects = [
     availability: "Booking Available",
     location: "TopCity-1",
     mapUrl:
-      "https://www.google.com/maps?q=Plot%20%23%205,%20Kunwar%20TopCity-1,%20Sahara%20Kashmir%20Rd,%20Islamabad&output=embed",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1976.3239083764277!2d72.86806109282423!3d33.585388544640914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df99451f7f9ac7%3A0xd5f412e595daa5b9!2sPrime%20Mall!5e0!3m2!1sen!2s!4v1772366366281!5m2!1sen!2s", title: "Prime Mall And Suites",
     title: "Prime Mall And Suites",
     image: "/images/top 2.jpg",
 
     projectType: "Commercial and Apartment",
     floor: "8",
-    shopes:"79",
-    offices:null,
-    studios:"36",
-    bedrooms:"24",
-    restaurant:"3",
+    shopes: "79",
+    offices: null,
+    studios: "36",
+    bedrooms: "24",
+    restaurant: "3",
     commencementDate: "12 Mar, 2026",
 
     description: [
@@ -102,7 +102,7 @@ export const projects = [
         text: "Dedicated parking, 24/7 security, gym facility, café spaces, and rooftop area for relaxation and events.",
       },
     ],
-    
+
     media: {
       photos: [
         { id: "p1", src: "/images/m1.png", alt: "Photo 1" },

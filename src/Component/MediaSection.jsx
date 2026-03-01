@@ -38,7 +38,7 @@ function MediaSwiper({ items }) {
             key={item.id}
             className="rounded-4xl overflow-hidden"
           >
-            <div className="relative w-full h-[75vh]">
+            <div className="relative w-full h-[55vh] md:h-[90vh]">
               <Image
                 src={item.src}
                 alt={item.alt || "Media"}
@@ -77,7 +77,7 @@ export default function ProjectMediaSection({ project }) {
           Media
         </h2>
 
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="grid grid-cols-3 gap-1">
           {TABS.map((tab) => {
             const isActive = activeTab === tab.key;
 
@@ -85,7 +85,7 @@ export default function ProjectMediaSection({ project }) {
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`flex items-center gap-2 rounded-full border px-6 py-3 text-sm md:text-base transition-all duration-300
+                className={`flex items-center gap-2 rounded-full border md:px-6 px-3  py-3 text-sm md:text-base transition-all duration-300
                   ${isActive
                     ? "bg-[#E6F06A] border-[#E6F06A] text-black"
                     : "bg-white border-gray-200 text-black hover:bg-gray-50"
