@@ -96,8 +96,8 @@ export default function Page({ params }) {
           <CardDetails project={project} InfoItem={InfoItem} />
         </AnimatedSection>
 
-        <div className="mx-auto px-0 lg:px-10 pt-14">
-          <AnimatedImage className="relative mt-12 h-75 lg:h-162.5 w-full overflow-hidden rounded-[40px]">
+        <div className="mx-auto px-0 lg:px-10 pt-2 md:pt-14">
+          <AnimatedImage className="relative mt-12 h-[400px] lg:h-162.5 w-full overflow-hidden rounded-[40px]">
             <Image
               src={project.image}
               alt={project.title}

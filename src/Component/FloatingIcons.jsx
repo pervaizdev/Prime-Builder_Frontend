@@ -86,7 +86,7 @@ export default function FloatingIcons() {
 
             {/* WhatsApp Icon */}
             <motion.a
-                href="https://wa.me/YOUR_NUMBER"
+                href="https://wa.me/+923705867822"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-14 h-14 bg-[#25D366] text-white rounded-full shadow-xl flex items-center justify-center hover:bg-[#128C7E] transition-colors"
