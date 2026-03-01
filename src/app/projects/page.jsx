@@ -68,7 +68,6 @@ export default function ProjectPage() {
         </div>
       </div>
 
-      {/* ✅ Content Panel scrolls ABOVE hero */}
       <div className="relative z-10 mt-[-30px] lg:-mt-16 bg-white rounded-t-3xl lg:rounded-t-[60px] px-4 lg:px-8 pt-12">   <motion.hr
         className="border-gray-700 mt-5 lg:mt-10"
         initial={{ scaleX: 0 }}
@@ -79,7 +78,7 @@ export default function ProjectPage() {
       />
 
         <motion.div
-          className="mx-auto gap-6 grid grid-cols-1 lg:grid-cols-2 mt-13 lg:mt-25 pb-30"
+          className="mx-auto container gap-6 grid grid-cols-1 lg:grid-cols-2 mt-13 lg:mt-25 pb-30"
           variants={stagger}
           initial="hidden"
           whileInView="show"

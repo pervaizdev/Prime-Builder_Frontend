@@ -42,7 +42,7 @@ const socials = [
 export default function FooterSection() {
   return (
     <footer className="bg-white">
-      <div className="mx-auto max-w-6xl px-6 pb-16">
+      <div className="mx-auto max-w-6xl md:px-6 pb-16">
         {/* Card */}
         
         <motion.div

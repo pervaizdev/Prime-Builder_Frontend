@@ -37,13 +37,12 @@ function FeatureCard({ title, desc, icon }) {
       variants={fadeUp}
       className="relative rounded-[48px] bg-linear-to-b from-[#f5f2ea] to-white px-8 pb-10 pt-20 text-center"
     >
-      <div className="absolute left-1/2 top-0 h-27 w-27 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white" />
-      <div
+      {/* <div
         className=" absolute -top-[13px] right-[124px] w-8 h-14 border-l-15 border-white rounded-tl-full rotate-38"
       />
       <div
-        className="absolute left-[126px] -top-[13px] w-8 h-14 border-r-15 border-white rounded-tr-full rotate-323"
-      />
+        className="absolute left-[141px] -top-[13px] w-8 h-14 border-r-15 border-white rounded-tr-full rotate-323"
+      /> */}
       <div className="absolute left-1/2 top-0 h-17 w-17 -translate-x-1/2 -translate-y-1/3 place-items-center rounded-full bg-black">
         <Icon className="text-4xl mt-4 text-[#eece9c]" />
       </div>
@@ -55,7 +54,7 @@ function FeatureCard({ title, desc, icon }) {
 
 export default function FeaturesAmenities() {
   return (
-    <div className="mt-20 mb-25 px-6">
+    <div className="mt-20 mb-25 md:px-6">
       <motion.h2
         className="text-3xl lg:text-6xl font-bold font-sans text-black"
         initial={{ opacity: 0, y: 28 }}
