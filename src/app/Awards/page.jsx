@@ -3,6 +3,7 @@
 import AwardSection from "@/Component/AwardSection";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import FooterSection from "@/Component/Footer/footer";
 
 export default function Page() {
   return (
@@ -18,7 +19,7 @@ export default function Page() {
         />
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/50" />
 
         {/* Hero Content */}
         <div className="absolute inset-0 flex items-center justify-center px-4">
@@ -43,6 +44,7 @@ export default function Page() {
         <hr className="border-gray-200 mt-4 lg:mt-6" />
         <AwardSection />
       </div>
+      <FooterSection />
     </>
   );
 }
