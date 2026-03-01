@@ -63,7 +63,7 @@ export default function CardDetails({ project, InfoItem }) {
 
   return (
     <motion.div
-      className="pt-14 px-10"
+      className="pt-14 md:px-10 px-2"
       variants={stagger}
       initial="hidden"
       whileInView="show"

@@ -122,7 +122,7 @@ export default function ProjectMediaSection({ project }) {
                 <video
                   src={video.src}
                   controls
-                  className="w-full h-[300px] md:h-[560px] object-cover"
+                  className="w-full h-[550px] md:h-[560px] object-cover"
                 />
                 {video.title && (
                   <div className="px-5 py-4 bg-white">
