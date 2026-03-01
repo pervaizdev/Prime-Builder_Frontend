@@ -111,10 +111,9 @@ export default function CallBackSection() {
                   <br />
                   Required fields are marked *
                 </p>
-
                 <button
                   type="submit"
-                  className="flex items-center gap-3 rounded-full bg-lime-400 px-6 py-3 text-xs font-bold transition hover:brightness-95 active:scale-95"
+                  className="flex mx-auto md:mx-0 mt-5 md:mt-1 items-center gap-3 rounded-full bg-lime-400 px-6 py-3 text-xs font-bold transition hover:brightness-95 active:scale-95"
                 >
                   Get A Call Back
                   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white">
