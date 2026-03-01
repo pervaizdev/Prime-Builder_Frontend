@@ -10,6 +10,7 @@ import {
 } from "react-icons/hi2";
 import { FaInstagram, FaYoutube } from "react-icons/fa6";
 import { MdArrowOutward } from "react-icons/md";
+import FooterSection from "@/Component/Footer/footer";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -129,9 +130,9 @@ export default function ContactPage() {
             <div className="h-[35vh] lg:h-[98vh]" />
 
             {/* SCROLLING CONTENT (comes up over the fixed hero) */}
-            <section className="relative w-full overflow-hidden bg-white md:rounded-t-[60px] rounded-[20px] py-20 md:mt-[-60px] mt-[240px] z-10">
+            <section className="relative w-full overflow-hidden bg-white md:rounded-t-[60px] rounded-[20px] md:mt-[-60px] mt-[240px] z-10 ">
                 <div className="max-w-7xl mx-auto md:px-6 px-2">
-                    <div className="grid lg:grid-cols-2 gap-16 overflow-hidden">
+                    <div className="grid lg:grid-cols-2 mt-20 gap-16 overflow-hidden">
                         {/* LEFT — Contact Info */}
                         <motion.div
                             variants={stagger}
@@ -355,18 +356,23 @@ export default function ContactPage() {
                     <div className="rounded-[36px] overflow-hidden border border-black/5 shadow-xl">
                         <iframe
                             title="Office Location"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212645.14578896075!2d72.92788802665815!3d33.61611420261498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbfd07891722f%3A0x6059515c3b81ed23!2sIslamabad%2C%20Islamabad%20Capital%20Territory%2C%20Pakistan!5e0!3m2!1sen!2s!4v1708900000000!5m2!1sen!2s"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26595.436048159278!2d72.84856047198296!3d33.56819590273364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df998e5f671345%3A0x6f40e2c6825fd531!2sTopCity-1%D8%8C%20Kashmir%20Highway%20Near%20New%20Islamabad%20Airport%2C%20Street%2016%2C%20Pakistan!5e0!3m2!1sen!2s!4v1772316751850!5m2!1sen!2s"
                             width="100%"
                             height="400"
                             style={{ border: 0 }}
-                            allowFullScreen=""
+                            allowFullScreen
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
                             className="w-full"
+                            
                         />
                     </div>
                 </motion.div>
+
+             <div className="mt-20">   <FooterSection /></div>
+            
             </section>
+            
         </div>
     );
 }

@@ -1,6 +1,8 @@
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import Navbar from "@/Component/Navbar/navbar";
+import FloatingIcons from "@/Component/FloatingIcons";
+
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -24,7 +26,7 @@ export default function RootLayout({ children }) {
       <body className={`${poppins.className} antialiased bg-white`}>
         <Navbar />
         {children}
-
+        <FloatingIcons />
       </body>
     </html>
   );
