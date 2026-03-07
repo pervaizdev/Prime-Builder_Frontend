@@ -8,13 +8,16 @@ import Cards from "@/Component/Common/Cards/homecard";
 import HeroSection from "@/Component/HeroSection/HeroSection";
 import cardData from "@/data/cardData";
 import WeAre from "@/Component/Whoweare/weare";
-import Services from "@/Component/OurServices/servicespage";
 import DifferentSection from "@/Component/DifferentSection/DifferentSection";
 import TestimonialsSection from "@/Component/Testimonials/Testimonials";
 import ClientsSwiper from "@/Component/Swiper/ClientsSwiper";
 import Team from "@/Component/Team/Team";
 import CallBackSection from "@/Component/CallBackSection/callbacksection";
 import FooterSection from "@/Component/Footer/footer";
+import Services from "@/Component/OurServices/servicespage";
+import WhoWeAreStats from "@/Component/Whoweare/WhoWeAreStats";
+import FeaturesProjects from "@/Component/FeaturesProjects";
+import {projects} from "@/data/card.js";
 
 function Intro({ onDone }) {
   const logo = useAnimation();
@@ -43,7 +46,6 @@ function Intro({ onDone }) {
         },
       });
 
-
       await logo.start({
         scale: 6,
         opacity: 0,
@@ -53,7 +55,6 @@ function Intro({ onDone }) {
           ease: [0.22, 1, 0.36, 1],
         },
       });
-
 
       await new Promise((r) => setTimeout(r, 80));
 
@@ -109,16 +110,29 @@ export default function HomePage() {
           </section>
 
           {/* REST OF PAGE (relative z-10 puts these blocks ON TOP of the sticky video) */}
-          <div className="relative z-10">
+          <div className="relative z-10 bg-white">
             <WeAre />
             <Services />
-            <DifferentSection />
-            <TestimonialsSection />
+             <h1 className="text-5xl text-black py-15 bg-white font-bold text-center">Features Projects</h1>
+            <div
+              className="container mx-auto px-30 bg-white gap-6 grid grid-cols-1 lg:grid-cols-2 pb-30"
+            >
+             
+              {projects.map((item) => (
+                <motion.div key={item.id}>
+                  <FeaturesProjects item={item} />
+                </motion.div>
+              ))}
+            </div>
+            <WhoWeAreStats />
+            {/* <DifferentSection /> */}
             <ClientsSwiper />
-            <Team />
+            <TestimonialsSection />
+            
+            {/* <Team /> */}
             <CallBackSection />
             <FooterSection />
-          </div>  
+          </div>
         </motion.div>
       )}
     </div>

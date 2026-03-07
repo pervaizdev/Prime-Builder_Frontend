@@ -38,7 +38,7 @@ export default function WhoWeAreStats() {
 
   return (
     <motion.div
-      className="mt-30 grid gap-8 lg:grid-cols-12"
+      className="container mx-auto grid gap-8 lg:grid-cols-12 px-6"
       variants={container}
       initial="hidden"
       whileInView="show"

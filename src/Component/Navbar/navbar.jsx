@@ -11,6 +11,8 @@ const NAV_ITEMS = [
   { name: "Home", path: "/" },
   { name: "Projects", path: "/projects" },
   { name: "Awards", path: "/awards" },
+  { name: "Services", path: "/services" },
+  { name: "About Us", path: "/about" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -20,6 +22,8 @@ export default function Navbar() {
   const isTransparentNavbar =
     isHome ||
     pathname === "/projects" ||
+     pathname === "/services" ||
+      pathname === "/about" ||
     pathname === "/contact" ||
     pathname === "/awards" ||
     pathname.startsWith("/projects/");

@@ -41,14 +41,14 @@ export default function HeroSection() {
     >
       {/* Headline */}
       <motion.h1
-        className="mt-70 text-4xl font-extrabold leading-tight shimmer-gold drop-shadow-[0_0_14px_rgba(238,212,152,0.45)] sm:text-6xl lg:text-7xl"
+        className="mt-65 text-3xl font-extrabold leading-tight shimmer-gold drop-shadow-[0_0_14px_rgba(238,212,152,0.45)] sm:text-6xl lg:text-7xl"
         variants={fadeUp}
       >
-        Islamabad
+        Islamabad 
       </motion.h1>
 
       <motion.h1
-        className="text-4xl font-extrabold leading-tight shimmer-gold drop-shadow-[0_0_14px_rgba(238,212,152,0.45)] sm:text-6xl lg:text-7xl"
+        className="text-3xl font-extrabold leading-tight shimmer-gold drop-shadow-[0_0_14px_rgba(238,212,152,0.45)] sm:text-6xl lg:text-7xl"
         variants={fadeUp}
       >
         Prime Builder
@@ -59,9 +59,7 @@ export default function HeroSection() {
         className="max-w-3xl text-base mt-6 font-semibold text-[#FFFFFFB3] sm:text-lg lg:text-xl"
         variants={fadeUp}
       >
-        At Islamabad Prime Builders, we’re a passionate team that genuinely
-        cares about the impact of what we build focusing on quality,
-        sustainability, and creating spaces that serve generations to come.
+        Build Your Dream Project With Confidence
       </motion.p>
 
       {/* Divider */}

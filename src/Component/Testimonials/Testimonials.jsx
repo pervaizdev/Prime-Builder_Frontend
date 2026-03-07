@@ -1,35 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import React from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-
+import { reviews } from "@/data/reviews";
 import "swiper/css";
 import "swiper/css/navigation";
-
-const testimonials = [
-  {
-    quote:
-      "A wonderful experience! They knew what they were doing and were incredibly knowledgeable throughout the process.",
-    name: "John McConnor",
-    role: "Senior Marketing Manager",
-  },
-  {
-    quote:
-      "Professional, responsive, and highly dependable. We felt supported from start to finish.",
-    name: "Sarah Williams",
-    role: "Operations Lead",
-  },
-  {
-    quote:
-      "Excellent service and great attention to detail. The result exceeded expectations.",
-    name: "Michael Brown",
-    role: "Product Owner",
-  },
-];
 
 export default function TestimonialsSection() {
   const prevRef = useRef(null);
@@ -40,7 +19,6 @@ export default function TestimonialsSection() {
     setMounted(true);
   }, []);
 
-  // ✅ Animate BOTH curve + beige section as ONE (no gap)
   const blockFadeUp = {
     hidden: { opacity: 0, y: 50 },
     show: {
@@ -51,8 +29,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="relative z-10 bg-white overflow-visible text-black border-none">
-      {/* ✅ ONE animation wrapper for both parts */}
+    <section className="relative z-10 overflow-visible border-none bg-white text-black">
       <motion.div
         variants={blockFadeUp}
         initial="hidden"
@@ -60,70 +37,28 @@ export default function TestimonialsSection() {
         viewport={{ once: true, amount: 0.2 }}
         className="bg-white"
       >
-        {/* Curve / SVG part */}
-        <div className="relative bg-white w-full h-[140px] p-[100px]">
+        {/* top curve only */}
+        <div className="relative h-[120px] w-full bg-white">
           <svg
-            className="hidden md:block absolute bottom-[-41px] left-0 w-full z-10"
+            className="absolute bottom-[-41px] left-0 z-10 hidden w-full md:block"
             viewBox="0 0 1440 140"
             preserveAspectRatio="none"
             xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0,0 L1440,0 L1440,100 Q1080,100 880,100 C800,100 780,140 720,140 C660,140 640,100 560,100 Q340,100 0,100 Z"
-              fill="white"
-            />
-            <path
-              d="M0,100 Q360,100 560,100 C640,100 660,140 720,140 C780,140 800,100 880,100 Q1080,100 1440,100 L1440,140 L0,140 Z"
-              fill="#f4efe7"
-            />
-          </svg>
-
-          {/* Rotating Badge */}
-          <div className="absolute left-1/2 bottom-[-25px] -translate-x-1/2 z-20">
-            <div className="relative w-[150px] h-[150px]">
-              <motion.svg
-                viewBox="0 0 200 200"
-                className="absolute inset-0 w-full h-full z-10"
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
-                style={{ transformOrigin: "50% 50%" }}
-              >
-                <defs>
-                  <path
-                    id="circlePath"
-                    d="M 100,100 m -85,0 a 85,85 0 1,1 170,0 a 85,85 0 1,1 -170,0"
-                  />
-                </defs>
-                <text fill="#111" fontSize="12" fontWeight="700" letterSpacing="2">
-                  <textPath href="#circlePath" startOffset="50%" textAnchor="middle">
-                    • Islamabad Prime Builders• Islamabad Prime Builders• Islamabad•
-                  </textPath>
-                </text>
-              </motion.svg>
-
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[110px] h-[110px] rounded-full overflow-hidden relative border-4 border-white bg-black shadow-xl">
-                  <Image
-                    src="/images/logo.png"
-                    alt="testimonial-bg"
-                    width={100}
-                    height={100}
-                    className="absolute inset-0 m-auto h-[79%] w-[72%] object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+          ></svg>
         </div>
 
-        {/* Beige panel (same as your layout) */}
-        <div className="bg-gradient-to-b from-[#f4efe7] from-40% to-white to-100% px-6 md:mt-0 mt-20 md:pb-24 pb-16 pt-20 md:px-12 relative">
+        {/* review slider */}
+        <div className="relative bg-gradient-to-b from-[#f4efe7] from-40% to-white to-100% px-6 pb-16 pt-16 md:px-12 md:pb-24">
           {mounted && (
             <Swiper
               modules={[Navigation, Autoplay]}
               navigation={{
-                prevEl: prevRef.current,
-                nextEl: nextRef.current,
+                prevEl: prevRef?.current,
+                nextEl: nextRef?.current,
+              }}
+              onBeforeInit={(swiper) => {
+                swiper.params.navigation.prevEl = prevRef.current;
+                swiper.params.navigation.nextEl = nextRef.current;
               }}
               autoplay={{
                 delay: 3000,
@@ -133,18 +68,45 @@ export default function TestimonialsSection() {
               loop={true}
               className="w-full"
             >
-              {testimonials.map((t, idx) => (
-                <SwiperSlide key={idx}>
-                  <div className="max-w-4xl mx-auto text-center flex flex-col items-center justify-center">
-                    <p className="text-black font-bold text-2xl md:text-3xl leading-snug md:leading-relaxed">
-                      "{t.quote}"
-                    </p>
+              {reviews.map((review) => (
+                <SwiperSlide key={review.id}>
+                  <div className="mx-auto flex justify-center">
+                    <div className="w-full max-w-3xl bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+                      {/* Header */}
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-200 text-sm font-bold text-gray-700">
+                          {review.avatar}
+                        </div>
 
-                    <div className="mt-12">
-                      <p className="text-black font-bold text-lg uppercase tracking-wider">
-                        {t.name}
+                        <div>
+                          <p className="font-semibold text-gray-900">
+                            {review.name}
+                          </p>
+
+                          <p className="text-xs text-gray-500 mt-1">
+                            {review.reviewsCount} reviews · {review.photosCount}{" "}
+                            photos
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Stars + time */}
+                      <div className="flex items-center gap-2 mt-3">
+                        <div className="flex text-yellow-400 text-sm">
+                          {Array.from({ length: review.rating }).map((_, i) => (
+                            <span key={i}>★</span>
+                          ))}
+                        </div>
+
+                        <span className="text-xs text-gray-500">
+                          {review.time}
+                        </span>
+                      </div>
+
+                      {/* Comment */}
+                      <p className="text-gray-700 text-start text-sm mt-4">
+                        {review.comment}
                       </p>
-                      <p className="text-gray-600 text-sm mt-2 font-medium">{t.role}</p>
                     </div>
                   </div>
                 </SwiperSlide>
@@ -152,14 +114,10 @@ export default function TestimonialsSection() {
             </Swiper>
           )}
 
-          {/* Your arrows unchanged */}
           <button
             ref={prevRef}
-            className="hidden md:flex items-center justify-center
-              w-12 h-12 rounded-full bg-white text-black shadow
-              absolute left-10 top-[35%] -translate-y-1/2 z-20
-              hover:bg-black hover:text-white transition cursor-pointer"
-            aria-label="Previous testimonial"
+            className="absolute left-4 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow transition hover:bg-black hover:text-white md:flex"
+            aria-label="Previous review"
             type="button"
           >
             <FiChevronLeft size={22} />
@@ -167,11 +125,8 @@ export default function TestimonialsSection() {
 
           <button
             ref={nextRef}
-            className="hidden md:flex items-center justify-center
-              w-12 h-12 rounded-full bg-white text-black shadow
-              absolute right-10 top-[35%] -translate-y-1/2 z-20
-              hover:bg-black hover:text-white transition cursor-pointer"
-            aria-label="Next testimonial"
+            className="absolute right-4 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow transition hover:bg-black hover:text-white md:flex"
+            aria-label="Next review"
             type="button"
           >
             <FiChevronRight size={22} />

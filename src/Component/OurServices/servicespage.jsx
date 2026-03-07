@@ -1,100 +1,80 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import * as Icons from "lucide-react";
 import { servicesData } from "@/data/servicesData";
+import Link from "next/link";
 
 export default function ServicesPage() {
-  // Small bottom -> up + fade in
-  const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1.2,
-        ease: [0.16, 1, 0.3, 1],
-      },
-    },
-  };
+  const pathname = usePathname();
+  const isServicesPage = pathname === "/services";
 
-  const staggerContainer = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.15,
-      },
-    },
-  };
+  const displayServices = isServicesPage
+    ? servicesData
+    : servicesData.slice(0, 3);
 
   return (
-    <div className="bg-white overflow-hidden">
+    <div className="bg-white max-auto overflow-hidden">
       {/* Heading */}
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
-        className="max-w-5xl mx-auto px-6 text-center"
-      >
-        <h2 className="text-3xl md:text-5xl mt-16 font-extrabold text-black leading-tight">
-          Take a brief look at some of
-          <br />
-          the services we offer
+      <div className="max-w-5xl mx-auto px-6 text-center">
+        <h2 className="text-3xl md:text-5xl mt-25 font-extrabold text-black leading-tight">
+          Our Services
         </h2>
-      </motion.div>
+      </div>
 
-      {/* Cards Grid */}
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.18 }}
-        className="max-w-7xl mx-auto mt-16 grid gap-8 px-6 mb-20 grid-cols-1 lg:grid-cols-3"
-      >
-        {servicesData.map((item) => {
-          const Icon = Icons[item.icon];
-
-          return (
-            <motion.div
-              key={item.id}
-              variants={fadeUp}
-              className="will-change-transform"
-            >
-              <div
-                className="group rounded-2xl bg-white border border-gray-100 shadow-sm
-                           hover:shadow-md hover:border-yellow-300
-                           transition-all duration-300 ease-out
-                           p-8 transform hover:scale-105"
+      <div className="mt-15 px-6 container mx-auto">
+        {/* Button (only show if NOT on /services page) */}
+        {!isServicesPage && (
+          <div className="flex justify-end mb-6">
+            <Link href="/services">
+              <button
+                className="px-6 py-3 rounded-xl bg-gray-900 text-white font-medium
+                 hover:bg-yellow-400 hover:text-gray-900
+               transition-all duration-300"
               >
-                <div className="flex flex-col items-center text-center">
-                  {/* Icon */}
-                  {Icon && (
-                    <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-900 text-white transition-transform duration-300">
-                      <Icon className="h-7 w-7" />
-                    </div>
-                  )}
+                View Services
+              </button>
+            </Link>
+          </div>
+        )}
 
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-gray-900">
-                    {item.title}
-                  </h3>
+        {/* Cards */}
+        <div className="grid gap-8 mb-20 grid-cols-1 lg:grid-cols-3 container mx-auto">
+          {displayServices.map((item) => {
+            const Icon = Icons[item.icon];
 
-                  {/* Expanding Line */}
-                  <div className="mt-4 h-[2px] w-10 bg-yellow-400 transition-all duration-300 group-hover:w-20" />
+            return (
+              <div key={item.id}>
+                <div
+                  className="group rounded-2xl bg-white border border-gray-100 shadow-sm
+                  hover:shadow-md hover:border-yellow-300
+                  transition-all duration-300 ease-out
+                  p-8 transform hover:scale-105"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    {Icon && (
+                      <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gray-900 text-white">
+                        <Icon className="h-7 w-7" />
+                      </div>
+                    )}
 
-                  {/* Description */}
-                  <p className="mt-4 text-sm text-gray-600">
-                    {item.description}
-                  </p>
+                    <h3 className="text-xl font-bold text-gray-900">
+                      {item.title}
+                    </h3>
+
+                    <div className="mt-4 h-[2px] w-10 bg-yellow-400 transition-all duration-300 group-hover:w-20" />
+
+                    <p className="mt-4 text-sm text-gray-600">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </motion.div>
-          );
-        })}
-      </motion.div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }

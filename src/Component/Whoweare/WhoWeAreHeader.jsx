@@ -8,7 +8,7 @@ import AnimatedLines from "./AnimatedLines";
 export default function WhoWeAreHeader({ container, fadeUp, fadeUpSlow }) {
   return (
     <motion.div
-      className="grid items-start md:grid-cols-[400px_1fr] " 
+      className="grid items-start md:grid-cols-[400px_1fr] "
       variants={container}
       initial="hidden"
       whileInView="show"
@@ -30,53 +30,17 @@ export default function WhoWeAreHeader({ container, fadeUp, fadeUpSlow }) {
           variants={container}
         >
           <motion.span className="block" variants={fadeUpSlow}>
-            Leaders in Strategic Real Estate Development
+            Islamabad Prime Builder Real Estate Development
           </motion.span>
         </motion.h2>
-
-        <motion.div
-          className="grid gap-10 md:grid-cols-2 mt-10 text-black"
-          variants={container}
-        >
-          {/* Vision */}
-          <motion.div variants={container}>
-            <motion.div variants={fadeUp} className="flex items-center gap-3">
-              <FaCity className="text-lg text-black" />
-              <motion.h3 variants={fadeUp} className="text-lg font-bold">
-                Strategic Development
-              </motion.h3>
-            </motion.div>
-
-            {/* Animate paragraph in lines (chunks) */}
-            <AnimatedLines
-              Tag="p"
-              variants={fadeUp}
-              className="mt-4 text-sm leading-6 text-black/70"
-              lines={[
-                "We carefully select prime locations like Top City, Islamabad, ensuring every project offers strong connectivity, accessibility, and long-term value.",
-              ]}
-            />
-          </motion.div>
-
-          {/* Mission */}
-          <motion.div variants={container}>
-            <motion.div variants={fadeUp} className="flex items-center gap-3">
-              <FaAward className="text-lg text-black" />
-              <motion.h3 variants={fadeUp} className="text-lg font-bold">
-                Commitment to Excellence
-              </motion.h3>
-            </motion.div>
-
-            <AnimatedLines
-              Tag="p"
-              variants={fadeUp}
-              className="mt-4 text-sm leading-6 text-black/70"
-              lines={[
-                "Our developments combine luxury, functionality, and modern design to create exceptional residential and commercial experiences.",
-              ]}
-            />
-          </motion.div>
-        </motion.div>
+        <p className="mt-8 text-black ">
+          Islamabad Prime Builders is a construction and development company
+          committed to delivering high-quality residential and commercial
+          projects. We combine modern design, durable construction, and
+          strategic locations to create spaces that stand out. Our focus is to
+          build developments that offer long-term value, functionality, and
+          trust.
+        </p>
       </div>
     </motion.div>
   );

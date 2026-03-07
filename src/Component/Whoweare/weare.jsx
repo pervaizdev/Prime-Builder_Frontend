@@ -2,7 +2,8 @@
 
 import React from "react";
 import WhoWeAreHeader from "./WhoWeAreHeader";
-import WhoWeAreStats from "./WhoWeAreStats";
+
+
 
 export default function WeAre() {
     const container = {
@@ -45,11 +46,7 @@ export default function WeAre() {
                     fadeUpSlow={fadeUpSlow}
                 />
 
-                <WhoWeAreStats
-                    container={container}
-                    fadeUp={fadeUp}
-                    fadeUpSlow={fadeUpSlow}
-                />
+                
             </div>
         </div>
     );

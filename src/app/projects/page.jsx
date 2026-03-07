@@ -93,7 +93,6 @@ export default function ProjectPage() {
         <FooterSection />
       </div>
 
-
     </>
   );
 }
