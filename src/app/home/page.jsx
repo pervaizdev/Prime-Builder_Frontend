@@ -8,13 +8,16 @@ import Cards from "@/Component/Common/Cards/homecard";
 import HeroSection from "@/Component/HeroSection/HeroSection";
 import cardData from "@/data/cardData";
 import WeAre from "@/Component/Whoweare/weare";
-import Services from "@/Component/OurServices/servicespage";
 import DifferentSection from "@/Component/DifferentSection/DifferentSection";
 import TestimonialsSection from "@/Component/Testimonials/Testimonials";
 import ClientsSwiper from "@/Component/Swiper/ClientsSwiper";
 import Team from "@/Component/Team/Team";
 import CallBackSection from "@/Component/CallBackSection/callbacksection";
 import FooterSection from "@/Component/Footer/footer";
+import Services from "@/Component/OurServices/servicespage";
+import WhoWeAreStats from "@/Component/Whoweare/WhoWeAreStats";
+import FeaturesProjects from "@/Component/FeaturesProjects";
+import { projects } from "@/data/card.js";
 
 function Intro({ onDone }) {
   const logo = useAnimation();
@@ -43,7 +46,6 @@ function Intro({ onDone }) {
         },
       });
 
-
       await logo.start({
         scale: 6,
         opacity: 0,
@@ -53,7 +55,6 @@ function Intro({ onDone }) {
           ease: [0.22, 1, 0.36, 1],
         },
       });
-
 
       await new Promise((r) => setTimeout(r, 80));
 
@@ -94,7 +95,6 @@ export default function HomePage() {
       <AnimatePresence mode="wait">
         {!introDone && <Intro onDone={() => setIntroDone(true)} />}
       </AnimatePresence>
-
       {introDone && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -102,23 +102,31 @@ export default function HomePage() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="relative"
         >
-          {/* HERO AREA (Made sticky so the video stays fixed behind the scrolling page) */}
-          <section className="sticky top-[0px] h-[100vh] w-full overflow-hidden z-0">
+          <div className="sticky top-0 h-screen w-full overflow-hidden z-0">
             <BackgroundVideo src="/videos/PrimeMall.webm" />
             <HeroSection />
-          </section>
-
-          {/* REST OF PAGE (relative z-10 puts these blocks ON TOP of the sticky video) */}
-          <div className="relative z-10">
+          </div>
+          <div className="relative z-10 bg-white rounded-4xl">
             <WeAre />
             <Services />
-            <DifferentSection />
-            <TestimonialsSection />
+            <h1 className="text-3xl lg:text-5xl text-black py-12 bg-white font-bold text-center">
+              Features Projects
+            </h1>
+            <div className="container mx-auto px-30 bg-white gap-6 grid grid-cols-1 lg:grid-cols-2 pb-30 justify-items-center">
+              {projects.map((item, index) => (
+                <motion.div key={item.id}>
+                  <FeaturesProjects item={item} index={index} />
+                </motion.div>
+              ))}
+            </div>
+            <WhoWeAreStats />
+            {/* <DifferentSection /> */}
             <ClientsSwiper />
-            <Team />
+            <TestimonialsSection />
+            {/* <Team /> */}
             <CallBackSection />
             <FooterSection />
-          </div>  
+          </div>
         </motion.div>
       )}
     </div>

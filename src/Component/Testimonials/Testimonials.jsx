@@ -1,183 +1,175 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { Pagination, Autoplay } from "swiper/modules";
+import { reviews } from "@/data/reviews";
 
 import "swiper/css";
-import "swiper/css/navigation";
-
-const testimonials = [
-  {
-    quote:
-      "A wonderful experience! They knew what they were doing and were incredibly knowledgeable throughout the process.",
-    name: "John McConnor",
-    role: "Senior Marketing Manager",
-  },
-  {
-    quote:
-      "Professional, responsive, and highly dependable. We felt supported from start to finish.",
-    name: "Sarah Williams",
-    role: "Operations Lead",
-  },
-  {
-    quote:
-      "Excellent service and great attention to detail. The result exceeded expectations.",
-    name: "Michael Brown",
-    role: "Product Owner",
-  },
-];
+import "swiper/css/pagination";
 
 export default function TestimonialsSection() {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // ✅ Animate BOTH curve + beige section as ONE (no gap)
-  const blockFadeUp = {
-    hidden: { opacity: 0, y: 50 },
+  const sectionFadeUp = {
+    hidden: {
+      opacity: 0,
+      y: 70,
+    },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+      transition: {
+        duration: 1,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  };
+
+  const cardFadeUp = {
+    hidden: {
+      opacity: 0,
+      y: 80,
+      scale: 0.96,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 1.1,
+        ease: [0.16, 1, 0.3, 1],
+      },
     },
   };
 
   return (
-    <section className="relative z-10 bg-white overflow-visible text-black border-none">
-      {/* ✅ ONE animation wrapper for both parts */}
+    <section className="relative overflow-hidden bg-white py-20">
       <motion.div
-        variants={blockFadeUp}
+        variants={sectionFadeUp}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
-        className="bg-white"
+        className="container mx-auto px-6"
       >
-        {/* Curve / SVG part */}
-        <div className="relative bg-white w-full h-[140px] p-[100px]">
-          <svg
-            className="hidden md:block absolute bottom-[-41px] left-0 w-full z-10"
-            viewBox="0 0 1440 140"
-            preserveAspectRatio="none"
-            xmlns="http://www.w3.org/2000/svg"
+        <motion.h2
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-14 text-center text-4xl font-bold text-black"
+        >
+          Client Experiences
+        </motion.h2>
+
+        {mounted && (
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            slidesPerView={3}
+            centeredSlides={true}
+            spaceBetween={30}
+            loop={true}
+            autoplay={{
+              delay: 3500,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+              el: ".testimonial-pagination",
+            }}
+            breakpoints={{
+              0: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="testimonialSwiper"
           >
-            <path
-              d="M0,0 L1440,0 L1440,100 Q1080,100 880,100 C800,100 780,140 720,140 C660,140 640,100 560,100 Q340,100 0,100 Z"
-              fill="white"
-            />
-            <path
-              d="M0,100 Q360,100 560,100 C640,100 660,140 720,140 C780,140 800,100 880,100 Q1080,100 1440,100 L1440,140 L0,140 Z"
-              fill="#f4efe7"
-            />
-          </svg>
+            {reviews.map((review, index) => (
+              <SwiperSlide key={review.id}>
+                <motion.div
+                  variants={cardFadeUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.35 }}
+                  transition={{ delay: index * 0.08 }}
+                  className="testimonial-card"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-200 text-sm font-bold text-gray-700">
+                      {review.avatar}
+                    </div>
 
-          {/* Rotating Badge */}
-          <div className="absolute left-1/2 bottom-[-25px] -translate-x-1/2 z-20">
-            <div className="relative w-[150px] h-[150px]">
-              <motion.svg
-                viewBox="0 0 200 200"
-                className="absolute inset-0 w-full h-full z-10"
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
-                style={{ transformOrigin: "50% 50%" }}
-              >
-                <defs>
-                  <path
-                    id="circlePath"
-                    d="M 100,100 m -85,0 a 85,85 0 1,1 170,0 a 85,85 0 1,1 -170,0"
-                  />
-                </defs>
-                <text fill="#111" fontSize="12" fontWeight="700" letterSpacing="2">
-                  <textPath href="#circlePath" startOffset="50%" textAnchor="middle">
-                    • Islamabad Prime Builders• Islamabad Prime Builders• Islamabad•
-                  </textPath>
-                </text>
-              </motion.svg>
-
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[110px] h-[110px] rounded-full overflow-hidden relative border-4 border-white bg-black shadow-xl">
-                  <Image
-                    src="/images/logo.png"
-                    alt="testimonial-bg"
-                    width={100}
-                    height={100}
-                    className="absolute inset-0 m-auto h-[79%] w-[72%] object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Beige panel (same as your layout) */}
-        <div className="bg-gradient-to-b from-[#f4efe7] from-40% to-white to-100% px-6 md:mt-0 mt-20 md:pb-24 pb-16 pt-20 md:px-12 relative">
-          {mounted && (
-            <Swiper
-              modules={[Navigation, Autoplay]}
-              navigation={{
-                prevEl: prevRef.current,
-                nextEl: nextRef.current,
-              }}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }}
-              loop={true}
-              className="w-full"
-            >
-              {testimonials.map((t, idx) => (
-                <SwiperSlide key={idx}>
-                  <div className="max-w-4xl mx-auto text-center flex flex-col items-center justify-center">
-                    <p className="text-black font-bold text-2xl md:text-3xl leading-snug md:leading-relaxed">
-                      "{t.quote}"
-                    </p>
-
-                    <div className="mt-12">
-                      <p className="text-black font-bold text-lg uppercase tracking-wider">
-                        {t.name}
+                    <div>
+                      <p className="font-semibold text-gray-900">
+                        {review.name}
                       </p>
-                      <p className="text-gray-600 text-sm mt-2 font-medium">{t.role}</p>
+                      <p className="mt-1 text-xs text-gray-500">
+                        {review.reviewsCount} reviews · {review.photosCount} photos
+                      </p>
                     </div>
                   </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          )}
 
-          {/* Your arrows unchanged */}
-          <button
-            ref={prevRef}
-            className="hidden md:flex items-center justify-center
-              w-12 h-12 rounded-full bg-white text-black shadow
-              absolute left-10 top-[35%] -translate-y-1/2 z-20
-              hover:bg-black hover:text-white transition cursor-pointer"
-            aria-label="Previous testimonial"
-            type="button"
-          >
-            <FiChevronLeft size={22} />
-          </button>
+                  <div className="mt-3 flex items-center gap-2">
+                    <div className="flex text-sm text-yellow-400">
+                      {Array.from({ length: review.rating }).map((_, i) => (
+                        <span key={i}>★</span>
+                      ))}
+                    </div>
 
-          <button
-            ref={nextRef}
-            className="hidden md:flex items-center justify-center
-              w-12 h-12 rounded-full bg-white text-black shadow
-              absolute right-10 top-[35%] -translate-y-1/2 z-20
-              hover:bg-black hover:text-white transition cursor-pointer"
-            aria-label="Next testimonial"
-            type="button"
-          >
-            <FiChevronRight size={22} />
-          </button>
-        </div>
+                    <span className="text-xs text-gray-500">{review.time}</span>
+                  </div>
+
+                  <p className="mt-4 text-sm text-gray-700">
+                    {review.comment}
+                  </p>
+                </motion.div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
+
+        <div className="testimonial-pagination mt-10 flex justify-center gap-2"></div>
       </motion.div>
+
+      <style jsx global>{`
+        .testimonialSwiper .swiper-slide {
+          opacity: 0.4;
+          transform: scale(0.85);
+          transition: all 0.5s ease;
+        }
+
+        .testimonialSwiper .swiper-slide-active {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+
+        .testimonial-card {
+          background: white;
+          padding: 24px;
+          border-radius: 14px;
+          border: 1px solid #e5e7eb;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-pagination .swiper-pagination-bullet {
+          width: 30px;
+          height: 4px;
+          border-radius: 4px;
+          background: #d1d5db;
+          opacity: 1;
+        }
+
+        .testimonial-pagination .swiper-pagination-bullet-active {
+          background: #facc15;
+          width: 45px;
+        }
+      `}</style>
     </section>
   );
 }

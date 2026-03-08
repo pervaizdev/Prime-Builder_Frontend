@@ -3,27 +3,13 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import ProjectCard from "../../Component/Cards";
-import { projects } from "../../data/card";
 import FooterSection from "@/Component/Footer/footer";
+import CompanyStory from "@/Component/About/CompanyStory";
+import CeoMessage from "@/Component/About/CeoMessage";
+import Achievements from "@/Component/About/Achievements";
+import ConstructionProcess from "@/Component/About/ConstructionProcess";
 
-export default function ProjectPage() {
-  const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
-    },
-  };
-
-  const stagger = {
-    hidden: {},
-    show: {
-      transition: { staggerChildren: 0.08, delayChildren: 0.12 },
-    },
-  };
-
+export default function AboutPage() {
   return (
     <>
       {/* FIXED HERO (NOT SCROLLABLE) */}
@@ -50,7 +36,7 @@ export default function ProjectPage() {
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
-              Our Projects
+              About Us
             </motion.h1>
 
             <motion.p
@@ -63,8 +49,9 @@ export default function ProjectPage() {
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
-              A showcase of our completed and ongoing projects built with precision,
-              transparency, and a commitment to excellence.
+              We deliver quality real estate developments designed for modern
+              living and business needs. Our focus is on innovation,
+              transparency, and lasting value.
             </motion.p>
           </div>
         </div>
@@ -73,30 +60,14 @@ export default function ProjectPage() {
       {/* Spacer so content starts after hero height */}
       <div className="h-[35vh] lg:h-[98vh]" />
 
-      {/* SCROLLING CONTENT (comes up and hides the hero) */}
-      <div className="relative mt-[170px] lg:mt-[-90px] z-20 bg-white rounded-t-3xl lg:rounded-t-[60px] px-4 lg:px-8 pt-12">
-        <motion.hr
-          className="border-gray-700 mt-5 lg:mt-10"
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          style={{ transformOrigin: "left" }}
-        />
+      {/* This section comes up and hides hero content behind it */}
+      <div className="relative z-20 mt-[170px] lg:mt-[-90px] bg-white rounded-t-3xl lg:rounded-t-[60px] px-4 lg:px-8 pt-12">
+        <hr className="border-gray-700 mt-5 lg:mt-10" />
 
-        <motion.div
-          className="mx-auto container gap-6 grid grid-cols-1 lg:grid-cols-2 mt-13 lg:mt-25 pb-30"
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.05 }}
-        >
-          {projects.map((item) => (
-            <motion.div key={item.id} variants={fadeUp}>
-              <ProjectCard item={item} />
-            </motion.div>
-          ))}
-        </motion.div>
+        <CompanyStory />
+        <CeoMessage />
+        {/* <Achievements /> */}
+        <ConstructionProcess />
         <FooterSection />
       </div>
     </>

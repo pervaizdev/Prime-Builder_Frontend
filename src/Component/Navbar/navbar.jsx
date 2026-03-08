@@ -11,6 +11,8 @@ const NAV_ITEMS = [
   { name: "Home", path: "/" },
   { name: "Projects", path: "/projects" },
   { name: "Awards", path: "/awards" },
+  { name: "Services", path: "/services" },
+  { name: "About Us", path: "/about" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -20,16 +22,37 @@ export default function Navbar() {
   const isTransparentNavbar =
     isHome ||
     pathname === "/projects" ||
+    pathname === "/services" ||
+    pathname === "/about" ||
     pathname === "/contact" ||
     pathname === "/awards" ||
     pathname.startsWith("/projects/");
 
   const [open, setOpen] = useState(false);
+  const [scrolledMobile, setScrolledMobile] = useState(false);
 
-  // Close menu on route change (works only when pathname actually changes)
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth < 768) {
+        setScrolledMobile(window.scrollY > 600);
+      } else {
+        setScrolledMobile(false);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
 
   const closeMenu = () => setOpen(false);
 
@@ -37,7 +60,7 @@ export default function Navbar() {
     <motion.header
       id="main-navbar"
       className={[
-        "w-full z-1",
+        "w-full z-[9999] md:z-1",
         isTransparentNavbar
           ? "fixed top-0 mt-6 md:mt-10"
           : "sticky top-0 mt-0 backdrop-blur",
@@ -51,65 +74,150 @@ export default function Navbar() {
       }}
     >
       <nav className="mx-auto w-[92%] max-w-6xl">
-        <div className="premium-border-glow">
-          <div className="inner-content relative flex items-center justify-between rounded-full px-4 py-3 md:px-6 md:py-4">
-            {/* LEFT: Logo + Brand */}
-            <Link
-              href="/"
-              onClick={closeMenu}
-              className="flex items-center gap-3 min-w-0 md:min-w-[260px]"
-            >
-              <Image src="/images/logo.png" alt="Logo" width={44} height={44} />
-              <div className="leading-tight min-w-0">
-                <span className="text-sm md:text-base font-extrabold text-black tracking-tight block truncate">
-                  Islamabad Prime
-                </span>
-                <span className="text-xs md:text-sm font-bold text-gray-700 block truncate">
-                  Builder
-                </span>
-              </div>
-            </Link>
-
-            {/* CENTER: Desktop Links */}
-            <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.name}>
+        <motion.div
+          animate={
+            scrolledMobile
+              ? {
+                width: "72px",
+                borderRadius: "0px",
+              }
+              : {
+                width: "100%",
+                borderRadius: "80px",
+              }
+          }
+          transition={{
+            duration: 0.45,
+            ease: [0.22, 1, 0.36, 1],
+            borderRadius: { duration: 0.15 }
+          }}
+          className="premium-border-glow ml-auto overflow-hidden"
+        >
+          <motion.div
+            animate={
+              scrolledMobile
+                ? {
+                  border: "1px solid #111",
+                  borderRadius: "10px",
+              
+                }
+                : {
+                  paddingLeft: 16,
+                  paddingRight: 16,
+                  paddingTop: 12,
+                  paddingBottom: 12,
+                  backgroundColor: "#ffffff",
+                }
+            }
+            transition={{
+              duration: 0.45,
+              ease: [0.22, 1, 0.36, 1],
+              borderRadius: { duration: 0.15 }
+            }}
+            className="inner-content relative flex items-center justify-between md:px-6 md:py-4"
+          >
+            <AnimatePresence>
+              {!scrolledMobile && (
+                <motion.div
+                  key="full-mobile-navbar"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.25 }}
+                  className="flex w-full items-center justify-between"
+                >
+                  {/* LEFT: Logo + Brand */}
                   <Link
-                    href={item.path}
-                    className="text-sm font-semibold text-gray-900 hover:text-gray-600 transition"
+                    href="/"
+                    onClick={closeMenu}
+                    className="flex min-w-0 items-center gap-3 md:min-w-[260px]"
                   >
-                    {item.name}
+                    <Image
+                      src="/images/logo.png"
+                      alt="Logo"
+                      width={44}
+                      height={44}
+                    />
+                    <div className="min-w-0 leading-tight">
+                      <span className="block truncate text-sm font-extrabold tracking-tight text-black md:text-base">
+                        Islamabad Prime
+                      </span>
+                      <span className="block truncate text-xs font-bold text-gray-700 md:text-sm">
+                        Builder
+                      </span>
+                    </div>
                   </Link>
-                </li>
-              ))}
-            </ul>
 
-            {/* RIGHT: Desktop CTA + Mobile Hamburger */}
-            <div className="flex items-center gap-2">
-              <Link
-                href="/contact"
-                className="hidden md:inline-flex rounded-full primary-bg px-6 py-3 text-sm font-bold text-gray-900 hover:bg-lime-300 transition"
-              >
-                Get In Touch
-              </Link>
+                  {/* CENTER: Desktop Links */}
+                  <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
+                    {NAV_ITEMS.map((item) => (
+                      <li key={item.name}>
+                        <Link
+                          href={item.path}
+                          className="text-sm font-semibold text-gray-900 transition hover:text-gray-600"
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
 
-              {/* Mobile button */}
-              <button
-                type="button"
-                onClick={() => setOpen((v) => !v)}
-                className="md:hidden inline-flex items-center justify-center p-2 rounded-full text-black hover:bg-black/5 transition-colors"
-                aria-expanded={open}
-                aria-controls="mobile-menu"
-              >
-                {open ? (
-                  <HiXMark className="w-6 h-6" />
-                ) : (
-                  <HiBars3BottomRight className="w-6 h-6" />
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
+                  {/* RIGHT: Desktop CTA + Mobile Hamburger */}
+                  <div className="flex items-center gap-2">
+                    <Link
+                      href="/contact"
+                      className="hidden rounded-full primary-bg px-6 py-3 text-sm font-bold text-gray-900 transition hover:bg-lime-300 md:inline-flex"
+                    >
+                      Get In Touch
+
+                    </Link>
+
+                    <button
+                      type="button"
+                      onClick={() => setOpen((v) => !v)}
+                      className="inline-flex items-center justify-center rounded-full p-2 text-black transition-colors hover:bg-black/5 md:hidden"
+                      aria-expanded={open}
+                      aria-controls="mobile-menu"
+                    >
+                      {open ? (
+                        <HiXMark className="h-6 w-6" />
+                      ) : (
+                        <HiBars3BottomRight className="h-6 w-6" />
+                      )}
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <AnimatePresence>
+              {scrolledMobile && (
+                <motion.div
+                  key="collapsed-mobile-navbar"
+                  initial={{ opacity: 0, scale: 0.85, rotate: -8 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                  exit={{ opacity: 0, scale: 0.85, rotate: 8 }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  className="flex w-full items-center justify-center md:hidden"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpen((v) => !v)}
+                    className="inline-flex h-12 w-12 items-center justify-center rounded-none text-black transition-colors hover:bg-black/5"
+                    aria-expanded={open}
+                    aria-controls="mobile-menu"
+                  >
+                    {open ? (
+                      <HiXMark className="h-6 w-6" />
+                    ) : (
+                      <HiBars3BottomRight className="h-6 w-6" />
+                    )}
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        </motion.div>
 
         {/* Mobile Menu */}
         <AnimatePresence>
@@ -120,9 +228,9 @@ export default function Navbar() {
               animate={{ height: "auto", opacity: 1, scale: 1 }}
               exit={{ height: 0, opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="md:hidden overflow-hidden origin-top mt-2"
+              className="mt-2 origin-top overflow-hidden md:hidden"
             >
-              <div className="rounded-3xl bg-white/90 backdrop-blur-xl border border-black/5 p-4 shadow-2xl shadow-black/10">
+              <div className="rounded-3xl border border-black/5 bg-white/90 p-4 shadow-2xl shadow-black/10 backdrop-blur-xl">
                 <div className="flex flex-col gap-2">
                   {NAV_ITEMS.map((item, i) => (
                     <motion.div
@@ -132,11 +240,10 @@ export default function Navbar() {
                       exit={{ x: -10, opacity: 0 }}
                       transition={{ delay: i * 0.05 + 0.1 }}
                     >
-                      {/* ✅ Close on click even if route is the same */}
                       <Link
                         href={item.path}
                         onClick={closeMenu}
-                        className="flex items-center justify-between py-3 px-4 rounded-2xl text-base font-semibold text-gray-900 hover:bg-black/5 active:bg-black/10 transition-all"
+                        className="flex items-center justify-between rounded-2xl px-4 py-3 text-base font-semibold text-gray-900 transition-all hover:bg-black/5 active:bg-black/10"
                       >
                         {item.name}
                         <span className="opacity-30">→</span>
@@ -153,7 +260,7 @@ export default function Navbar() {
                     <Link
                       href="/contact"
                       onClick={closeMenu}
-                      className="mt-4 flex items-center justify-center rounded-2xl primary-bg px-4 py-4 text-base font-bold text-gray-900 hover:shadow-lg hover:shadow-yellow-500/20 active:scale-[0.98] transition-all"
+                      className="mt-4 flex items-center justify-center rounded-2xl primary-bg px-4 py-4 text-base font-bold text-gray-900 transition-all hover:shadow-lg hover:shadow-yellow-500/20 active:scale-[0.98]"
                     >
                       Get In Touch
                     </Link>

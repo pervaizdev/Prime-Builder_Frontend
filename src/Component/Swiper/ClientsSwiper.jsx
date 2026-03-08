@@ -33,10 +33,9 @@ export default function ClientsSwiper() {
   };
 
   return (
-    <section className="bg-white pb-16 md:pb-20">
+    <section className="bg-white mt-18 pb-16 md:pb-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="border-t border-gray-100 pt-16 md:pt-20">
-          {/* Header */}
           <motion.div
             variants={container}
             initial="hidden"
@@ -44,12 +43,7 @@ export default function ClientsSwiper() {
             viewport={{ once: true, amount: 0.3 }}
             className="text-center mb-14"
           >
-            <motion.p
-              variants={fadeUp}
-              className="text-[10px] md:text-xs font-black tracking-[0.4em] uppercase text-white inline-block bg-black px-8 py-2.5 shadow-sm  mb-10"
-            >
-              Trusted Partners
-            </motion.p>
+
 
             <motion.h2
               variants={fadeUp}
@@ -66,8 +60,6 @@ export default function ClientsSwiper() {
               every stage of development.
             </motion.p>
           </motion.div>
-
-          {/* Partner Cards */}
           <motion.div
             variants={container}
             initial="hidden"
@@ -88,7 +80,7 @@ export default function ClientsSwiper() {
                     width={160}
                     height={56}
                     unoptimized
-               className="h-14 w-auto object-contain md:grayscale md:group-hover:grayscale-0 transition-all duration-300"   />
+                    className="h-14 w-auto object-contain md:grayscale md:group-hover:grayscale-0 transition-all duration-300" />
                 </div>
 
                 <div className="w-12 h-px bg-yellow-400 group-hover:w-20 transition-all duration-300" />
@@ -103,15 +95,7 @@ export default function ClientsSwiper() {
             ))}
           </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-            viewport={{ once: true }}
-            className="mt-12 text-center text-xs text-gray-400 tracking-widest uppercase"
-          >
-            Partnering for long-term impact
-          </motion.p>
+
         </div>
       </div>
     </section>

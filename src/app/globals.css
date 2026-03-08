@@ -9,6 +9,7 @@ html,
 body {
   width: 100%;
   overflow-x: clip;
+  scroll-behavior: smooth;
 }
 body {
   color: var(--foreground);
@@ -93,7 +94,6 @@ body {
 
 .premium-border-glow {
   position: relative;
-  border-radius: 9999px;
   padding: 1.5px;            
   overflow: hidden;
   isolation: isolate;        
