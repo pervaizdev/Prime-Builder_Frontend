@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 import {
   HiOutlineEnvelope,
   HiOutlinePhone,
@@ -90,9 +91,12 @@ export default function ContactPage() {
     <div>
       {/* FIXED HERO (NOT SCROLLABLE) */}
       <section className="fixed inset-0 -z-10 h-[80vh] lg:h-[98vh] w-full">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/contact.png')" }}
+        <Image
+          src="/images/2b.jpg"
+          alt="Background"
+          fill
+          priority
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-black/70" />
 
@@ -132,8 +136,9 @@ export default function ContactPage() {
       {/* Spacer so content starts after hero height */}
       <div className="h-[35vh] lg:h-[98vh]" />
 
-      {/* SCROLLING CONTENT */}
-      <section className="relative w-full overflow-hidden bg-white md:rounded-t-[60px] rounded-[20px] md:mt-[-60px] mt-[240px] z-10">
+      {/* SCROLLING CONTENT (comes up and hides the hero) */}
+      <div className="relative z-20 mt-[170px] lg:mt-[-90px] bg-white rounded-t-3xl lg:rounded-t-[60px] px-4 lg:px-8 pt-12">
+        <hr className="border-gray-700 mt-5 lg:mt-10" />
         <div className="max-w-7xl mx-auto px-3 md:px-12">
           <div className="grid lg:grid-cols-2 mt-20 gap-16 overflow-hidden">
             {/* LEFT — Contact Info */}
@@ -386,7 +391,7 @@ export default function ContactPage() {
         <div className="mt-20">
           <FooterSection />
         </div>
-      </section>
+      </div>
     </div>
   );
 }

@@ -1,19 +1,49 @@
+"use client";
+
 import React from "react";
 import * as Icons from "lucide-react";
 import { constructionProcessData } from "@/data/constructionProcessData";
+import { motion } from "framer-motion";
 
 export default function ConstructionProcess() {
-  return (
-    <div className="container mx-auto py-16 lg:py-24">
-      <div className="text-center max-w-3xl mx-auto">
-        <p className="text-yellow-500 font-semibold tracking-[0.2em] uppercase text-sm">
-          Construction Process
-        </p>
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
 
-        <p className="mt-5 text-gray-600 leading-8">
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  return (
+    <motion.div
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.1 }}
+      className="container mx-auto py-10 lg:py-24"
+    >
+      <div className="text-center max-w-3xl mx-auto overflow-hidden">
+        <motion.p variants={fadeUp} className="text-yellow-500 font-semibold  uppercase text-4xl">
+          Construction Process
+        </motion.p>
+
+        <motion.p variants={fadeUp} className="mt-5 text-gray-600 leading-8">
           Our process is designed to ensure clarity, quality, and consistency at
           every stage, from the first idea to final project delivery.
-        </p>
+        </motion.p>
       </div>
 
       <div className="mt-12 grid grid-cols-1 lg:grid-cols-6 gap-6">
@@ -28,10 +58,11 @@ export default function ConstructionProcess() {
                 : "lg:col-span-2";
 
           return (
-            <div
+            <motion.div
+              variants={fadeUp}
               key={step.id}
               className={`
-          rounded-3xl bg-gray-50 border border-gray-200 p-6
+          rounded-3xl bg-gray-50 border border-gray-200 p-6 hover:shadow-lg hover:border-yellow-400 transition-all duration-300
         ${positionClass}
         `}
             >
@@ -50,10 +81,10 @@ export default function ConstructionProcess() {
               </h3>
 
               <p className="mt-3 text-gray-600 leading-7">{step.description}</p>
-            </div>
+            </motion.div>
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 }

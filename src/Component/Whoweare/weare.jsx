@@ -31,14 +31,14 @@ export default function WeAre() {
             y: 0,
             opacity: 1,
             transition: {
-                duration: 1.0,
+                duration: 1.2,
                 ease: [0.22, 1, 0.36, 1],
             },
         },
     };
 
     return (
-        <div className="bg-white min-h-[20vh] relative top-[-px] md:rounded-t-[60px] rounded-t-[30px] py-5">
+        <div className="bg-white relative top-0 md:rounded-t-[60px] rounded-t-[30px] py-5">
             <div className="container mx-auto lg:mt-20 mt-15 px-6">
                 <WhoWeAreHeader
                     container={container}
@@ -46,7 +46,7 @@ export default function WeAre() {
                     fadeUpSlow={fadeUpSlow}
                 />
 
-                
+
             </div>
         </div>
     );

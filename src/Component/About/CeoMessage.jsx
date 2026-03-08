@@ -1,64 +1,49 @@
+"use client";
+
 import React from "react";
-import Image from "next/image";
-import { Quote } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function CeoMessage() {
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
+  };
+
   return (
-    <div className="py-16 lg:py-10">
-      {/* <div className="grid grid-cols-1 lg:grid-cols-2">
-          <div className="p-8 sm:p-10 lg:p-10 text-black flex flex-col justify-center">
-            <div className="flex items-center gap-3 text-yellow-400">
-              <Quote className="w-8 h-8" />
-              <p className="uppercase tracking-[0.2em] text-sm font-semibold">
-                CEO Message
-              </p>
-            </div>
+    <div className="py-16 lg:py-4">
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.4 }}
+        variants={{
+          hidden: {},
+          show: { transition: { staggerChildren: 0.15 } }
+        }}
+        className="text-center leading-8"
+      >
+        <motion.h2
+          variants={fadeUp}
+          className="mt-4 text-3xl lg:text-4xl font-extrabold text-black"
+        >
+          A Message From Our Leadership
+        </motion.h2>
 
-            <h2 className="mt-4 text-3xl lg:text-4xl font-bold leading-tight">
-              A message from our leadership
-            </h2>
+        <motion.div variants={fadeUp} className="relative mx-auto mt-12 max-w-4xl px-8">
+          <span className="absolute -top-6 -left-4 text-8xl text-amber-500/20 font-serif select-none hidden md:block">"</span>
+          <p className="relative z-10 text-xl lg:text-3xl text-gray-800 leading-relaxed font-serif italic">
+            At our company, we believe real estate is not just about buildings but
+            about creating opportunities, improving lifestyles, and shaping
+            stronger communities. Every project we take on reflects our commitment
+            to quality, transparency, and long-term trust.
+          </p>
+          <span className="absolute -bottom-16 -right-4 text-8xl text-amber-500/20 font-serif rotate-180 select-none hidden md:block">"</span>
+        </motion.div>
 
-            <p className="mt-6 text-black ">
-              At our company, we believe real estate is not just about buildings
-              but about creating opportunities, improving lifestyles, and
-              shaping stronger communities. Every project we take on reflects
-              our commitment to quality, transparency, and long-term trust.
-            </p>
-
-            <p className="mt-4 text-black">
-              We continue to move forward with a clear purpose: to deliver
-              developments that combine modern design, reliable construction,
-              and meaningful value for every client.
-            </p>
-
-            <div className="mt-8">
-              <h3 className="text-xl font-bold text-yellow-400">
-                Mr. Bakhtullah Khan
-              </h3>
-              <p className="text-black mt-1">Chief Executive Officer</p>
-            </div>
-          </div>
-          <div className="relative min-h-[350px] lg:min-h-[100%]">
-            <Image
-              src="/images/2b.jpg"
-              alt="CEO"
-              fill
-              className="object-cover rounded-3xl"
-            />
-          </div>
-        </div> */}
-      <div className="text-center leading-8">
-        <h2 className="mt-4 text-3xl lg:text-4xl  font-bold text-black">
-          A message from our leadership
-        </h2>
-
-        <p className="mt-6 mx-auto text-2xl font-bold max-w-3xl text-yellow-500 ">
-          At our company, we believe real estate is not just about buildings but
-          about creating opportunities, improving lifestyles, and shaping
-          stronger communities. Every project we take on reflects our commitment
-          to quality, transparency, and long-term trust.
-        </p>
-      </div>
+        <motion.div variants={fadeUp} className="mt-14">
+          <h3 className="text-2xl font-bold text-amber-500">Mr. Bakhtullah Khan</h3>
+          <p className="text-gray-500 mt-2 uppercase tracking-widest text-sm font-semibold">Chief Executive Officer</p>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

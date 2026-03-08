@@ -4,57 +4,96 @@ import React, { useMemo, useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Autoplay } from "swiper/modules";
+import "swiper/css/pagination";
+import { Autoplay, Pagination } from "swiper/modules";
 import { FiImage, FiLayout, FiVideo } from "react-icons/fi";
 
 const TABS = [
   { key: "photos", label: "Photos", icon: <FiImage /> },
-  { key: "plans", label: "Plans", icon: <FiLayout /> },
   { key: "videos", label: "Video", icon: <FiVideo /> },
 ];
 
 function MediaSwiper({ items }) {
-  const SIDE_PEEK_PERCENT = 0.2;
-  const centerWidthPercent = (1 - SIDE_PEEK_PERCENT * 2) * 100;
-
   return (
-    // overflow-hidden here clips the side-peek slides cleanly
-    <div className="w-full pb-12 overflow-hidden">
+    <div className="w-full pb-12 overflow-visible relative">
       <Swiper
-        loop
+        loop={items.length > 1}
         centeredSlides
         slidesPerView={1.25}
+        spaceBetween={30}
         observer={true}
         observeParents={true}
         autoplay={{
-          delay: 2800,
+          delay: 3500,
           disableOnInteraction: false,
         }}
-        modules={[Autoplay]}
-        className="mySwiper"
+        pagination={{
+          clickable: true,
+          el: ".media-pagination",
+        }}
+        breakpoints={{
+          0: { slidesPerView: 1 },
+          768: { slidesPerView: 1.25 },
+        }}
+        modules={[Autoplay, Pagination]}
+        className="mediaSwiper"
       >
         {items.map((item) => (
           <SwiperSlide
             key={item.id}
             className="rounded-4xl overflow-hidden"
           >
-            <div className="relative w-full h-[55vh] md:h-[90vh]">
+            <div className="relative w-full h-[55vh] md:h-[77vh]">
               <Image
                 src={item.src}
                 alt={item.alt || "Media"}
                 fill
                 quality={95}
-                className="object-cover"
+                className="object-cover rounded-4xl"
                 priority
               />
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <div className="media-pagination mt-10 flex justify-center gap-2"></div>
+
+      <style jsx global>{`
+        .mediaSwiper {
+            padding-top: 10px;
+            padding-bottom: 20px;
+            overflow: visible !important;
+        }
+
+        .mediaSwiper .swiper-slide {
+          opacity: 0.4;
+          transform: scale(0.85);
+          transition: all 0.5s ease;
+        }
+
+        .mediaSwiper .swiper-slide-active {
+          opacity: 1;
+          transform: scale(1.02);
+        }
+
+        .media-pagination .swiper-pagination-bullet {
+          width: 30px;
+          height: 4px;
+          border-radius: 4px;
+          background: #d1d5db;
+          opacity: 1;
+          transition: all 0.3s ease;
+        }
+
+        .media-pagination .swiper-pagination-bullet-active {
+          background: #facc15;
+          width: 45px;
+        }
+      `}</style>
     </div>
   );
 }
-
 
 export default function ProjectMediaSection({ project }) {
   const [activeTab, setActiveTab] = useState("photos");
@@ -63,9 +102,8 @@ export default function ProjectMediaSection({ project }) {
 
   const content = useMemo(() => {
     if (activeTab === "photos") return { type: "images", items: media.photos };
-    if (activeTab === "plans") return { type: "images", items: media.plans };
     return { type: "videos", items: media.videos };
-  }, [activeTab, media.photos, media.plans, media.videos]);
+  }, [activeTab, media.photos, media.videos]);
 
   const hasItems = content.items && content.items.length > 0;
 
@@ -77,7 +115,7 @@ export default function ProjectMediaSection({ project }) {
           Media
         </h2>
 
-        <div className="grid grid-cols-3 gap-1">
+        <div className="grid grid-cols-2 gap-1">
           {TABS.map((tab) => {
             const isActive = activeTab === tab.key;
 
@@ -109,7 +147,7 @@ export default function ProjectMediaSection({ project }) {
         )}
 
         {hasItems && content.type === "images" && (
-          <MediaSwiper items={content.items} />
+          <MediaSwiper key={activeTab} items={content.items} />
         )}
 
         {content.type === "videos" && (

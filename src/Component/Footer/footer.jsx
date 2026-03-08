@@ -23,6 +23,8 @@ const footerLinks = [
   { name: "Home", href: "/" },
   { name: "Projects", href: "/projects" },
   { name: "Awards", href: "/awards" },
+  { name: "Services", href: "/services" },
+  { name: "About Us", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -121,14 +123,14 @@ export default function FooterSection() {
                 href="tel:+9208412345688"
                 className="block text-lg font-semibold text-black hover:opacity-80 transition"
               >
-                +92 084 123 45688
+                +92 (084) 123 - 45688
               </a>
 
               <a
-                href="mailto:spaciaz@example.com"
+                href="mailto:Info@IslamabadPrimeBuilders.com"
                 className="mt-2 inline-block text-sm font-semibold text-black underline underline-offset-4 hover:opacity-80 transition"
               >
-                spaciaz@example.com
+                Info@IslamabadPrimeBuilders.com
               </a>
 
               <div className="mt-6 flex justify-center md:justify-start gap-3">

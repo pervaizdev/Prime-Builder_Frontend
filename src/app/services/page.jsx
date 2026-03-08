@@ -1,41 +1,64 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import FooterSection from "@/Component/Footer/footer";
 import Services from "@/Component/OurServices/servicespage";
 
 export default function ServicesPage() {
   return (
     <>
-      <div className="sticky top-0 h-screen w-full">
-        <div className="relative h-full w-full">
-          <Image
-            src="/images/2b.jpg"
-            alt="Background"
-            fill
-            priority
-            className="object-cover"
-          />
+      {/* FIXED HERO (NOT SCROLLABLE) */}
+      <section className="fixed inset-0 -z-10 h-[80vh] lg:h-[98vh] w-full">
+        <Image
+          src="/images/2b.jpg"
+          alt="Background"
+          fill
+          priority
+          className="object-cover"
+        />
 
-          <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/70" />
 
-          <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-            <div className="px-4 lg:px-12">
-              <h1 className="text-white font-sans text-center font-bold text-5xl lg:text-8xl">
-                Our Services
-              </h1>
+        <div className="relative z-10 grid place-items-center h-full text-center px-4">
+          <div>
+            <motion.h1
+              className="text-white font-extrabold text-4xl sm:text-5xl lg:text-7xl leading-tight"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.9,
+                delay: 0.25,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+              Our Services
+            </motion.h1>
 
-              <p className="mt-5 lg:mt-10 max-w-3xl mx-auto text-center text-xl lg:text-lg text-white/90">
-                Our services turn ideas into powerful results using smart strategy
-                and modern technology. We deliver efficient, scalable solutions
-                tailored for every client.
-              </p>
-            </div>
+            <motion.p
+              className="mt-5 max-w-3xl text-white/70 text-base sm:text-lg mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.4,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+              Our services turn ideas into powerful results using smart strategy
+              and modern technology. We deliver efficient, scalable solutions
+              tailored for every client.
+            </motion.p>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Spacer so content starts after hero height */}
+      <div className="h-[35vh] lg:h-[98vh]" />
 
       {/* This section comes up and hides hero content behind it */}
-      <div className="relative z-20 bg-white rounded-t-3xl lg:rounded-t-[60px] px-4 lg:px-8 pt-12 -mt-10 lg:-mt-16">
+      <div className="relative mt-[170px] lg:mt-[-90px] z-20 bg-white rounded-t-3xl lg:rounded-t-[60px] px-4 lg:px-8 pt-12">
         <hr className="border-gray-700 mt-5 lg:mt-10" />
 
         <Services />
