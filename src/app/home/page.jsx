@@ -109,7 +109,7 @@ export default function HomePage() {
           <div className="relative z-10 bg-white rounded-4xl">
             <WeAre />
             <Services />
-            <h1 className="text-3xl lg:text-5xl text-black py-12 bg-white font-bold text-center">
+            <h1 className="text-4xl lg:text-5xl text-black py-16 bg-white parisienne-font text-center">
               Features Projects
             </h1>
             <div className="container mx-auto px-30 bg-white gap-6 grid grid-cols-1 lg:grid-cols-2 pb-30 justify-items-center">

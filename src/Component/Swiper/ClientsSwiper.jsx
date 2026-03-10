@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const partners = [
   {
-    name: "Islamabad Prime Builder",
+    name: "Islamabad Prime Builders",
     src: "/images/logo.png",
     description: "Building modern spaces for living, business, and investment in Islamabad.",
   },
@@ -47,7 +47,7 @@ export default function ClientsSwiper() {
 
             <motion.h2
               variants={fadeUp}
-              className="text-3xl md:text-4xl font-extrabold text-black"
+              className="text-4xl parisienne-font text-black"
             >
               Built on <span className="text-yellow-400">Strong Partnerships</span>
             </motion.h2>

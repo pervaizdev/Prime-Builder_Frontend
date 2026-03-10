@@ -183,3 +183,7 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #e6c65c, #c9a227);
 }
+
+.parisienne-font {
+  font-family: var(--font-parisienne), cursive;
+}

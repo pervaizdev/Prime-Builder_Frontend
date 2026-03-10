@@ -93,7 +93,7 @@ export default function FeaturesProjects({ item }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className={`mt-4 text-center text-3xl font-bold transition-colors ${isComingSoon
+          className={`mt-4 text-center text-3xl parisienne-font transition-colors ${isComingSoon
             ? "text-amber-500 drop-shadow-sm group-hover:text-amber-600"
             : "text-black group-hover:text-gray-700"
             }`}

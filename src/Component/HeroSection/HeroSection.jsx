@@ -33,7 +33,7 @@ export default function HeroSection() {
   return (
     <motion.div
       ref={ref}
-      className="relative z-10 mx-auto flex min-h-full max-w-6xl flex-col items-center justify-center px-4 text-center text-white"
+      className="relative z-10 mx-auto lg:mt-[-45px] flex min-h-full max-w-6xl flex-col items-center justify-center px-4 text-center text-white"
       variants={container}
       initial="hidden"
       whileInView="show"
@@ -41,28 +41,25 @@ export default function HeroSection() {
     >
       {/* Headline */}
       <motion.h1
-        className="lg:mt-65 text-5xl lg:text-7xl font-extrabold leading-tight shimmer-gold drop-shadow-[0_0_14px_rgba(238,212,152,0.45)] sm:text-7xl "
+        className="lg:mt-65 text-5xl lg:text-8xl font-bold shimmer-gold drop-shadow-[0_0_14px_rgba(238,212,152,0.45)] sm:text-7xl "
         variants={fadeUp}
       >
-        Islamabad 
+        Islamabad
       </motion.h1>
 
       <motion.h1
-        className="text-4xl lg:text-7xl font-extrabold leading-tight shimmer-gold drop-shadow-[0_0_14px_rgba(238,212,152,0.45)] sm:text-6xl "
+        className="text-4xl lg:text-7xl font-bold shimmer-gold drop-shadow-[0_0_14px_rgba(238,212,152,0.45)] sm:text-6xl"
         variants={fadeUp}
       >
-        Prime Builder
+        Prime Builders
       </motion.h1>
-
       {/* Sub headline */}
       <motion.p
-        className="max-w-3xl text-lg mt-6 font-bold text-[#FFFFFFB3] sm:text-lg lg:text-2xl"
+        className="max-w-3xl text-lg mt-6  text-[#FFFFFFB3] lg:text-2xl"
         variants={fadeUp}
       >
-        Build Your Dream Project With Confidence
+        Build Your Dream Building With Us
       </motion.p>
-
-      
 
       {/* Bottom row */}
       {/* <motion.div

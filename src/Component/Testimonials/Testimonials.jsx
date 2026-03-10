@@ -50,7 +50,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white py-20">
+    <div className="relative overflow-hidden bg-green-900 py-20">
       <motion.div
         variants={sectionFadeUp}
         initial="hidden"
@@ -63,7 +63,7 @@ export default function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-14 text-center text-4xl font-bold text-black"
+          className="mb-14 text-center lg:text-5xl text-4xl parisienne-font text-yellow-400"
         >
           Client Experiences
         </motion.h2>
@@ -170,6 +170,6 @@ export default function TestimonialsSection() {
           width: 45px;
         }
       `}</style>
-    </section>
+    </div>
   );
 }

@@ -36,7 +36,7 @@ export default function ConstructionProcess() {
       className="container mx-auto py-10 lg:py-24"
     >
       <div className="text-center max-w-3xl mx-auto overflow-hidden">
-        <motion.p variants={fadeUp} className="text-yellow-500 font-semibold  uppercase text-4xl">
+        <motion.p variants={fadeUp} className="text-black parisienne-font uppercase text-4xl">
           Construction Process
         </motion.p>
 
@@ -62,25 +62,21 @@ export default function ConstructionProcess() {
               variants={fadeUp}
               key={step.id}
               className={`
-          rounded-3xl bg-gray-50 border border-gray-200 p-6 hover:shadow-lg hover:border-yellow-400 transition-all duration-300
+          rounded-3xl bg-green-800 text-center lg:text-start p-6
         ${positionClass}
         `}
             >
-              <div className="flex items-center justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-900 text-yellow-400">
+              <div className="flex lg:flex-none items-center lg:item-start justify-center lg:justify-start">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-yellow-300 text-black">
                   {Icon && <Icon className="w-6 h-6" />}
                 </div>
-
-                <span className="text-2xl font-bold text-gray-300">
-                  {step.id}
-                </span>
               </div>
 
-              <h3 className="mt-6 text-xl font-bold text-gray-900">
+              <h3 className="mt-6 text-xl font-bold text-white">
                 {step.title}
               </h3>
 
-              <p className="mt-3 text-gray-600 leading-7">{step.description}</p>
+              <p className="mt-3 text-white">{step.description}</p>
             </motion.div>
           );
         })}
