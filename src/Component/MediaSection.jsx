@@ -111,7 +111,7 @@ export default function ProjectMediaSection({ project }) {
     <section className="w-full">
       {/* Header */}
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <h2 className="text-4xl md:text-5xl font-semibold text-black">
+        <h2 className="text-4xl md:text-5xl parisienne-font text-center lg:text-center py-5 lg:py-0 text-black">
           Media
         </h2>
 
@@ -125,7 +125,7 @@ export default function ProjectMediaSection({ project }) {
                 onClick={() => setActiveTab(tab.key)}
                 className={`flex items-center gap-2 rounded-full border md:px-6 px-3  py-3 text-sm md:text-base transition-all duration-300
                   ${isActive
-                    ? "bg-[#E6F06A] border-[#E6F06A] text-black"
+                    ? "bg-green-800 text-white"
                     : "bg-white border-gray-200 text-black hover:bg-gray-50"
                   }
                 `}

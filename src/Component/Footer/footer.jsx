@@ -73,11 +73,11 @@ export default function FooterSection() {
                   className="h-16 w-auto select-none"
                   priority={false}
                 />
-                <div className="leading-tight">
-                  <p className="text-lg font-extrabold text-black">
+                <div className="parisienne-font">
+                  <p className="text-lg text-black">
                     Islamabad Prime
                   </p>
-                  <p className="text-sm font-semibold text-gray-700">Builder</p>
+                  <p className="text-md  text-gray-700">Builders</p>
                 </div>
               </div>
 
@@ -163,7 +163,7 @@ export default function FooterSection() {
           >
             © 2026{" "}
             <span className="font-semibold text-black">
-              Islamabad Prime Builder
+              Islamabad Prime Builders
             </span>
             . All Rights Reserved.
           </motion.p>

@@ -30,7 +30,7 @@ function AwardBlock({ award, reverse = false }) {
             </span>
           </div>
 
-          <h2 className="mb-2 text-2xl lg:text-3xl font-bold text-gray-900 leading-tight">
+          <h2 className="mb-2 text-2xl lg:text-3xl parisienne-font text-gray-900 leading-tight">
             {title}
           </h2>
           {subtitle && (
@@ -111,7 +111,7 @@ export default function AwardSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-2xl lg:text-3xl font-bold text-gray-900 leading-tight"
+          className="text-2xl lg:text-3xl parisienne-font text-gray-900 leading-tight"
         >
           Celebrating Excellence & Recognition
         </motion.p>

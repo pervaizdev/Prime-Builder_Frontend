@@ -70,14 +70,14 @@ export default function ServicesPage() {
 
           <motion.h2
             variants={fadeUp}
-            className="mt-6 text-3xl font-extrabold leading-tight text-black md:text-5xl"
+            className="mt-6 text-4xl parisienne-font py-3 lg:text-5xl"
           >
             Our Services
           </motion.h2>
 
           <motion.p
             variants={fadeUpSoft}
-            className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-gray-600 md:text-base"
+            className="mx-auto mt-5 max-w-2xl leading-7 text-black md:text-base"
           >
             We deliver premium real estate development and construction
             solutions designed to create lasting value, modern functionality,
@@ -96,7 +96,7 @@ export default function ServicesPage() {
                 whileHover={{ y: -3, scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 220, damping: 18 }}
-                className="group inline-flex items-center gap-2 rounded-full bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-colors duration-300 hover:bg-yellow-400 hover:text-black"
+                className="group inline-flex items-center gap-2 rounded-full bg-green-800 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-colors duration-300 hover:bg-yellow-400 hover:text-black"
               >
                 View Services
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -116,10 +116,10 @@ export default function ServicesPage() {
                 variants={fadeUp}
                 whileHover={{ y: -10 }}
                 transition={{ type: "spring", stiffness: 180, damping: 16 }}
-                className="h-full"
+                className="h-ful"
               >
                 <div
-                  className={`group relative flex h-full flex-col rounded-[28px] border bg-white p-8 shadow-[0_10px_35px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-yellow-300 hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] ${index === 1 ? "lg:-mt-4 border-yellow-200" : "border-gray-100"
+                  className={`relative flex h-full flex-col rounded-[28px] border bg-green-800 p-8 shadow-[0_10px_35px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-yellow-300 hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] ${index === 1 ? "lg:-mt-4 border-yellow-200" : "border-gray-100"
                     }`}
                 >
                   {/* top accent line */}
@@ -130,17 +130,17 @@ export default function ServicesPage() {
                       <motion.div
                         whileHover={{ rotate: 6, scale: 1.08 }}
                         transition={{ type: "spring", stiffness: 220, damping: 14 }}
-                        className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gray-900 text-white shadow-md transition-colors duration-300 group-hover:bg-yellow-400 group-hover:text-black"
+                        className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-yellow-300 text-black shadow-md transition-colors duration-30"
                       >
                         <Icon className="h-8 w-8" />
                       </motion.div>
                     )}
 
-                    <h3 className="text-xl font-bold text-gray-900 md:text-2xl">
+                    <h3 className="text-xl font-bold text-white md:text-2xl">
                       {item.title}
                     </h3>
 
-                    <p className="mt-4 text-sm leading-7 text-gray-600 md:text-base">
+                    <p className="mt-4 text-sm leading-7 text-white md:text-base">
                       {item.description}
                     </p>
 

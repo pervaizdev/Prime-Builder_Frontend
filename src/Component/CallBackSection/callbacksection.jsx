@@ -53,7 +53,7 @@ export default function CallBackSection() {
             {/* Title */}
             <motion.h2
               variants={fadeUp}
-              className="mt-6 text-center text-xl font-extrabold leading-snug sm:text-2xl md:text-3xl"
+              className="mt-6 text-center text-xl parisienne-font sm:text-2xl md:text-3xl"
             >
               Get specialist advice for residential,
               <br className="hidden sm:block" />

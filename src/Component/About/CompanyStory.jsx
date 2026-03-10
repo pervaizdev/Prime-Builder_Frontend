@@ -56,12 +56,12 @@ export default function CompanyStory() {
           />
         </motion.div>
 
-        <motion.div variants={container}>
+        <motion.div variants={container} className="text-center lg:text-start">
           <motion.p variants={fadeUp} className="text-yellow-500 font-semibold tracking-[0.2em] uppercase text-sm">
             Our Story
           </motion.p>
 
-          <motion.h2 variants={fadeUp} className="mt-3 text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+          <motion.h2 variants={fadeUp} className="mt-3 text-3xl lg:text-4xl parisienne-font text-gray-900 leading-tight">
             Building spaces with purpose, trust, and long term value
           </motion.h2>
 

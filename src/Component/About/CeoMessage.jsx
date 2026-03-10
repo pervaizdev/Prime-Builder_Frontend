@@ -23,7 +23,7 @@ export default function CeoMessage() {
       >
         <motion.h2
           variants={fadeUp}
-          className="mt-4 text-3xl lg:text-4xl font-extrabold text-black"
+          className="mt-4 text-4xl parisienne-font text-black"
         >
           A Message From Our Leadership
         </motion.h2>

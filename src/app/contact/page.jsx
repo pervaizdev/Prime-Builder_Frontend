@@ -101,10 +101,10 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-black/70" />
 
         {/* grid centering */}
-        <div className="relative z-10 grid place-items-center h-full text-center px-4">
+        <div className="relative z-10 mt-[-70] lg:mt-0 grid place-items-center h-full text-center px-4">
           <div>
             <motion.h1
-              className="text-white font-extrabold text-4xl sm:text-5xl lg:text-7xl leading-tight"
+              className="text-yellow-300 parisienne-font text-5xl lg:text-7xl"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -157,7 +157,7 @@ export default function ContactPage() {
 
               <motion.h2
                 variants={fadeUp}
-                className="mt-6 text-3xl sm:text-4xl font-extrabold text-black leading-tight text-center lg:text-left"
+                className="mt-6 text-4xl lg:text-5xl parisienne-font text-black text-center lg:text-left"
               >
                 Let&apos;s Build
                 <br />
@@ -237,7 +237,7 @@ export default function ContactPage() {
                 variants={fadeUp}
                 className="rounded-[36px] bg-linear-to-br from-[#faf8f4] to-white border border-black/5 p-6 sm:p-12"
               >
-                <h3 className="text-2xl font-extrabold text-black">
+                <h3 className="text-2xl parisienne-font text-black">
                   Send Us a Message
                 </h3>
                 <p className="mt-2 text-sm text-black/50">

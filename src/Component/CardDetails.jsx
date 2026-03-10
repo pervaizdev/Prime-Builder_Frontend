@@ -70,7 +70,7 @@ export default function CardDetails({ project, InfoItem }) {
       viewport={{ once: true, amount: 0.15 }}
     >
       <motion.div variants={fadeUp} className="flex items-center gap-3">
-        <HiLocationMarker className="text-xl lg:text-3xl text-lime-300" />
+        <HiLocationMarker className="text-xl lg:text-3xl text-yellow-400" />
         <p className="font-bold text-sm lg:text-lg text-black">
           {project.location}
         </p>
@@ -78,7 +78,7 @@ export default function CardDetails({ project, InfoItem }) {
 
       <motion.h1
         variants={fadeUp}
-        className="mt-5 lg:text-7xl text-2xl font-sans font-bold text-black"
+        className="mt-5 lg:text-7xl text-2xl parisienne-font text-black"
       >
         {project.title}
       </motion.h1>
