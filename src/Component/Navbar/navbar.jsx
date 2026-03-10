@@ -114,7 +114,7 @@ export default function Navbar() {
               ease: [0.22, 1, 0.36, 1],
               borderRadius: { duration: 0.15 }
             }}
-            className="inner-content relative flex items-center justify-between md:px-6 md:py-4"
+            className="inner-content relative flex items-center justify-between"
           >
             <AnimatePresence>
               {!scrolledMobile && (

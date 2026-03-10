@@ -50,7 +50,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <div className="relative overflow-hidden bg-green-800 py-20">
+    <div className="relative overflow-hidden bg-green-900 py-20">
       <motion.div
         variants={sectionFadeUp}
         initial="hidden"

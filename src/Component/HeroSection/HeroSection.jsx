@@ -41,21 +41,21 @@ export default function HeroSection() {
     >
       {/* Headline */}
       <motion.h1
-        className="lg:mt-65 text-5xl parisienne-font lg:text-7xl  shimmer-gold drop-shadow-[0_0_14px_rgba(238,212,152,0.45)] sm:text-7xl "
+        className="lg:mt-65 text-5xl lg:text-8xl font-bold shimmer-gold drop-shadow-[0_0_14px_rgba(238,212,152,0.45)] sm:text-7xl "
         variants={fadeUp}
       >
         Islamabad
       </motion.h1>
 
       <motion.h1
-        className="text-4xl lg:text-7xl parisienne-font shimmer-gold drop-shadow-[0_0_14px_rgba(238,212,152,0.45)] sm:text-6xl"
+        className="text-4xl lg:text-7xl font-bold shimmer-gold drop-shadow-[0_0_14px_rgba(238,212,152,0.45)] sm:text-6xl"
         variants={fadeUp}
       >
         Prime Builders
       </motion.h1>
       {/* Sub headline */}
       <motion.p
-        className="max-w-3xl text-lg mt-6 parisienne-font text-[#FFFFFFB3] lg:text-2xl"
+        className="max-w-3xl text-lg mt-6  text-[#FFFFFFB3] lg:text-2xl"
         variants={fadeUp}
       >
         Build Your Dream Building With Us

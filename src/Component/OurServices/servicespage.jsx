@@ -70,7 +70,7 @@ export default function ServicesPage() {
 
           <motion.h2
             variants={fadeUp}
-            className="mt-6 text-4xl parisienne-font py-3 lg:text-5xl"
+            className="mt-6 text-4xl parisienne-font text-black py-3 lg:text-5xl"
           >
             Our Services
           </motion.h2>
