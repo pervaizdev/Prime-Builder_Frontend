@@ -125,7 +125,7 @@ export default function ProjectMediaSection({ project }) {
   };
 
   return (
-    <section className="w-full">
+    <section className="w-full px-5">
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <h2 className="text-4xl md:text-5xl parisienne-font text-center lg:text-center py-5 lg:py-0 text-black">
           Media
