@@ -23,12 +23,10 @@ function ServiceCard({ item, index, fadeUp }) {
       className="h-full"
     >
       <div
-        className={`relative flex h-full flex-col rounded-[28px] border p-8 transition-all duration-500 ${isFeatured ? "lg:-mt-4" : ""
+        className={`relative flex cursor-pointer h-full flex-col rounded-[28px] border p-8 transition-all duration-500 ${isFeatured ? "lg:-mt-4" : ""
           }`}
         style={{
-          background: hovered
-            ? "linear-gradient(145deg, #0f3d20, #1a5c32)"
-            : "rgba(255,255,255,0.55)",
+          background: "rgba(255,255,255,0.55) ",
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",
           borderColor: hovered
@@ -70,31 +68,27 @@ function ServiceCard({ item, index, fadeUp }) {
               transition={{ type: "spring", stiffness: 220, damping: 14 }}
               className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl shadow-md transition-all duration-500"
               style={{
-                background: hovered
-                  ? "linear-gradient(135deg, rgba(209,179,140,0.25), rgba(232,200,122,0.3))"
-                  : "linear-gradient(135deg, rgba(15,61,32,0.1), rgba(26,92,50,0.15))",
-                boxShadow: hovered
-                  ? "0 8px 24px rgba(0,0,0,0.15)"
-                  : "0 4px 12px rgba(0,0,0,0.06)",
+                background: "linear-gradient(135deg, rgba(209,179,140,0.25), rgba(232,200,122,0.3))",
+                boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
               }}
             >
               <Icon
                 className="h-8 w-8 transition-colors duration-500"
-                style={{ color: hovered ? "#e8c87a" : "#0f3d20" }}
+                style={{ color:"#0f3d20" }}
               />
             </motion.div>
           )}
 
           <h3
             className="text-xl font-bold transition-colors duration-500 md:text-2xl"
-            style={{ color: hovered ? "#ffffff" : "#0f3d20" }}
+            style={{ color:  "#0f3d20" }}
           >
             {item.title}
           </h3>
 
           <p
             className="mt-4 text-sm leading-7 transition-colors duration-500 md:text-base"
-            style={{ color: hovered ? "rgba(255,255,255,0.75)" : "#6b7280" }}
+            style={{ color:"#6b7280" }}
           >
             {item.description}
           </p>
@@ -149,21 +143,12 @@ export default function ServicesPage() {
 
   return (
     <section
-      className="relative overflow-hidden py-24"
-      style={{
-        background:
-          "linear-gradient(180deg, #ffffff 0%, #f7f2ea 40%, #f0e8d6 70%, #ffffff 100%)",
-      }}
+      className="relative overflow-hidden py-24 background-color-section"
+    
     >
       {/* Subtle background orbs */}
-      <div
-        className="pointer-events-none absolute -top-20 -left-20 h-80 w-80 rounded-full opacity-20 blur-3xl"
-        style={{ background: "radial-gradient(circle, #1a5c32, transparent)" }}
-      />
-      <div
-        className="pointer-events-none absolute bottom-10 right-0 h-60 w-60 rounded-full opacity-15 blur-3xl"
-        style={{ background: "radial-gradient(circle, #d1b38c, transparent)" }}
-      />
+   
+    
 
       <motion.div
         className="container mx-auto px-6"

@@ -28,15 +28,21 @@ export default function WhoWeAreHeader({ container, fadeUp, fadeUpSlow }) {
       viewport={{ once: true, amount: 0.25 }}
     >
       {/* WHO WE ARE pill badge — original style */}
-      <motion.div
+      <motion.span
         variants={fadeUp}
-        className="rounded-full w-[130px] border border-[#eed498] px-4 py-2 text-xs mx-auto md:mx-0"
+        className="justify-self-center md:justify-self-start mb-6 md:mb-0 inline-flex items-center gap-2 rounded-full border px-5 py-2 w-[165px] text-xs font-bold uppercase tracking-[0.2em] shadow-sm"
+        style={{
+          borderColor: "#d1b38c",
+          color: "#8B5E3C",
+          background: "rgba(209,179,140,0.1)",
+        }}
       >
-        <motion.h2 variants={fadeUp} className="text-black font-semibold tracking-widest uppercase">
-          WHO WE ARE
-        </motion.h2>
-      </motion.div>
-
+        <span
+          className="h-1.5 w-1.5 rounded-full"
+          style={{ background: "#d1b38c" }}
+        />
+        Who We Are
+      </motion.span>
       {/* Right content */}
       <motion.div
         variants={container}

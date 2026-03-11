@@ -58,7 +58,7 @@ export default function ServicesPage() {
       <div className="h-[35vh] lg:h-[98vh]" />
 
       {/* This section comes up and hides hero content behind it */}
-      <div className="relative mt-[170px] lg:mt-[-90px] z-20 bg-white rounded-t-3xl lg:rounded-t-[60px] px-4 lg:px-8 pt-12">
+      <div className="relative mt-[170px] lg:mt-[-90px] z-20 bg-white rounded-t-3xl lg:rounded-t-[60px] pt-12">
         <hr className="border-gray-700 mt-5 lg:mt-10" />
 
         <Services />

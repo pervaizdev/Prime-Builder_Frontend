@@ -36,6 +36,7 @@ export default function ClientsSwiper() {
     <section className="bg-white mt-18 pb-16 md:pb-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="border-t border-gray-100 pt-16 md:pt-20">
+
           <motion.div
             variants={container}
             initial="hidden"
@@ -44,10 +45,24 @@ export default function ClientsSwiper() {
             className="text-center mb-14"
           >
 
-
+            <motion.span
+              variants={fadeUp}
+              className="inline-flex items-center gap-2 rounded-full border px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] shadow-sm"
+              style={{
+                borderColor: "#d1b38c",
+                color: "#8B5E3C",
+                background: "rgba(209,179,140,0.1)",
+              }}
+            >
+              <span
+                className="h-1.5 w-1.5 rounded-full"
+                style={{ background: "#d1b38c" }}
+              />
+              Partners
+            </motion.span>
             <motion.h2
               variants={fadeUp}
-              className="text-4xl parisienne-font text-black"
+              className="text-4xl parisienne-font text-black mt-8"
             >
               Built on <span className="text-yellow-400">Strong Partnerships</span>
             </motion.h2>

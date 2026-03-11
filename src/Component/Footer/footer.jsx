@@ -43,7 +43,7 @@ const socials = [
 
 export default function FooterSection() {
   return (
-    <footer className="bg-white">
+    <footer className="bg-white px-3">
       <div className="mx-auto max-w-6xl md:px-6 pb-16">
         {/* Card */}
 

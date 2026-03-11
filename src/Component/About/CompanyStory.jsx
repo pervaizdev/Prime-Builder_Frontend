@@ -45,7 +45,7 @@ export default function CompanyStory() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
-        className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center px-3"
       >
         <motion.div variants={fadeLeft} className="relative h-[320px] lg:h-[550px] overflow-hidden rounded-3xl shadow-xl">
           <Image

@@ -27,7 +27,7 @@ export default function ProjectDescription({ project }) {
       viewport={{ once: true, amount: 0.15 }}
     >
       {/* Left: description */}
-      <motion.div variants={stagger} className="lg:w-[55%]">
+      <motion.div variants={stagger} className="lg:w-[55%] px-2">
         <motion.h2
           variants={fadeUp}
           className="text-4xl lg:text-5xl parisienne-font text-center lg:text-start text-black"
