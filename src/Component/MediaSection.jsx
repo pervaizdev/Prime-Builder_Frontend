@@ -127,7 +127,7 @@ export default function ProjectMediaSection({ project }) {
   return (
     <section className="w-full px-5">
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <h2 className="text-4xl md:text-5xl parisienne-font text-center lg:text-center py-5 lg:py-0 text-black">
+        <h2 className="text-4xl md:text-5xl lg:ms-8 parisienne-font text-center lg:text-center py-5 lg:py-0 text-black">
           Media
         </h2>
 
@@ -139,7 +139,7 @@ export default function ProjectMediaSection({ project }) {
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`flex items-center gap-2 rounded-full border md:px-6 px-3 py-3 text-sm md:text-base transition-all duration-300
+                className={`flex items-center justify-center gap-2 rounded-full border md:px-6 px-3 py-3 text-sm md:text-base transition-all duration-300
                   ${
                     isActive
                       ? "bg-green-800 text-white"
