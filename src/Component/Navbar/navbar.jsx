@@ -138,11 +138,11 @@ export default function Navbar() {
                       width={44}
                       height={44}
                     />
-                    <div className="min-w-0 leading-tight">
-                      <span className="block truncate text-lg parisienne-font text-black lg:text-lg">
+                    <div className="min-w-0 ">
+                      <span className="block truncate text-lg  text-black lg:text-lg">
                         Islamabad Prime
                       </span>
-                      <span className="block  text-md parisienne-font text-gray-700 lg:text-md">
+                      <span className="block  text-md p text-gray-700 lg:text-md">
                         Builders
                       </span>
                     </div>

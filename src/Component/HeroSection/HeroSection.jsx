@@ -41,7 +41,7 @@ export default function HeroSection() {
     >
       {/* Headline */}
       <motion.h1
-        className="lg:mt-65 text-5xl lg:text-8xl font-bold shimmer-gold drop-shadow-[0_0_14px_rgba(238,212,152,0.45)] sm:text-7xl "
+        className="lg:mt-65 text-5xl lg:text-7xl font-bold shimmer-gold drop-shadow-[0_0_14px_rgba(238,212,152,0.45)] sm:text-7xl "
         variants={fadeUp}
       >
         Islamabad

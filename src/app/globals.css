@@ -185,5 +185,6 @@ body {
 }
 
 .parisienne-font {
-  font-family: var(--font-parisienne), cursive;
+    font-family: var(--font-playfair-sc);
+   
 }
