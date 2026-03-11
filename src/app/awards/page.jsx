@@ -33,7 +33,7 @@ export default function Page() {
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
-              Awards
+              Award
             </motion.h1>
 
             <motion.p
