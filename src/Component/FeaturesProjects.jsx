@@ -54,33 +54,32 @@ export default function FeaturesProjects({ item }) {
             />
           </motion.div>
 
-          {/* Gradient overlay — darkens more on hover */}
+          {/* Gradient overlay — darker on mobile for readability */}
           <div
             className={`absolute inset-0 transition-all duration-500 ${isComingSoon
-              ? "bg-linear-to-t from-black/95 via-black/60 to-transparent"
-              : "bg-linear-to-t from-black/80 via-black/20 to-transparent lg:from-black/40 lg:via-transparent group-hover:from-black/90 group-hover:via-black/40"
+                ? "bg-linear-to-t from-black/95 via-black/60 to-transparent"
+                : "bg-linear-to-t from-black/90 via-black/30 to-transparent lg:from-black/40 lg:via-transparent group-hover:from-black/90 group-hover:via-black/40"
               }`}
           />
-
           {/* Status badge — top left */}
           <div className="absolute top-6 left-6 z-20">
             <span
               className={`rounded-full border px-4 py-2 text-xs font-semibold shadow-lg backdrop-blur-md transition-all duration-300 ${isCompleted
-                ? "border-white/40 bg-white/90 text-black"
-                : isComingSoon
-                  ? "animate-pulse border-amber-400 bg-amber-500/90 text-black shadow-[0_0_15px_rgba(245,158,11,0.4)]"
-                  : "border-white/20 bg-black/60 text-white"
+                  ? "border-white/40 bg-white/90 text-black"
+                  : isComingSoon
+                    ? "animate-pulse border-amber-400 bg-amber-500/90 text-black shadow-[0_0_15px_rgba(245,158,11,0.4)]"
+                    : "border-white/20 bg-black/60 text-white"
                 }`}
             >
               {item.status === "Comming Soon" ? "Coming Soon" : item.status}
             </span>
           </div>
 
-          {/* ── Project title revealed on hover (Desktop) / Visible (Mobile) ── */}
-          <div className="absolute bottom-0 left-0 right-0 z-20 flex flex-col items-start px-8 pb-8 transition-all duration-500 ease-out translate-y-0 opacity-100 lg:translate-y-6 lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
+          {/* ── Project title revealed on hover (Desktop) / Visible by default (Mobile) ── */}
+          <div className="absolute bottom-0 left-0 right-0 z-20 flex flex-col items-start px-8 pb-8 transition-all duration-500 ease-out translate-y-0 opacity-100 lg:translate-y-6 lg:opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
             {/* Golden accent line */}
             <div
-              className="mb-4 h-[2px] w-12 origin-left scale-x-100 lg:scale-x-0 transition-transform duration-500 delay-100 lg:group-hover:scale-x-100"
+              className="mb-4 h-[2px] w-12 origin-left scale-x-100 lg:scale-x-0 transition-transform duration-500 delay-100 group-hover:scale-x-100"
               style={{
                 background: "linear-gradient(90deg, #d1b38c, #e8c87a)",
               }}
@@ -94,10 +93,10 @@ export default function FeaturesProjects({ item }) {
             </h3>
 
             {/* Subtle "View Project" hint */}
-            <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-white/90 lg:text-white/70 transition-colors duration-300 lg:group-hover:text-white/90">
+            <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-white/90 lg:text-white/70 transition-colors duration-300 group-hover:text-white/90">
               View Project
               <svg
-                className="h-3.5 w-3.5 transition-transform duration-300 lg:group-hover:translate-x-1 lg:group-hover:-translate-y-0.5"
+                className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
