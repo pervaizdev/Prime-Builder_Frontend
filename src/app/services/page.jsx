@@ -21,10 +21,10 @@ export default function ServicesPage() {
 
         <div className="absolute inset-0 bg-black/70" />
 
-        <div className="relative z-10 grid place-items-center h-full text-center px-4">
+        <div className="relative z-10 mt-[-70] lg:mt-0 grid place-items-center h-full text-center px-4">
           <div>
             <motion.h1
-              className="text-white font-extrabold text-4xl sm:text-5xl lg:text-7xl leading-tight"
+              className="text-yellow-300 parisienne-font text-5xl lg:text-7xl"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -58,7 +58,7 @@ export default function ServicesPage() {
       <div className="h-[35vh] lg:h-[98vh]" />
 
       {/* This section comes up and hides hero content behind it */}
-      <div className="relative mt-[170px] lg:mt-[-90px] z-20 bg-white rounded-t-3xl lg:rounded-t-[60px] px-4 lg:px-8 pt-12">
+      <div className="relative mt-[170px] lg:mt-[-90px] z-20 bg-white rounded-t-3xl lg:rounded-t-[60px] pt-12">
         <hr className="border-gray-700 mt-5 lg:mt-10" />
 
         <Services />

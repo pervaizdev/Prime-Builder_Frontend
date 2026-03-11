@@ -61,8 +61,8 @@ export default function Page({ params }) {
           priority
           className="object-cover"
         />
-         <div className="absolute inset-0 bg-black/40 "></div>
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/40 "></div>
+        <div className="absolute inset-0 mt-[-240] lg:mt-0 bg-black/40 flex items-center justify-center">
           <motion.div
             className="px-4 lg:px-12"
             variants={heroContainer}
@@ -71,9 +71,9 @@ export default function Page({ params }) {
           >
             <motion.h1
               variants={fadeUp}
-              className="text-white font-sans font-bold text-center text-5xl lg:text-8xl mt-10 lg:mt-0"
+              className="parisienne-font text-center text-5xl text-yellow-300 lg:text-7xl mt-10 lg:mt-0"
             >
-              Projects Details
+              Project Details
             </motion.h1>
 
             <motion.p
@@ -91,12 +91,12 @@ export default function Page({ params }) {
       <div className="h-[45vh] lg:h-[95vh] " />
 
       {/* SCROLLING CONTENT (moves up over the fixed hero) */}
-      <div className="relative z-10 mt-62.5 lg:-mt-15 bg-white rounded-t-[35px] lg:rounded-t-[60px] px-4 lg:px-8 pb-16">
+      <div className="relative z-10 mt-[85px] lg:mt-[-90px] bg-white rounded-t-[35px] lg:rounded-t-[60px] pb-16">
         <AnimatedSection className="pt-2 container mx-auto">
           <CardDetails project={project} InfoItem={InfoItem} />
         </AnimatedSection>
 
-        <div className="mx-auto px-0 lg:px-10 pt-2 md:pt-14">
+        <div className="mx-auto px-3 lg:px-10 pt-2 md:pt-14 ">
           <AnimatedImage className="relative container mx-auto mt-12 h-[400px] lg:h-162.5 w-full overflow-hidden rounded-[40px]">
             <Image
               src={project.image}
@@ -114,7 +114,7 @@ export default function Page({ params }) {
 
         <AnimatedDivider className="border mt-15" />
 
-        <AnimatedSection className="container mx-auto">
+        <AnimatedSection>
           <FeaturesAmenities />
         </AnimatedSection>
 
@@ -125,7 +125,7 @@ export default function Page({ params }) {
         </AnimatedSection>
 
         <AnimatedSection className="container mx-auto">
-          <Location project={project}/>
+          <Location project={project} />
         </AnimatedSection>
       </div>
     </>

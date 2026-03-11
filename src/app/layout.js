@@ -1,8 +1,7 @@
 import "./globals.css";
-import { Poppins } from "next/font/google";
+import { Poppins, Parisienne, Playfair_Display_SC } from "next/font/google";
 import Navbar from "@/Component/Navbar/navbar";
 import FloatingIcons from "@/Component/FloatingIcons";
-
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -10,20 +9,32 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
+const parisienne = Parisienne({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-parisienne",
+});
+
+const playfairSC = Playfair_Display_SC({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-playfair-sc",
+});
+
 export const metadata = {
-  title: "Islamabad Prime Builder",
-  description: "We are creators of transformative spaces that inspire, innovate, and endure.",
+  title: " Islamabad Prime Builders",
+  description: "Prime Builder Islamabad - Real Estate & Construction",
   icons: {
     icon: "/images/logo.png",
-    shortcut: "/images/logo.png",
-    apple: "/images/logo.png",
   },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased bg-white`}>
+      <body
+        className={`${poppins.className} ${parisienne.variable} ${playfairSC.variable} antialiased bg-white`}
+      >
         <Navbar />
         {children}
         <FloatingIcons />

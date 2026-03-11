@@ -114,7 +114,7 @@ export default function Navbar() {
               ease: [0.22, 1, 0.36, 1],
               borderRadius: { duration: 0.15 }
             }}
-            className="inner-content relative flex items-center justify-between md:px-6 md:py-4"
+            className="inner-content relative flex items-center justify-between"
           >
             <AnimatePresence>
               {!scrolledMobile && (
@@ -138,12 +138,12 @@ export default function Navbar() {
                       width={44}
                       height={44}
                     />
-                    <div className="min-w-0 leading-tight">
-                      <span className="block truncate text-sm font-extrabold tracking-tight text-black md:text-base">
+                    <div className="min-w-0 ">
+                      <span className="block truncate text-lg  text-black lg:text-lg">
                         Islamabad Prime
                       </span>
-                      <span className="block truncate text-xs font-bold text-gray-700 md:text-sm">
-                        Builder
+                      <span className="block  text-md p text-gray-700 lg:text-md">
+                        Builders
                       </span>
                     </div>
                   </Link>

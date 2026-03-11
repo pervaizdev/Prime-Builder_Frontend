@@ -27,17 +27,17 @@ export default function ProjectDescription({ project }) {
       viewport={{ once: true, amount: 0.15 }}
     >
       {/* Left: description */}
-      <motion.div variants={stagger} className="lg:w-[55%]">
+      <motion.div variants={stagger} className="lg:w-[55%] px-2">
         <motion.h2
           variants={fadeUp}
-          className="text-3xl lg:text-5xl font-bold text-black"
+          className="text-4xl lg:text-5xl parisienne-font text-center lg:text-start text-black"
         >
           Project description
         </motion.h2>
 
         <motion.div
           variants={stagger}
-          className="mt-8 space-y-6 text-lg text-black/60"
+          className="mt-8 space-y-6 text-lg text-center lg:text-start text-black/60"
         >
           {project?.description?.map((para, index) => (
             <motion.p key={index} variants={fadeUp}>
@@ -48,15 +48,15 @@ export default function ProjectDescription({ project }) {
       </motion.div>
 
       {/* Right: key details */}
-      <motion.div variants={stagger} className="lg:w-[35%] mt-12 lg:mt-5">
+      <motion.div variants={stagger} className="lg:w-[35%] mt-12 lg:mt-5 text-center lg:text-start">
         <motion.h3
           variants={fadeUp}
-          className="text-4xl font-bold font-sans text-black"
+          className="text-4xl parisienne-font text-black"
         >
           Key Details
         </motion.h3>
 
-        <motion.ul variants={stagger} className="mt-10 space-y-3">
+        <motion.ul variants={stagger} className="mt-10 text-start space-y-3">
           {project?.keyDetails?.map(({ label, text }) => (
             <motion.li
               key={label}

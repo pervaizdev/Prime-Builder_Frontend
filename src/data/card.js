@@ -46,15 +46,11 @@ export const projects = [
     media: {
       photos: [
         { id: "p1", src: "/images/m6.webp", alt: "Photo 6" },
-        { id: "p2", src: "/images/m7.jpeg", alt: "Photo 7" },
-        { id: "p3", src: "/images/m8.jpg", alt: "Photo 8" },
-        { id: "p4", src: "/images/m9.jpg", alt: "Photo 9" },
-        { id: "p5", src: "/images/m10.jpg", alt: "Photo 10" },
-      ],
-      plans: [
-        { id: "pl1", src: "/images/mp1.png", alt: "Plan 1" },
-        { id: "pl2", src: "/images/mp2.png", alt: "Plan 2" },
-        { id: "pl3", src: "/images/mp3.png", alt: "Plan 3" }
+        { id: "p2", src: "/images/m7.webp", alt: "Photo 7" },
+        { id: "p3", src: "/images/m8.webp", alt: "Photo 8" },
+        { id: "p4", src: "/images/m9.webp", alt: "Photo 9" },
+        { id: "p5", src: "/images/p1.webp", alt: "Photo 10" },
+        { id: "p6", src: "/images/m11.webp", alt: "Photo 11" },
       ],
       videos: [{ id: "v1", src: "/videos/prime2.mp4" }],
     },
@@ -68,7 +64,7 @@ export const projects = [
     mapUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1976.3239083764277!2d72.86806109282423!3d33.585388544640914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df99451f7f9ac7%3A0xd5f412e595daa5b9!2sPrime%20Mall!5e0!3m2!1sen!2s!4v1772366366281!5m2!1sen!2s", title: "Prime Mall And Suites",
     title: "Prime Mall And Suites",
-    image: "/images/top 2.jpg",
+    image: "/images/1 a.png",
 
     projectType: "Commercial and Apartment",
     floor: "8",
@@ -105,17 +101,11 @@ export const projects = [
 
     media: {
       photos: [
-        { id: "p1", src: "/images/m1.png", alt: "Photo 1" },
-        { id: "p2", src: "/images/m2.png", alt: "Photo 2" },
-        { id: "p3", src: "/images/m3.png", alt: "Photo 3" },
-        { id: "p4", src: "/images/m4.png", alt: "Photo 4" },
-        { id: "p5", src: "/images/m5.png", alt: "Photo 5" },
-      ],
-      plans: [
-        { id: "pl1", src: "/images/mp1.png", alt: "Plan 1" },
-        { id: "pl2", src: "/images/mp2.png", alt: "Plan 2" },
-        { id: "pl3", src: "/images/mp3.png", alt: "Plan 3" },
-        { id: "pl4", src: "/images/mp4.png", alt: "Plan 4" },
+        { id: "p1", src: "/images/m1.webp", alt: "Photo 1" },
+        { id: "p2", src: "/images/m2.webp", alt: "Photo 2" },
+        { id: "p3", src: "/images/m3.webp", alt: "Photo 3" },
+        { id: "p4", src: "/images/m4.webp", alt: "Photo 4" },
+        { id: "p5", src: "/images/m5.webp", alt: "Photo 5" },
       ],
       videos: [{ id: "v1", src: "/videos/PrimeMall.webm" }],
     },

@@ -53,7 +53,7 @@ export default function CardDetails({ project, InfoItem }) {
     { icon: HiOutlineShoppingBag, label: "Shops", value: project.shopes },
     { icon: HiOutlineHomeModern, label: "Studios", value: project.studios },
     { icon: HiOutlineCake, label: "Restaurants", value: project.restaurant },
-    { icon: HiOutlineHome , label: "Bedrooms", value: project.bedrooms },
+    { icon: HiOutlineHome, label: "Bedrooms", value: project.bedrooms },
     {
       icon: HiOutlineCalendarDays,
       label: "Commencement date",
@@ -70,7 +70,7 @@ export default function CardDetails({ project, InfoItem }) {
       viewport={{ once: true, amount: 0.15 }}
     >
       <motion.div variants={fadeUp} className="flex items-center gap-3">
-        <HiLocationMarker className="text-xl lg:text-3xl text-lime-300" />
+        <HiLocationMarker className="text-xl lg:text-3xl text-yellow-400" />
         <p className="font-bold text-sm lg:text-lg text-black">
           {project.location}
         </p>
@@ -78,7 +78,7 @@ export default function CardDetails({ project, InfoItem }) {
 
       <motion.h1
         variants={fadeUp}
-        className="mt-5 lg:text-7xl text-2xl font-sans font-bold text-black"
+        className="mt-5 lg:text-7xl text-4xl parisienne-font text-black"
       >
         {project.title}
       </motion.h1>
@@ -87,7 +87,7 @@ export default function CardDetails({ project, InfoItem }) {
 
       <motion.div
         variants={stagger}
-        className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8"
+        className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8 px-2"
       >
         {infoItems.map((item) => (
           <motion.div key={item.label} variants={fadeUp}>

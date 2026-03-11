@@ -25,7 +25,6 @@ function Intro({ onDone }) {
 
   useEffect(() => {
     const run = async () => {
-      // 1) Smooth fade-in
       await logo.start({
         opacity: 1,
         scale: 1,
@@ -95,6 +94,7 @@ export default function HomePage() {
       <AnimatePresence mode="wait">
         {!introDone && <Intro onDone={() => setIntroDone(true)} />}
       </AnimatePresence>
+
       {introDone && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -103,22 +103,48 @@ export default function HomePage() {
           className="relative"
         >
           <div className="sticky top-0 h-screen w-full overflow-hidden z-0">
-            <BackgroundVideo src="/videos/PrimeMall.webm" />
+            <BackgroundVideo src="/videos/P2.webm" />
             <HeroSection />
           </div>
+
           <div className="relative z-10 bg-white rounded-4xl">
             <WeAre />
             <Services />
-            <h1 className="text-3xl lg:text-5xl text-black py-12 bg-white font-bold text-center">
-              Features Projects
-            </h1>
-            <div className="container mx-auto px-30 bg-white gap-6 grid grid-cols-1 lg:grid-cols-2 pb-30 justify-items-center">
+
+            <motion.div
+              className="flex justify-center"
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <span className="inline-flex items-center text-[rgb(139,94,60)] gap-2 rounded-full border border-[#eed498] px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] shadow-sm">
+                Features Projects
+              </span>
+            </motion.div>
+
+            <motion.h1
+              className="text-4xl lg:text-5xl text-black mt-7 bg-white parisienne-font text-center"
+              initial={{ opacity: 0, y: 70 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{
+                duration: 0.9,
+                delay: 0.15,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+              Our Projects
+            </motion.h1>
+
+            <div className="container mx-auto  bg-white gap-6 grid grid-cols-1 lg:grid-cols-2 pb-30 justify-items-center">
               {projects.map((item, index) => (
                 <motion.div key={item.id}>
                   <FeaturesProjects item={item} index={index} />
                 </motion.div>
               ))}
             </div>
+
             <WhoWeAreStats />
             {/* <DifferentSection /> */}
             <ClientsSwiper />

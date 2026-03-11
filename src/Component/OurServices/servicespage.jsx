@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import * as Icons from "lucide-react";
 import { servicesData } from "@/data/servicesData";
@@ -8,6 +8,97 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
+/* ─── Individual Service Card ─── */
+function ServiceCard({ item, index, fadeUp }) {
+  const [hovered, setHovered] = useState(false);
+  const Icon = Icons[item.icon];
+  const isFeatured = index === 1;
+
+  return (
+    <motion.div
+      key={item.id}
+      variants={fadeUp}
+      whileHover={{ y: -12 }}
+      transition={{ type: "spring", stiffness: 200, damping: 18 }}
+      className="h-full"
+    >
+      <div
+        className={`relative flex cursor-pointer h-full flex-col rounded-[28px] border p-8 transition-all duration-500 ${isFeatured ? "lg:-mt-4" : ""
+          }`}
+        style={{
+          background: "rgba(255,255,255,0.55) ",
+          backdropFilter: "blur(16px)",
+          WebkitBackdropFilter: "blur(16px)",
+          borderColor: hovered
+            ? "#d1b38c"
+            : isFeatured
+              ? "#d1b38c"
+              : "rgba(209,179,140,0.3)",
+          boxShadow: hovered
+            ? "0 24px 60px rgba(15,61,32,0.22), inset 0 1px 0 rgba(255,255,255,0.08)"
+            : isFeatured
+              ? "0 12px 40px rgba(15,61,32,0.08), inset 0 1px 0 rgba(255,255,255,0.6)"
+              : "0 8px 30px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.6)",
+        }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        {/* top accent line */}
+        <div
+          className="absolute left-8 right-8 top-0 h-[2px] origin-left transition-transform duration-500"
+          style={{
+            background: "linear-gradient(90deg, #d1b38c, #e8c87a)",
+            transform: hovered ? "scaleX(1)" : "scaleX(0)",
+          }}
+        />
+
+        {/* decorative corner glow */}
+        <div
+          className="pointer-events-none absolute right-6 top-6 h-20 w-20 rounded-full blur-2xl transition-opacity duration-500"
+          style={{
+            background: "#d1b38c",
+            opacity: hovered ? 0.25 : 0,
+          }}
+        />
+
+        <div className="flex flex-col items-center text-center">
+          {Icon && (
+            <motion.div
+              whileHover={{ rotate: 6, scale: 1.08 }}
+              transition={{ type: "spring", stiffness: 220, damping: 14 }}
+              className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl shadow-md transition-all duration-500"
+              style={{
+                background: "linear-gradient(135deg, rgba(209,179,140,0.25), rgba(232,200,122,0.3))",
+                boxShadow: "0 8px 24px rgba(0,0,0,0.15)",
+              }}
+            >
+              <Icon
+                className="h-8 w-8 transition-colors duration-500"
+                style={{ color:"#0f3d20" }}
+              />
+            </motion.div>
+          )}
+
+          <h3
+            className="text-xl font-bold transition-colors duration-500 md:text-2xl"
+            style={{ color:  "#0f3d20" }}
+          >
+            {item.title}
+          </h3>
+
+          <p
+            className="mt-4 text-sm leading-7 transition-colors duration-500 md:text-base"
+            style={{ color:"#6b7280" }}
+          >
+            {item.description}
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+/* ─── Main Services Section ─── */
 export default function ServicesPage() {
   const pathname = usePathname();
   const isServicesPage = pathname === "/services";
@@ -51,7 +142,14 @@ export default function ServicesPage() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-[#faf8f3] to-white py-20 ">
+    <section
+      className="relative overflow-hidden py-24 background-color-section"
+    
+    >
+      {/* Subtle background orbs */}
+   
+    
+
       <motion.div
         className="container mx-auto px-6"
         variants={container}
@@ -63,25 +161,35 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-3xl text-center">
           <motion.span
             variants={fadeUpSoft}
-            className="inline-flex rounded-full border border-yellow-300 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-gray-700 shadow-sm"
+            className="inline-flex items-center gap-2 rounded-full border px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] shadow-sm"
+            style={{
+              borderColor: "#d1b38c",
+              color: "#8B5E3C",
+              background: "rgba(209,179,140,0.1)",
+            }}
           >
+            <span
+              className="h-1.5 w-1.5 rounded-full"
+              style={{ background: "#d1b38c" }}
+            />
             What We Offer
           </motion.span>
 
           <motion.h2
             variants={fadeUp}
-            className="mt-6 text-3xl font-extrabold leading-tight text-black md:text-5xl"
+            className="mt-6 text-4xl parisienne-font md:text-5xl"
+            style={{ color: "#0f3d20" }}
           >
             Our Services
           </motion.h2>
 
           <motion.p
             variants={fadeUpSoft}
-            className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-gray-600 md:text-base"
+            className="mx-auto mt-5 max-w-2xl leading-7 text-gray-500 md:text-base"
           >
-            We deliver premium real estate development and construction
-            solutions designed to create lasting value, modern functionality,
-            and exceptional living and business spaces.
+            We deliver premium real estate development and construction solutions
+            designed to create lasting value, modern functionality, and
+            exceptional living and business spaces.
           </motion.p>
         </div>
 
@@ -96,9 +204,12 @@ export default function ServicesPage() {
                 whileHover={{ y: -3, scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 220, damping: 18 }}
-                className="group inline-flex items-center gap-2 rounded-full bg-gray-900 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-colors duration-300 hover:bg-yellow-400 hover:text-black"
+                className="group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white shadow-lg"
+                style={{
+                  background: "linear-gradient(135deg, #1a5c32, #0f3d20)",
+                }}
               >
-                View Services
+                View All Services
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </motion.button>
             </Link>
@@ -107,49 +218,14 @@ export default function ServicesPage() {
 
         {/* Cards */}
         <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-3">
-          {displayServices.map((item, index) => {
-            const Icon = Icons[item.icon];
-
-            return (
-              <motion.div
-                key={item.id}
-                variants={fadeUp}
-                whileHover={{ y: -10 }}
-                transition={{ type: "spring", stiffness: 180, damping: 16 }}
-                className="h-full"
-              >
-                <div
-                  className={`group relative flex h-full flex-col rounded-[28px] border bg-white p-8 shadow-[0_10px_35px_rgba(0,0,0,0.06)] transition-all duration-500 hover:border-yellow-300 hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] ${index === 1 ? "lg:-mt-4 border-yellow-200" : "border-gray-100"
-                    }`}
-                >
-                  {/* top accent line */}
-                  <div className="absolute left-8 right-8 top-0 h-[2px] origin-left scale-x-0 bg-yellow-400 transition-transform duration-500 group-hover:scale-x-100" />
-
-                  <div className="flex flex-col items-center text-center">
-                    {Icon && (
-                      <motion.div
-                        whileHover={{ rotate: 6, scale: 1.08 }}
-                        transition={{ type: "spring", stiffness: 220, damping: 14 }}
-                        className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gray-900 text-white shadow-md transition-colors duration-300 group-hover:bg-yellow-400 group-hover:text-black"
-                      >
-                        <Icon className="h-8 w-8" />
-                      </motion.div>
-                    )}
-
-                    <h3 className="text-xl font-bold text-gray-900 md:text-2xl">
-                      {item.title}
-                    </h3>
-
-                    <p className="mt-4 text-sm leading-7 text-gray-600 md:text-base">
-                      {item.description}
-                    </p>
-
-
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+          {displayServices.map((item, index) => (
+            <ServiceCard
+              key={item.id}
+              item={item}
+              index={index}
+              fadeUp={fadeUp}
+            />
+          ))}
         </div>
       </motion.div>
     </section>
