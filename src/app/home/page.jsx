@@ -103,7 +103,7 @@ export default function HomePage() {
           className="relative"
         >
           <div className="sticky top-0 h-screen w-full overflow-hidden z-0">
-            <BackgroundVideo src="/videos/PrimeMall.webm" />
+            <BackgroundVideo src="/videos/P2.webm" />
             <HeroSection />
           </div>
           <div className="relative z-10 bg-white rounded-4xl">

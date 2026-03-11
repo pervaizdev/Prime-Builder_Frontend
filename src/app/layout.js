@@ -21,6 +21,14 @@ const playfairSC = Playfair_Display_SC({
   variable: "--font-playfair-sc",
 });
 
+export const metadata = {
+  title: " Islamabad Prime Builders",
+  description: "Prime Builder Islamabad - Real Estate & Construction",
+  icons: {
+    icon: "/images/logo.png",
+  },
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

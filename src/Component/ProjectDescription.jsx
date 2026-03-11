@@ -56,7 +56,7 @@ export default function ProjectDescription({ project }) {
           Key Details
         </motion.h3>
 
-        <motion.ul variants={stagger} className="mt-10 space-y-3">
+        <motion.ul variants={stagger} className="mt-10 text-start space-y-3">
           {project?.keyDetails?.map(({ label, text }) => (
             <motion.li
               key={label}
