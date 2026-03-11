@@ -109,7 +109,12 @@ export default function HomePage() {
           <div className="relative z-10 bg-white rounded-4xl">
             <WeAre />
             <Services />
-            <h1 className="text-4xl lg:text-5xl text-black py-16 bg-white parisienne-font text-center">
+            <div className="flex justify-center">
+              <span className="inline-flex items-center text-[rgb(139,94,60)] gap-2 rounded-full border border-[#eed498] px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] shadow-sm">
+                Features Projects
+              </span>
+            </div>
+            <h1 className="text-4xl lg:text-5xl text-black text- py-16 bg-white parisienne-font text-center">
               Features Projects
             </h1>
             <div className="container mx-auto px-30 bg-white gap-6 grid grid-cols-1 lg:grid-cols-2 pb-30 justify-items-center">
