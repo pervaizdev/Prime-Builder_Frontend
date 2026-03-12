@@ -21,7 +21,7 @@ export default function ServicesPage() {
 
         <div className="absolute inset-0 bg-black/70" />
 
-        <div className="relative z-10 mt-[-70] lg:mt-0 grid place-items-center h-full text-center px-4">
+        <div className="relative z-10 mt-[-50px] lg:mt-0 grid place-items-center h-full text-center px-4">
           <div>
             <motion.h1
               className="text-yellow-300 parisienne-font text-5xl lg:text-7xl"
