@@ -62,7 +62,7 @@ export default function Page({ params }) {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/40 "></div>
-        <div className="absolute inset-0 mt-[-240] lg:mt-0 bg-black/40 flex items-center justify-center">
+        <div className="absolute inset-0 mt-[-230] lg:mt-0 bg-black/40 flex items-center justify-center">
           <motion.div
             className="px-4 lg:px-12"
             variants={heroContainer}

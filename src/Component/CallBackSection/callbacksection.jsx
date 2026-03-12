@@ -25,6 +25,18 @@ export default function CallBackSection() {
     },
   };
 
+  const fadeUpSoft = {
+    hidden: { opacity: 0, y: 35 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1.0,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  };
+
   return (
     <section className="bg-white py-16 text-black md:py-24">
       <div className="mx-auto max-w-7xl px-2">
@@ -45,9 +57,21 @@ export default function CallBackSection() {
           >
             {/* Badge */}
             <motion.div variants={fadeUp} className="flex justify-center">
-              <span className="rounded-full border border-[#FACC15] px-4 py-1 text-[10px] font-semibold tracking-[0.25em]">
+              <motion.span
+                variants={fadeUpSoft}
+                className="inline-flex items-center gap-2 rounded-full border px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] shadow-sm"
+                style={{
+                  borderColor: "#d1b38c",
+                  color: "#8B5E3C",
+                  background: "rgba(209,179,140,0.1)",
+                }}
+              >
+                <span
+                  className="h-1.5 w-1.5 rounded-full"
+                  style={{ background: "#d1b38c" }}
+                />
                 QUICK IN TOUCH
-              </span>
+              </motion.span>
             </motion.div>
 
             {/* Title */}
