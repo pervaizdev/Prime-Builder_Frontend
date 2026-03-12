@@ -55,12 +55,12 @@ export default function FeaturesProjects({ item }) {
           </motion.div>
 
           {/* Gradient overlay — darker on mobile for readability */}
-          {/* <div
+          <div
             className={`absolute inset-0 transition-all duration-500 ${isComingSoon
-                ? "bg-linear-to-t from-black/95 via-black/60 to-transparent"
+                ? "bg-linear-to-t from-black/90 via-black/60 to-transparent"
                 : "bg-linear-to-t from-black/90 via-black/30 to-transparent lg:from-black/40 lg:via-transparent group-hover:from-black/90 group-hover:via-black/40"
               }`}
-          /> */}
+          />
           {/* Status badge — top left */}
           <div className="absolute top-6 left-6 z-20">
             <span
