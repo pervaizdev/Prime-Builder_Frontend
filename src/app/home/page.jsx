@@ -89,6 +89,18 @@ function Intro({ onDone }) {
 export default function HomePage() {
   const [introDone, setIntroDone] = useState(false);
 
+  const fadeUpSoft = {
+    hidden: { opacity: 0, y: 35 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1.0,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  };
+
   return (
     <div className="relative min-h-screen">
       <AnimatePresence mode="wait">
@@ -110,36 +122,42 @@ export default function HomePage() {
           <div className="relative z-10 bg-white rounded-4xl">
             <WeAre />
             <Services />
-
-            <motion.div
-              className="flex justify-center"
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <span className="inline-flex items-center text-[rgb(139,94,60)] gap-2 rounded-full border border-[#eed498] px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] shadow-sm">
+            <div className="mx-auto max-w-3xl text-center">
+              <motion.span
+                variants={fadeUpSoft}
+                className="inline-flex items-center gap-2 rounded-full border px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] shadow-sm"
+                style={{
+                  borderColor: "#d1b38c",
+                  color: "#8B5E3C",
+                  background: "rgba(209,179,140,0.1)",
+                }}
+              >
+                <span
+                  className="h-1.5 w-1.5 rounded-full"
+                  style={{ background: "#d1b38c" }}
+                />
                 Features Projects
-              </span>
-            </motion.div>
+              </motion.span>
 
-            <motion.h1
-              className="text-4xl lg:text-5xl text-black mt-7 bg-white parisienne-font text-center"
-              initial={{ opacity: 0, y: 70 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{
-                duration: 0.9,
-                delay: 0.15,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
-              Our Projects
-            </motion.h1>
+              <motion.h1
+                className="text-4xl lg:text-5xl text-black mt-7 bg-white parisienne-font text-center"
+                initial={{ opacity: 0, y: 70 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{
+                  duration: 0.9,
+                  delay: 0.15,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              >
+                Our Projects
+              </motion.h1>
+            </div>
 
-            <div className="container mx-auto  bg-white gap-6 grid grid-cols-1 lg:grid-cols-2 pb-30 justify-items-center">
+            <div className="container mx-auto bg-white grid grid-cols-1 lg:grid-cols-2 gap-10 pb-15 justify-items-center mt-15">
               {projects.map((item, index) => (
-                <motion.div key={item.id}>
+                <motion.div key={item.id}
+                className={index % 2 === 0 ? "lg:justify-self-end" : "lg:justify-self-start"}>
                   <FeaturesProjects item={item} index={index} />
                 </motion.div>
               ))}

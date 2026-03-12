@@ -70,7 +70,7 @@ const scaleIn = {
 
 export default function WhoWeAreStats() {
   return (
-    <section className="relative overflow-hidden mx-6 my-14 rounded-[40px]"
+    <section className="relative overflow-hidden my-14"
       style={{ background: "linear-gradient(135deg, #0a2e16 0%, #0f3d20 50%, #163d23 100%)" }}
     >
       {/* Background decoration */}

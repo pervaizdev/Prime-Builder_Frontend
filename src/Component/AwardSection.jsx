@@ -3,7 +3,20 @@ import { awardSections } from "@/data/awardData";
 import { motion } from "framer-motion";
 
 function AwardBlock({ award, reverse = false }) {
-  const { title, subtitle, year, category, description, highlights, image } = award;
+  const { title, subtitle, year, category, description, highlights, image } =
+    award;
+
+  const fadeUpSoft = {
+    hidden: { opacity: 0, y: 35 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1.0,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  };
 
   return (
     <div className="py-10 lg:py-14 border-b border-gray-100 last:border-0 overflow-hidden">
@@ -19,12 +32,35 @@ function AwardBlock({ award, reverse = false }) {
           className={`flex flex-col ${reverse ? "lg:order-2" : "lg:order-1"}`}
         >
           <div className="flex flex-wrap items-center gap-3 mb-4">
-            <span className="px-3 py-1 bg-blue-50 text-yellow-400 text-lg rounded-full uppercase tracking-wider">
+            <motion.span
+              variants={fadeUpSoft}
+              className="inline-flex items-center gap-2 rounded-full border px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] shadow-sm"
+              style={{
+                borderColor: "#d1b38c",
+                color: "#8B5E3C",
+                background: "rgba(209,179,140,0.1)",
+              }}
+            >
+              <span
+                className="h-1.5 w-1.5 rounded-full"
+                style={{ background: "#d1b38c" }}
+              />
               {category}
-            </span>
+            </motion.span>
             <span className="flex items-center gap-1.5 text-gray-500 font-medium text-sm">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
               </svg>
               {year}
             </span>
@@ -47,7 +83,9 @@ function AwardBlock({ award, reverse = false }) {
 
           {highlights && highlights.length > 0 && (
             <div className="space-y-3">
-              <h4 className="text-base font-semibold text-gray-900 mb-3">Key Recognitions:</h4>
+              <h4 className="text-base font-semibold text-gray-900 mb-3">
+                Key Recognitions:
+              </h4>
               <ul className="grid gap-2">
                 {highlights.map((highlight, idx) => (
                   <motion.li
@@ -55,17 +93,27 @@ function AwardBlock({ award, reverse = false }) {
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.2 + (idx * 0.1), duration: 0.5 }}
+                    transition={{ delay: 0.2 + idx * 0.1, duration: 0.5 }}
                     className="flex items-start"
                   >
                     <div className="shrink-0 mt-0.5">
                       <div className="flex items-center justify-center w-5 h-5 rounded-full bg-green-100 text-green-600">
-                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        <svg
+                          className="w-3 h-3"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
                         </svg>
                       </div>
                     </div>
-                    <p className="ml-3 text-sm text-gray-700 font-medium">{highlight}</p>
+                    <p className="ml-3 text-sm text-gray-700 font-medium">
+                      {highlight}
+                    </p>
                   </motion.li>
                 ))}
               </ul>
@@ -105,7 +153,6 @@ export default function AwardSection() {
   return (
     <div className="max-w-7xl mx-auto py-6">
       <div className="text-center mb-12 max-w-2xl mx-auto px-4">
-      
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

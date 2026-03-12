@@ -53,7 +53,7 @@ export default function WhoWeAreHeader({ container, fadeUp, fadeUpSlow }) {
           style={{ color: "#0f3d20" }}
           variants={fadeUpSlow}
         >
-          Islamabad Prime Builder –{" "}
+          Islamabad Prime Builders –{" "}
           <span style={{ color: "#1a5c32" }}>Real Estate Developers</span>
         </motion.h2>
 
