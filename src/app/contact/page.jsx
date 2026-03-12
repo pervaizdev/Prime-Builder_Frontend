@@ -87,6 +87,18 @@ export default function ContactPage() {
     // handle form submission
   };
 
+  const fadeUpSoft = {
+    hidden: { opacity: 0, y: 35 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1.0,
+        ease: [0.16, 1, 0.3, 1],
+      },
+    },
+  };
+
   return (
     <div>
       {/* FIXED HERO (NOT SCROLLABLE) */}
@@ -101,7 +113,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-black/70" />
 
         {/* grid centering */}
-        <div className="relative z-10 mt-[-70] lg:mt-0 grid place-items-center h-full text-center px-4">
+        <div className="relative z-10 mt-[-60] lg:mt-0 grid place-items-center h-full text-center px-4">
           <div>
             <motion.h1
               className="text-yellow-300 parisienne-font text-5xl lg:text-7xl"
@@ -126,8 +138,8 @@ export default function ContactPage() {
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
-              Have a question or want to discuss your next project? We&apos;d love
-              to hear from you.
+              Have a question or want to discuss your next project? We&apos;d
+              love to hear from you.
             </motion.p>
           </div>
         </div>
@@ -149,9 +161,18 @@ export default function ContactPage() {
               viewport={{ once: true, amount: 0.2 }}
             >
               <motion.span
-                variants={fadeUp}
-                className="block w-fit mx-auto lg:mx-0 rounded-full border border-[#eed498] px-4 py-2 text-[10px] tracking-[0.25em] font-semibold text-black uppercase"
+                variants={fadeUpSoft}
+                className="inline-flex items-center gap-2 rounded-full border px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] shadow-sm"
+                style={{
+                  borderColor: "#d1b38c",
+                  color: "#8B5E3C",
+                  background: "rgba(209,179,140,0.1)",
+                }}
               >
+                <span
+                  className="h-1.5 w-1.5 rounded-full"
+                  style={{ background: "#d1b38c" }}
+                />
                 Reach Out
               </motion.span>
 
@@ -168,8 +189,8 @@ export default function ContactPage() {
                 variants={fadeUp}
                 className="mt-4 text-black/50 leading-relaxed text-center lg:text-left"
               >
-                Whether you&apos;re looking for a new home, investment opportunity,
-                or partnership — we&apos;re here to help.
+                Whether you&apos;re looking for a new home, investment
+                opportunity, or partnership — we&apos;re here to help.
               </motion.p>
 
               {/* Info Items - GRID */}
@@ -241,8 +262,8 @@ export default function ContactPage() {
                   Send Us a Message
                 </h3>
                 <p className="mt-2 text-sm text-black/50">
-                  Fill in the form below and we&apos;ll get back to you within 24
-                  hours.
+                  Fill in the form below and we&apos;ll get back to you within
+                  24 hours.
                 </p>
 
                 <form

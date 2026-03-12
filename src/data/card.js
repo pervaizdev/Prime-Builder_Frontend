@@ -107,7 +107,7 @@ export const projects = [
         { id: "p4", src: "/images/m4.webp", alt: "Photo 4" },
         { id: "p5", src: "/images/m5.webp", alt: "Photo 5" },
       ],
-      videos: [{ id: "v1", src: "/videos/PrimeMall.webm" }],
+      videos: [{ id: "v1", src: "/videos/P2.webm" }],
     },
   },
 ];
