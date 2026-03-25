@@ -5,8 +5,10 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function FeaturesProjects({ item }) {
-  const isCompleted = item.status?.toLowerCase() === "completed";
-  const isComingSoon = item.status?.toLowerCase().includes("soon");
+  const status = item.status?.toLowerCase() || "";
+
+  const isDelivered = status === "delivered project";
+  const isOngoing = status === "on going project";
 
   const cardVariants = {
     hidden: {
@@ -31,16 +33,17 @@ export default function FeaturesProjects({ item }) {
       viewport={{ once: true, amount: 0.25 }}
       whileHover={{ y: -12 }}
       transition={{ type: "spring", stiffness: 200, damping: 18 }}
-      className=""
     >
       <Link href={`/projects/${item.id}`} className="block group">
         <div
-          className={`relative h-[450px] w-[320px] lg:w-[400px] overflow-hidden rounded-[30px] shadow-xl transition-all duration-500 ${isComingSoon
-            ? "border border-amber-500/30 shadow-[0_0_30px_rgba(245,158,11,0.2)]"
-            : ""
-            }`}
+          className={`relative h-[450px] w-[320px] lg:w-[400px] overflow-hidden rounded-[30px] shadow-xl transition-all duration-500 ${
+            isOngoing
+              ? "border border-amber-500/30 shadow-[0_0_30px_rgba(245,158,11,0.2)]"
+              : isDelivered
+              ? "border border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.15)]"
+              : ""
+          }`}
         >
-
           <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -54,30 +57,31 @@ export default function FeaturesProjects({ item }) {
             />
           </motion.div>
 
-          {/* Gradient overlay — darker on mobile for readability */}
           <div
-            className={`absolute inset-0 transition-all duration-500 ${isComingSoon
+            className={`absolute inset-0 transition-all duration-500 ${
+              isOngoing
                 ? "bg-linear-to-t from-black/90 via-black/60 to-transparent"
+                : isDelivered
+                ? "bg-linear-to-t from-black/90 via-black/40 to-transparent"
                 : "bg-linear-to-t from-black/90 via-black/30 to-transparent lg:from-black/40 lg:via-transparent group-hover:from-black/90 group-hover:via-black/40"
-              }`}
+            }`}
           />
-          {/* Status badge — top left */}
+
           <div className="absolute top-6 left-6 z-20">
             <span
-              className={`rounded-full border px-4 py-2 text-xs font-semibold shadow-lg backdrop-blur-md transition-all duration-300 ${isCompleted
-                  ? "border-white/40 bg-white/90 text-black"
-                  : isComingSoon
-                    ? "animate-pulse border-amber-400 bg-amber-500/90 text-black shadow-[0_0_15px_rgba(245,158,11,0.4)]"
-                    : "border-white/20 bg-black/60 text-white"
-                }`}
+              className={`rounded-full border px-4 py-2 text-xs font-semibold shadow-lg backdrop-blur-md transition-all duration-300 ${
+                isDelivered
+                  ? "border-white bg-white text-black"
+                  : isOngoing
+                  ? "animate-pulse border-amber-400 bg-amber-500/90 text-black shadow-[0_0_15px_rgba(245,158,11,0.4)]"
+                  : "border-white/20 bg-black/60 text-white"
+              }`}
             >
-              {item.status === "Comming Soon" ? "Coming Soon" : item.status}
+              {item.status}
             </span>
           </div>
 
-          {/* ── Project title revealed on hover (Desktop) / Visible by default (Mobile) ── */}
           <div className="absolute bottom-0 left-0 right-0 z-20 flex flex-col items-start px-8 pb-8 transition-all duration-500 ease-out translate-y-0 opacity-100 lg:translate-y-6 lg:opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-            {/* Golden accent line */}
             <div
               className="mb-4 h-[2px] w-12 origin-left scale-x-100 lg:scale-x-0 transition-transform duration-500 delay-100 group-hover:scale-x-100"
               style={{
@@ -86,13 +90,17 @@ export default function FeaturesProjects({ item }) {
             />
 
             <h3
-              className={`text-3xl font-bold parisienne-font leading-tight drop-shadow-lg ${isComingSoon ? "text-amber-400" : "text-white"
-                }`}
+              className={`text-3xl font-bold parisienne-font leading-tight drop-shadow-lg ${
+                isOngoing
+                  ? "text-amber-400"
+                  : isDelivered
+                  ? "text-white"
+                  : "text-white"
+              }`}
             >
               {item.title}
             </h3>
 
-            {/* Subtle "View Project" hint */}
             <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-white/90 lg:text-white/70 transition-colors duration-300 group-hover:text-white/90">
               View Project
               <svg
@@ -111,8 +119,7 @@ export default function FeaturesProjects({ item }) {
             </span>
           </div>
 
-          {/* Coming Soon stamp overlay */}
-          {isComingSoon && (
+          {isOngoing && (
             <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
@@ -121,7 +128,7 @@ export default function FeaturesProjects({ item }) {
                 transition={{ type: "spring", stiffness: 200, damping: 15 }}
                 className="rotate-[-12deg] rounded-xl border-2 border-amber-300 bg-amber-500 px-6 py-3 text-2xl font-black uppercase tracking-widest text-black shadow-[0_0_40px_rgba(245,158,11,0.6)]"
               >
-                Coming Soon
+                On Going Project
               </motion.div>
             </div>
           )}

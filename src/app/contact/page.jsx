@@ -9,7 +9,7 @@ import {
   HiOutlineMapPin,
   HiOutlineClock,
 } from "react-icons/hi2";
-import { FaInstagram, FaYoutube } from "react-icons/fa6";
+import { FaInstagram, FaYoutube , FaFacebookF } from "react-icons/fa6";
 import { MdArrowOutward } from "react-icons/md";
 import FooterSection from "@/Component/Footer/footer";
 
@@ -33,8 +33,8 @@ const contactInfo = [
   {
     icon: HiOutlinePhone,
     label: "Phone",
-    value: "+(084) 123 - 45688",
-    href: "tel:+08412345688",
+    value: "+92 312 2222 321",
+    href: "tel:+923122222321",
   },
   {
     icon: HiOutlineEnvelope,
@@ -45,7 +45,7 @@ const contactInfo = [
   {
     icon: HiOutlineMapPin,
     label: "Address",
-    value: "Islamabad, Pakistan",
+    value: "Plot # 5, Kunwar TopCity-1, Sahara Kashmir Rd, Islamabad",
     href: null,
   },
   {
@@ -61,11 +61,19 @@ const socials = [
     icon: FaInstagram,
     label: "Instagram",
     href: "https://www.instagram.com/IslamabadPrimeBuilders",
+    color: "#E4405F",
   },
   {
     icon: FaYoutube,
     label: "YouTube",
     href: "https://www.youtube.com/@IslamabadPrimeBuilders",
+    color: "#FF0000",
+  },
+  {
+    icon: FaFacebookF,
+    label: "Facebook",
+    href: "https://www.facebook.com/islamabadprimebuilders",
+    color: "#1877F2",
   },
 ];
 
@@ -240,7 +248,7 @@ export default function ContactPage() {
                       aria-label={s.label}
                       className="grid place-items-center h-11 w-11 rounded-full bg-[#f5f2ea] text-black/70 hover:bg-black hover:text-white transition-all duration-300"
                     >
-                      <s.icon className="text-sm" />
+                      <s.icon className="text-sm" style={{ color: s.color }} />
                     </a>
                   ))}
                 </div>
@@ -371,7 +379,7 @@ export default function ContactPage() {
                           stiffness: 300,
                           damping: 20,
                         }}
-                        className="inline-flex items-center gap-3 rounded-full bg-[#eed498] px-8 py-4 text-sm font-bold text-black hover:shadow-lg hover:shadow-[#eed498]/30 transition-shadow cursor-pointer"
+                        className="inline-flex items-center gap-3 rounded-full bg-[#eed498] px-7 py-4 text-sm font-bold text-black hover:shadow-lg hover:shadow-[#eed498]/30 transition-shadow cursor-pointer"
                       >
                         Send Message
                         <span className="grid place-items-center h-8 w-8 rounded-full bg-white">
