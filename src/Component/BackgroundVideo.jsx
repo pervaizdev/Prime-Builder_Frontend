@@ -15,7 +15,6 @@ export default function BackgroundVideo({
         loop
         playsInline
         preload="metadata"
-        poster="/images/video-poster.jpg"
         className="absolute inset-0 h-full w-full object-cover"
       >
         {/* WebM loads first (better compression + quality) */}
