@@ -20,7 +20,7 @@ function ServiceCard({ item, index, fadeUp }) {
       variants={fadeUp}
       whileHover={{ y: -12 }}
       transition={{ type: "spring", stiffness: 200, damping: 18 }}
-      className="h-full"
+      className="h-full will-change-transform"
     >
       <div
         className={`relative flex cursor-pointer h-full flex-col rounded-[28px] border p-8 transition-all duration-500 ${isFeatured ? "lg:-mt-4" : ""
