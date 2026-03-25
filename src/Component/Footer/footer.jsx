@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaYoutube , FaFacebookF } from "react-icons/fa";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 22 },
@@ -33,11 +33,19 @@ const socials = [
     icon: FaInstagram,
     label: "Instagram",
     href: "https://www.instagram.com/IslamabadPrimeBuilders",
+    color: "#E4405F",
   },
   {
     icon: FaYoutube,
     label: "YouTube",
     href: "https://www.youtube.com/@IslamabadPrimeBuilders",
+    color: "#FF0000",
+  },
+  {
+    icon: FaFacebookF,
+    label: "Facebook",
+    href: "https://www.facebook.com/", // <-- replace with your real link
+    color: "#1877F2",
   },
 ];
 
@@ -123,7 +131,7 @@ export default function FooterSection() {
                 href="tel:+9208412345688"
                 className="block text-lg font-semibold text-black hover:opacity-80 transition"
               >
-                +92 (084) 123 - 45688
+                +92 312 2222 321
               </a>
 
               <a
@@ -141,9 +149,9 @@ export default function FooterSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f5f2ea] text-black/70 hover:bg-black hover:text-white transition-all duration-300"
+                    className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f5f2ea] hover:bg-[#c6bda7] transition-all duration-300"
                   >
-                    <s.icon className="text-sm" />
+                    <s.icon className="text-sm" style={{ color: s.color }} />
                   </a>
                 ))}
               </div>

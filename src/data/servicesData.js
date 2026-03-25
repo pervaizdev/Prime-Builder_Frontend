@@ -8,7 +8,7 @@ export const servicesData = [
   },
     {
     id: 2,
-    title: "Apartments",
+    title: "Furnished Apartments",
     description: "Modern and comfortable apartments designed for urban living, offering a blend of style and functionality.",
     icon: "Home",
   },

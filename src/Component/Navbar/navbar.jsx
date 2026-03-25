@@ -142,7 +142,7 @@ export default function Navbar() {
                       <span className="block truncate text-lg  text-black lg:text-lg">
                         Islamabad Prime
                       </span>
-                      <span className="block  text-md p text-gray-700 lg:text-md">
+                      <span className="block text-md text-gray-700 lg:text-md">
                         Builders
                       </span>
                     </div>

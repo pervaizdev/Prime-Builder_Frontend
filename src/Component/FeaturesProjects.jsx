@@ -2,24 +2,24 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function FeaturesProjects({ item }) {
-  const shouldReduceMotion = useReducedMotion();
-  const isCompleted = item.status?.toLowerCase() === "completed";
-  const isComingSoon = item.status?.toLowerCase().includes("soon");
+  const status = item.status?.toLowerCase() || "";
 
-  // Re-usable animation variants for performance
+  const isDelivered = status === "delivered project";
+  const isOngoing = status === "on going project";
+
   const cardVariants = {
     hidden: {
       opacity: 0,
-      y: shouldReduceMotion ? 20 : 60,
+      y: 80,
     },
     show: {
       opacity: 1,
-      y: 0,
+      y: -6,
       transition: {
-        duration: 0.9,
+        duration: 1.1,
         ease: [0.16, 1, 0.3, 1],
       },
     },
@@ -30,99 +30,105 @@ export default function FeaturesProjects({ item }) {
       variants={cardVariants}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
-      whileHover={{ y: shouldReduceMotion ? 0 : -8 }}
-      transition={{ type: "spring", stiffness: 200, damping: 20 }}
-      className="will-change-transform"
-      style={{ isolation: "isolate" }}
+      viewport={{ once: true, amount: 0.25 }}
+      whileHover={{ y: -12 }}
+      transition={{ type: "spring", stiffness: 200, damping: 18 }}
     >
       <Link href={`/projects/${item.id}`} className="block group">
         <div
-          className={`relative h-[450px] w-[310px] sm:w-[350px] lg:w-[420px] overflow-hidden rounded-[32px] shadow-2xl transition-shadow duration-500 bg-gray-100 ${isComingSoon
-            ? "border border-amber-500/20 shadow-[0_0_30px_rgba(245,158,11,0.15)]"
-            : "hover:shadow-glow"
-            }`}
+          className={`relative h-[450px] w-[320px] lg:w-[400px] overflow-hidden rounded-[30px] shadow-xl transition-all duration-500 ${
+            isOngoing
+              ? "border border-amber-500/30 shadow-[0_0_30px_rgba(245,158,11,0.2)]"
+              : isDelivered
+              ? "border border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.15)]"
+              : ""
+          }`}
         >
-          {/* Main Image with refined next/image optimization */}
           <motion.div
-            whileHover={{ scale: 1.04 }}
+            whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0 z-0 will-change-transform"
+            className="absolute inset-0"
           >
             <Image
               src={item.image}
-              alt={item.title || "Prime Builders Project"}
+              alt={item.title || "Project"}
               fill
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px"
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
           </motion.div>
 
-          {/* Overlays for better contrast and depth */}
           <div
-            className={`absolute inset-0 transition-opacity duration-500 z-10 ${isComingSoon
+            className={`absolute inset-0 transition-all duration-500 ${
+              isOngoing
+                ? "bg-linear-to-t from-black/90 via-black/60 to-transparent"
+                : isDelivered
                 ? "bg-linear-to-t from-black/90 via-black/40 to-transparent"
-                : "bg-linear-to-t from-black/80 via-transparent to-transparent group-hover:from-black/95 group-hover:via-black/50"
-              }`}
+                : "bg-linear-to-t from-black/90 via-black/30 to-transparent lg:from-black/40 lg:via-transparent group-hover:from-black/90 group-hover:via-black/40"
+            }`}
           />
 
-          {/* Badge - Top Left */}
           <div className="absolute top-6 left-6 z-20">
             <span
-              className={`rounded-full border px-4 py-2 text-[10px] font-bold uppercase tracking-widest shadow-lg backdrop-blur-lg transition-all duration-300 ${isCompleted
-                  ? "border-white/40 bg-white/95 text-black"
-                  : isComingSoon
-                    ? "animate-pulse border-amber-400 bg-amber-500/90 text-black"
-                    : "border-white/20 bg-black/60 text-white"
-                }`}
+              className={`rounded-full border px-4 py-2 text-xs font-semibold shadow-lg backdrop-blur-md transition-all duration-300 ${
+                isDelivered
+                  ? "border-white bg-white text-black"
+                  : isOngoing
+                  ? "animate-pulse border-amber-400 bg-amber-500/90 text-black shadow-[0_0_15px_rgba(245,158,11,0.4)]"
+                  : "border-white/20 bg-black/60 text-white"
+              }`}
             >
-              {item.status === "Comming Soon" ? "Coming Soon" : item.status}
+              {item.status}
             </span>
           </div>
 
-          {/* Project Details Revealed on Hover */}
-          <div className="absolute bottom-0 left-0 right-0 z-30 flex flex-col items-start px-8 pb-8 transition-all duration-500 ease-out translate-y-2 opacity-100 lg:translate-y-12 lg:opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-            {/* Elegant golden line reveal */}
+          <div className="absolute bottom-0 left-0 right-0 z-20 flex flex-col items-start px-8 pb-8 transition-all duration-500 ease-out translate-y-0 opacity-100 lg:translate-y-6 lg:opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
             <div
-              className={`mb-4 h-[2px] w-12 origin-left transition-transform duration-700 ease-out ${shouldReduceMotion ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`}
+              className="mb-4 h-[2px] w-12 origin-left scale-x-100 lg:scale-x-0 transition-transform duration-500 delay-100 group-hover:scale-x-100"
               style={{
                 background: "linear-gradient(90deg, #d1b38c, #e8c87a)",
               }}
             />
 
             <h3
-              className={`text-3xl font-bold parisienne-font leading-tight drop-shadow-xl ${isComingSoon ? "text-amber-400" : "text-white"
-                }`}
+              className={`text-3xl font-bold parisienne-font leading-tight drop-shadow-lg ${
+                isOngoing
+                  ? "text-amber-400"
+                  : isDelivered
+                  ? "text-white"
+                  : "text-white"
+              }`}
             >
               {item.title}
             </h3>
 
-            <span className="mt-4 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#d1b38c]">
-              Explore Project
+            <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-white/90 lg:text-white/70 transition-colors duration-300 group-hover:text-white/90">
+              View Project
               <svg
-                className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1.5"
+                className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 strokeWidth={2.5}
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M7 17L17 7M17 7H7M17 7v10"
+                />
               </svg>
             </span>
           </div>
 
-          {/* Stamp for Coming Soon projects */}
-          {isComingSoon && (
-            <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center opacity-0 transition-all duration-500 group-hover:opacity-100">
+          {isOngoing && (
+            <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
               <motion.div
-                initial={{ scale: 0.9, opacity: 0, rotate: -5 }}
-                whileInView={{ scale: 1, opacity: 1, rotate: -12 }}
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true, amount: 0.4 }}
                 transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                className="rounded-xl border-4 border-amber-300 bg-amber-500 px-6 py-3 text-2xl font-black uppercase tracking-[0.15em] text-black shadow-2xl"
+                className="rotate-[-12deg] rounded-xl border-2 border-amber-300 bg-amber-500 px-6 py-3 text-2xl font-black uppercase tracking-widest text-black shadow-[0_0_40px_rgba(245,158,11,0.6)]"
               >
-                Soon
+                On Going Project
               </motion.div>
             </div>
           )}
@@ -130,4 +136,4 @@ export default function FeaturesProjects({ item }) {
       </Link>
     </motion.div>
   );
-}
+}
