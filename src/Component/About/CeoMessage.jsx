@@ -56,7 +56,7 @@ export default function CeoMessage() {
         >
           {/* CEO */}
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-amber-500">
+            <h3 className="text-2xl font-bold text-[#c29e6d]">
               Mr. Bakhtullah Khan
             </h3>
             <p className="text-gray-500 mt-2 uppercase tracking-widest text-sm font-semibold">
@@ -69,7 +69,7 @@ export default function CeoMessage() {
 
           {/* Director */}
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-amber-500">
+            <h3 className="text-2xl font-bold text-[#c29e6d]">
               Mr. Naqeebullah Khan
             </h3>
             <p className="text-gray-500 mt-2 uppercase tracking-widest text-sm font-semibold">

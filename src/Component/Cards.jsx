@@ -32,7 +32,7 @@ export default function ProjectCard({ item }) {
           </motion.div>
 
           {/* Dark Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-all duration-500 group-hover:from-black/80" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent transition-all duration-500 group-hover:from-black/80" />
 
           {/* Content */}
           <div className="absolute inset-0 flex flex-col p-7 text-white">
@@ -54,7 +54,7 @@ export default function ProjectCard({ item }) {
               {/* Availability Badge (Luxury Gold) */}
               <span
                 className="rounded-full px-4 py-2 text-xs font-semibold 
-                bg-[#eece9c] text-black border border-[#e5c488]/60"
+                bg-[#c29e6d] text-black border border-[#e5c488]/60"
               >
                 {item.availability}
               </span>
@@ -63,7 +63,7 @@ export default function ProjectCard({ item }) {
             {/* Bottom Content */}
             <div className="mt-auto">
               <div className="flex items-center gap-3">
-                <HiLocationMarker className="text-2xl text-[#eece9c]" />
+                <HiLocationMarker className="text-2xl text-[#c29e6d]" />
                 <p className="font-semibold text-sm tracking-wide">
                   {item.location}
                 </p>

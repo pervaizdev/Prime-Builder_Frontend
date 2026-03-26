@@ -124,7 +124,7 @@ export default function ContactPage() {
         <div className="relative z-10 mt-[-50px] lg:mt-0 grid place-items-center h-full text-center px-4">
           <div>
             <motion.h1
-              className="text-yellow-300 parisienne-font text-5xl lg:text-7xl"
+              className="text-[#c29e6d] parisienne-font text-5xl lg:text-7xl"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -379,10 +379,10 @@ export default function ContactPage() {
                           stiffness: 300,
                           damping: 20,
                         }}
-                        className="inline-flex items-center gap-3 rounded-full bg-[#eed498] px-7 py-4 text-sm font-bold text-black hover:shadow-lg hover:shadow-[#eed498]/30 transition-shadow cursor-pointer"
+                        className="inline-flex items-center gap-3 rounded-full bg-[#c29e6d] px-7 py-4 text-sm font-bold text-black hover:shadow-lg hover:shadow-[#eed498]/30 transition-shadow cursor-pointer"
                       >
                         Send Message
-                        <span className="grid place-items-center h-8 w-8 rounded-full bg-white">
+                        <span className="grid place-items-center h-8 w-8 rounded-full ">
                           <MdArrowOutward />
                         </span>
                       </motion.button>

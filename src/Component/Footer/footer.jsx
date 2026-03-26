@@ -85,7 +85,7 @@ export default function FooterSection() {
                   <p className="text-lg text-black">
                     Islamabad Prime
                   </p>
-                  <p className="text-md  text-gray-700">Builders</p>
+                  <p className="text-md  text-[#c29e6d]">Builders</p>
                 </div>
               </div>
 
@@ -112,7 +112,7 @@ export default function FooterSection() {
                       href={link.href}
                       className="inline-flex items-center gap-2 hover:text-black transition"
                     >
-                      <span className="h-1.5 w-1.5 rounded-full bg-yellow-400/80" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#c29e6d]" />
                       {link.name}
                     </Link>
                   </li>

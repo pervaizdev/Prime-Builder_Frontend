@@ -38,9 +38,9 @@ export default function FeaturesProjects({ item }) {
         <div
           className={`relative h-[450px] w-[320px] lg:w-[400px] overflow-hidden rounded-[30px] shadow-xl transition-all duration-500 ${
             isOngoing
-              ? "border border-amber-500/30 shadow-[0_0_30px_rgba(245,158,11,0.2)]"
+              ? "border border-[#c29e6d] shadow-[0_0_30px_rgba(245,158,11,0.2)]"
               : isDelivered
-              ? "border border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.15)]"
+              ? "border border-white shadow-[0_0_30px_rgba(16,185,129,0.15)]"
               : ""
           }`}
         >
@@ -73,7 +73,7 @@ export default function FeaturesProjects({ item }) {
                 isDelivered
                   ? "border-white bg-white text-black"
                   : isOngoing
-                  ? "animate-pulse border-amber-400 bg-amber-500/90 text-black shadow-[0_0_15px_rgba(245,158,11,0.4)]"
+                  ? "animate-pulse border-[#c29e6d] bg-[#c29e6d] text-black shadow-[0_0_15px_rgba(245,158,11,0.4)]"
                   : "border-white/20 bg-black/60 text-white"
               }`}
             >
@@ -92,7 +92,7 @@ export default function FeaturesProjects({ item }) {
             <h3
               className={`text-3xl font-bold parisienne-font leading-tight drop-shadow-lg ${
                 isOngoing
-                  ? "text-amber-400"
+                  ? "text-[#c29e6d]"
                   : isDelivered
                   ? "text-white"
                   : "text-white"
@@ -126,7 +126,7 @@ export default function FeaturesProjects({ item }) {
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                className="rotate-[-12deg] rounded-xl border-2 border-amber-300 bg-amber-500 px-6 py-3 text-2xl font-black uppercase tracking-widest text-black shadow-[0_0_40px_rgba(245,158,11,0.6)]"
+                className="rotate-[-12deg] rounded-xl border-2 border-amber-300 bg-[#c29e6d] px-6 py-3 text-2xl font-black uppercase tracking-widest text-black shadow-[0_0_40px_rgba(245,158,11,0.6)]"
               >
                 On Going Project
               </motion.div>
