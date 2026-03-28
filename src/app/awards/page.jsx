@@ -24,7 +24,7 @@ export default function Page() {
         <div className="relative z-10 mt-[-50px] lg:mt-0 grid place-items-center h-full text-center px-4">
           <div>
             <motion.h1
-              className="text-yellow-300 parisienne-font text-5xl lg:text-7xl"
+              className="text-[#c29e6d] parisienne-font text-5xl lg:text-7xl"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{

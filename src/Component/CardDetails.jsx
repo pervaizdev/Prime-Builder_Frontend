@@ -70,7 +70,7 @@ export default function CardDetails({ project, InfoItem }) {
       viewport={{ once: true, amount: 0.15 }}
     >
       <motion.div variants={fadeUp} className="flex items-center gap-3">
-        <HiLocationMarker className="text-xl lg:text-3xl text-yellow-400" />
+        <HiLocationMarker className="text-xl lg:text-3xl text-[#c29e6d]" />
         <p className="font-bold text-sm lg:text-lg text-black">
           {project.location}
         </p>

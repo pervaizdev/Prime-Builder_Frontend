@@ -101,7 +101,7 @@ export default function WhoWeAreStats() {
             <motion.span
               variants={fadeUp}
               className="inline-flex items-center gap-2 rounded-full border px-4 py-2 md:py-1.5 text-xs md:text-[10px] font-bold uppercase tracking-[0.2em] mb-4 md:mb-3"
-              style={{ borderColor: "rgba(209,179,140,0.4)", color: "#d1b38c", background: "rgba(209,179,140,0.08)" }}
+              style={{ borderColor: "rgba(209,179,140,0.4)", color: "#c29e6d", background: "rgba(209,179,140,0.08)" }}
             >
               <span className="h-1.5 w-1.5 rounded-full" style={{ background: "#d1b38c" }} />
               Our Numbers
@@ -111,7 +111,7 @@ export default function WhoWeAreStats() {
               className="text-4xl md:text-4xl lg:text-5xl parisienne-font text-white"
             >
               Built on Decades of{" "}
-              <span style={{ color: "#d1b38c" }}>Excellence</span>
+              <span className="text-[#c29e6d]" >Excellence</span>
             </motion.h2>
           </div>
 
@@ -193,7 +193,7 @@ export default function WhoWeAreStats() {
               <p className="text-white/90 lg:font-semibold font-bold text-lg md:text-[15px] mb-1.5 md:mb-1 leading-tight">{stat.label}</p>
 
               {/* Sub-label */}
-              <p className="text-sm md:text-[11px] uppercase tracking-[0.15em] font-bold" style={{ color: "#d1b38c" }}>
+              <p className="text-sm md:text-[11px] uppercase tracking-[0.15em] text-[#c29e6d] font-bold">
                 {stat.sub}
               </p>
 
@@ -223,7 +223,7 @@ export default function WhoWeAreStats() {
             "Quality is never an accident; it is always the result of intelligent effort."
           </p>
           <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: "#d1b38c" }}>
-            <div className="h-px w-6" style={{ background: "#d1b38c" }} />
+            <div className="h-px w-6 text-[#c29e6d]"  />
            Islamabad Prime Builders
           </div>
         </motion.div>

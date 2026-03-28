@@ -63,7 +63,7 @@ export default function ProjectDescription({ project }) {
               variants={fadeUp}
               className="flex items-start gap-4"
             >
-              <span className="mt-2 h-2 w-2 flex-none rounded-full bg-yellow-200" />
+              <span className="mt-2 h-2 w-2 flex-none rounded-full bg-[#c29e6d]" />
               <p className="text-lg text-black/70">
                 <span className="font-bold text-black">{label}: </span>
                 {text}

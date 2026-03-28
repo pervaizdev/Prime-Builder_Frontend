@@ -41,7 +41,7 @@ export default function ProjectPage() {
         <div className="relative z-10 mt-[-50px] lg:mt-12 grid place-items-center h-full text-center px-4">
           <div className="lg:mt-[-100]">
             <motion.h1
-              className="text-white parisienne-font text-5xl text-yellow-300 lg:text-7xl "
+              className="parisienne-font text-5xl text-[#c29e6d] lg:text-7xl "
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
