@@ -20,11 +20,11 @@ body {
 }
 
 .primary {
-  color: #cdb376;
+  color: #c29e6d;
 }
 
 .primary-bg{
-  background-color: #eed498;
+  background-color: #c29e6d;
 }
 
 .swiper {
@@ -111,7 +111,7 @@ body {
     90deg,
     transparent 0%,
     rgba(238, 212, 152, 0.15) 40%,
-    #eed498 50%,
+    #c29e6d 50%,
     rgba(238, 212, 152, 0.15) 60%,
     transparent 100%
   );

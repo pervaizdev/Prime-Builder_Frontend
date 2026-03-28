@@ -64,7 +64,7 @@ export default function ClientsSwiper() {
               variants={fadeUp}
               className="text-4xl parisienne-font text-black mt-8"
             >
-              Built on <span className="text-yellow-400">Strong Partnerships</span>
+              Built on <span className="text-[#c29e6d]">Strong Partnerships</span>
             </motion.h2>
 
             <motion.p
@@ -86,7 +86,7 @@ export default function ClientsSwiper() {
               <motion.div
                 key={`${partner.name}-${index}`}
                 variants={fadeUp}
-                className="group flex flex-col items-center justify-center gap-6 rounded-3xl border border-gray-100 bg-gray-50 px-10 py-12 shadow-sm hover:shadow-md hover:border-yellow-300 transition-all duration-300"
+                className="group flex flex-col items-center justify-center gap-6 rounded-3xl border border-gray-100 bg-gray-50 px-10 py-12 shadow-sm hover:shadow-md hover:border-[#c29e6d] transition-all duration-300"
               >
                 <div className="flex items-center justify-center h-14 w-full">
                   <Image

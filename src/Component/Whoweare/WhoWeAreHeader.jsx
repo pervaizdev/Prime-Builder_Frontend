@@ -49,12 +49,11 @@ export default function WhoWeAreHeader({ container, fadeUp, fadeUpSlow }) {
         className="md:ms-[-200px] ms-0"
       >
         <motion.h2
-          className="text-4xl parisienne-font md:text-5xl md:text-start text-center "
-          style={{ color: "#0f3d20" }}
+          className="text-4xl parisienne-font md:text-5xl md:text-start text-center text-[#0f3d20]"
           variants={fadeUpSlow}
         >
-          Islamabad Prime Builders –{" "}
-          <span style={{ color: "#1a5c32" }}>Real Estate Developers</span>
+          Islamabad Prime Builders – 
+          <span className="text-[#0f3d20]" >Real Estate Developers</span>
         </motion.h2>
 
         {/* Decorative underline */}
