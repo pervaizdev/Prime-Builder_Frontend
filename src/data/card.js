@@ -9,7 +9,6 @@ export const projects = [
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.8757274976506!2d72.85799887445984!3d33.58257574238622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df99451f7f9ac7%3A0xd5f412e595daa5b9!2sPrime%20Mall!5e0!3m2!1sen!2s!4v1772365007240!5m2!1sen!2s",
     title: "Prime Mall",
     image: "/images/p1.webp",
-
     projectType: "Commercial",
     floor: "8",
     shopes: "24",
