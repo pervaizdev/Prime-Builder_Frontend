@@ -64,7 +64,7 @@ export default function ClientsSwiper() {
               variants={fadeUp}
               className="text-4xl parisienne-font text-black mt-8"
             >
-              Built on <span className="text-[#c29e6d]">Strong Partnerships</span>
+              Built on <span className="text-[#e2ceab]">Strong Partnerships</span>
             </motion.h2>
 
             <motion.p

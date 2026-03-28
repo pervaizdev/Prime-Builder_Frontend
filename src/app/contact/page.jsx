@@ -372,14 +372,14 @@ export default function ContactPage() {
                     <div className="grid place-items-center sm:place-items-end">
                       <motion.button
                         type="submit"
-                        whileHover={{ scale: 1.03 }}
+                        whileHover={{ scale: 1.01 }}
                         whileTap={{ scale: 0.97 }}
                         transition={{
                           type: "spring",
                           stiffness: 300,
                           damping: 20,
                         }}
-                        className="inline-flex items-center gap-3 rounded-full bg-[#c29e6d] px-7 py-4 text-sm font-bold text-black hover:shadow-lg hover:shadow-[#eed498]/30 transition-shadow cursor-pointer"
+                        className="inline-flex items-center gap-3 rounded-full bg-[#e2ceab] px-7 py-4 text-sm font-bold text-black hover:shadow-lg hover:shadow-[#eed498]/30 transition-shadow cursor-pointer"
                       >
                         Send Message
                         <span className="grid place-items-center h-8 w-8 rounded-full ">
