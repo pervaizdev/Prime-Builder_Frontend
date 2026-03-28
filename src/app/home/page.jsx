@@ -2,21 +2,47 @@
 
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import dynamic from "next/dynamic";
 
-import BackgroundVideo from "@/Component/BackgroundVideo";
-import Cards from "@/Component/Common/Cards/homecard";
+// Critical components kept as direct imports for SEO and LCP
 import HeroSection from "@/Component/HeroSection/HeroSection";
-import cardData from "@/data/cardData";
-import WeAre from "@/Component/Whoweare/weare";
-import DifferentSection from "@/Component/DifferentSection/DifferentSection";
-import TestimonialsSection from "@/Component/Testimonials/Testimonials";
-import ClientsSwiper from "@/Component/Swiper/ClientsSwiper";
-import Team from "@/Component/Team/Team";
-import CallBackSection from "@/Component/CallBackSection/callbacksection";
-import FooterSection from "@/Component/Footer/footer";
-import Services from "@/Component/OurServices/servicespage";
-import WhoWeAreStats from "@/Component/Whoweare/WhoWeAreStats";
-import FeaturesProjects from "@/Component/FeaturesProjects";
+import BackgroundVideo from "@/Component/BackgroundVideo";
+
+// All below-the-fold components are loaded dynamically
+const WeAre = dynamic(() => import("@/Component/Whoweare/weare"), {
+  loading: () => <div className="min-h-[400px] bg-white" />,
+  ssr: true,
+});
+
+const Services = dynamic(() => import("@/Component/OurServices/servicespage"), {
+  ssr: true,
+});
+
+const FeaturesProjects = dynamic(() => import("@/Component/FeaturesProjects"), {
+  ssr: true,
+});
+
+const WhoWeAreStats = dynamic(() => import("@/Component/Whoweare/WhoWeAreStats"), {
+  ssr: true,
+});
+
+const ClientsSwiper = dynamic(() => import("@/Component/Swiper/ClientsSwiper"), {
+  ssr: false, // Swiper usually needs client-side only
+});
+
+const TestimonialsSection = dynamic(() => import("@/Component/Testimonials/Testimonials"), {
+  ssr: true,
+});
+
+const CallBackSection = dynamic(() => import("@/Component/CallBackSection/callbacksection"), {
+  ssr: true,
+});
+
+const FooterSection = dynamic(() => import("@/Component/Footer/footer"), {
+  ssr: true,
+});
+
+// Import project data
 import { projects } from "@/data/card.js";
 
 function Intro({ onDone }) {
@@ -25,6 +51,7 @@ function Intro({ onDone }) {
 
   useEffect(() => {
     const run = async () => {
+      // Set initial state via animation for better control
       await logo.start({
         opacity: 1,
         scale: 1,
@@ -56,7 +83,6 @@ function Intro({ onDone }) {
       });
 
       await new Promise((r) => setTimeout(r, 80));
-
       onDone();
     };
 
@@ -89,6 +115,7 @@ function Intro({ onDone }) {
 export default function HomePage() {
   const [introDone, setIntroDone] = useState(false);
 
+  // Soft fade up animation for section headers
   const fadeUpSoft = {
     hidden: { opacity: 0, y: 35 },
     show: {
@@ -102,7 +129,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen selection:bg-[#d1b38c]/30">
       <AnimatePresence mode="wait">
         {!introDone && <Intro onDone={() => setIntroDone(true)} />}
       </AnimatePresence>
@@ -114,17 +141,23 @@ export default function HomePage() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="relative"
         >
-          <div className="sticky top-0 h-screen w-full overflow-hidden z-0">
+          {/* Hero Section with Sticky Video Background */}
+          <section className="sticky top-0 h-screen w-full overflow-hidden z-0">
             <BackgroundVideo src="/videos/P2.webm" />
             <HeroSection />
-          </div>
+          </section>
 
-          <div className="relative z-10 bg-white rounded-4xl">
+          {/* Content Sections */}
+          <main className="relative z-10 bg-white rounded-t-[40px] md:rounded-t-[60px] shadow-[0_-20px_50px_rgba(0,0,0,0.1)]">
             <WeAre />
             <Services />
-            <div className="mx-auto max-w-3xl text-center">
+            
+            <div className="mx-auto max-w-3xl text-center pt-20">
               <motion.span
                 variants={fadeUpSoft}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.8 }}
                 className="inline-flex items-center gap-2 rounded-full border px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] shadow-sm"
                 style={{
                   borderColor: "#d1b38c",
@@ -132,47 +165,43 @@ export default function HomePage() {
                   background: "rgba(209,179,140,0.1)",
                 }}
               >
-                <span
-                  className="h-1.5 w-1.5 rounded-full"
-                  style={{ background: "#d1b38c" }}
-                />
-                Features Projects
+                <div className="h-1.5 w-1.5 rounded-full bg-[#d1b38c]" />
+                Featured Projects
               </motion.span>
 
-              <motion.h1
-                className="text-4xl lg:text-5xl text-black mt-7 bg-white parisienne-font text-center"
-                initial={{ opacity: 0, y: 70 }}
+              <motion.h2
+                className="text-4xl lg:text-6xl text-black mt-7 parisienne-font text-center"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{
                   duration: 0.9,
-                  delay: 0.15,
+                  delay: 0.1,
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
                 Our Projects
-              </motion.h1>
+              </motion.h2>
             </div>
 
-            <div className="container mx-auto bg-white grid grid-cols-1 lg:grid-cols-2 gap-10 pb-10 justify-items-center mt-15">
+            <div className="container mx-auto bg-white grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 pb-20 justify-items-center mt-12 px-4">
               {projects.map((item, index) => (
-                <motion.div key={item.id}
-                className={index % 2 === 0 ? "lg:justify-self-end" : "lg:justify-self-start"}>
+                <div key={item.id}
+                  className={index % 2 === 0 ? "lg:justify-self-end" : "lg:justify-self-start"}>
                   <FeaturesProjects item={item} index={index} />
-                </motion.div>
+                </div>
               ))}
             </div>
 
             <WhoWeAreStats />
-            {/* <DifferentSection /> */}
             <ClientsSwiper />
             <TestimonialsSection />
-            {/* <Team /> */}
             <CallBackSection />
             <FooterSection />
-          </div>
+          </main>
         </motion.div>
       )}
     </div>
   );
 }
+
