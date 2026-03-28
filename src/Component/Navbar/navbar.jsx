@@ -166,7 +166,7 @@ export default function Navbar() {
                   <div className="flex items-center gap-2">
                     <Link
                       href="/contact"
-                      className="hidden rounded-full primary-bg px-6 py-3 text-sm font-bold text-gray-900 transition hover:bg-lime-300 md:inline-flex"
+                      className="hidden rounded-full bg-[#e2ceab] px-6 py-3 text-sm font-bold text-black transition hover:bg-[#d1b38c] md:inline-flex"
                     >
                       Get In Touch
 
