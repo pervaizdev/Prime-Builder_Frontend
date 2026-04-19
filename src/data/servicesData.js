@@ -14,7 +14,7 @@ export const servicesData = [
   },
   {
     id: 3,
-    title: "Commerical",
+    title: "Commercial",
     description: "Commercial spaces designed to meet the needs of businesses, providing functional and attractive environments for work and commerce.",
     icon: "Building",
   },

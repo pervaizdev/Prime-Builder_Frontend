@@ -143,7 +143,7 @@ export default function HomePage() {
         >
           {/* Hero Section with Sticky Video Background */}
           <section className="sticky top-0 h-screen w-full overflow-hidden z-0">
-            <BackgroundVideo src="/videos/P2.webm" />
+            <BackgroundVideo src="https://res.cloudinary.com/dvke7vpu8/video/upload/v1776626925/Islamabad_Prime_Builder/Landing_page/cedu26gxhtzlzbjyflxd.webm" />
             <HeroSection />
           </section>
 

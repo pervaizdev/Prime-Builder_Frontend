@@ -165,10 +165,10 @@ export default function Navbar() {
                   {/* RIGHT: Desktop CTA + Mobile Hamburger */}
                   <div className="flex items-center gap-2">
                     <Link
-                      href="/contact"
+                      href="https://islamabad-prime-builder-dashboard.vercel.app"
                       className="hidden rounded-full bg-[#e2ceab] px-6 py-3 text-sm font-bold text-black transition hover:bg-[#d1b38c] md:inline-flex"
                     >
-                      Get In Touch
+                      Client Portal
 
                     </Link>
 

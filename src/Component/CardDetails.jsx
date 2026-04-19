@@ -11,6 +11,7 @@ import {
   HiOutlineHomeModern,
   HiOutlineCake,
   HiOutlineHome,
+  HiOutlineBolt,
 } from "react-icons/hi2";
 
 const fadeUp = {
@@ -54,6 +55,7 @@ export default function CardDetails({ project, InfoItem }) {
     { icon: HiOutlineHomeModern, label: "Studios", value: project.studios },
     { icon: HiOutlineCake, label: "Restaurants", value: project.restaurant },
     { icon: HiOutlineHome, label: "Bedrooms", value: project.bedrooms },
+    { icon: HiOutlineBolt, label: "Gym", value: project.gym },
     {
       icon: HiOutlineCalendarDays,
       label: "Commencement date",

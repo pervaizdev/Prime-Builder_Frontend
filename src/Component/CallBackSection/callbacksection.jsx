@@ -1,6 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
+import toast, { Toaster } from "react-hot-toast";
+
 
 export default function CallBackSection() {
   const container = {
@@ -36,6 +39,61 @@ export default function CallBackSection() {
       },
     },
   };
+
+  const [formData, setFormData] = useState({
+
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+
+    if (!formData.email.endsWith("@gmail.com")) {
+      toast.error("Please use a @gmail.com address.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:8000/api/add-message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success("Message sent successfully!");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        toast.error(data.message || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast.error("Server connection error. Please check if backend is running.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   return (
     <section className="bg-white py-16 text-black md:py-24">
@@ -85,24 +143,51 @@ export default function CallBackSection() {
             </motion.h2>
 
             {/* Form */}
-            <motion.form variants={container} className="mt-10">
+            <Toaster position="top-right" />
+            <motion.form
+              variants={container}
+              className="mt-10"
+              onSubmit={handleSubmit}
+            >
               <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                 <motion.div variants={fadeUp}>
-                  <Input placeholder="Your Name*" />
+                  <Input
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your Name*"
+                  />
                 </motion.div>
 
                 <motion.div variants={fadeUp}>
-                  <Input placeholder="Email*" />
+                  <Input
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email*"
+                  />
                 </motion.div>
 
                 <motion.div variants={fadeUp}>
-                  <Input placeholder="Phone Number*" />
+                  <Input
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Phone Number*"
+                  />
                 </motion.div>
 
                 <motion.div variants={fadeUp} className="md:col-span-3">
-                  <Textarea placeholder="Your Message..." />
+                  <Textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Your Message..."
+                  />
                 </motion.div>
               </div>
+
 
               <motion.div
                 variants={fadeUp}
@@ -118,13 +203,17 @@ export default function CallBackSection() {
                   whileHover={{ y: -2, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="mt-5 mx-auto flex items-center gap-3 rounded-full text-black bg-[#e2ceab] px-6 py-3 text-xs font-bold transition hover:brightness-95 active:scale-95 md:mx-0 md:mt-1"
+                  disabled={loading}
+                  className={`mt-5 mx-auto flex items-center gap-3 rounded-full text-black bg-[#e2ceab] px-6 py-3 text-xs font-bold transition md:mx-0 md:mt-1 ${loading ? "opacity-50 cursor-not-allowed" : "hover:brightness-95 active:scale-95"}`}
                 >
-                  Get A Call Back
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full text-black">
-                    →
-                  </span>
+                  {loading ? "Sending..." : "Get A Call Back"}
+                  {!loading && (
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full text-black">
+                      →
+                    </span>
+                  )}
                 </motion.button>
+
               </motion.div>
             </motion.form>
           </motion.div>
@@ -136,21 +225,30 @@ export default function CallBackSection() {
 
 /* Inputs */
 
-function Input({ placeholder }) {
+function Input({ placeholder, name, value, onChange, type = "text" }) {
   return (
     <input
+      type={type}
+      name={name}
+      value={value}
+      onChange={onChange}
       placeholder={placeholder}
       className="h-12 w-full rounded-full bg-gray-100 px-5 text-sm outline-none focus:ring-2 focus:ring-[#FACC15]"
     />
   );
 }
 
-function Textarea({ placeholder }) {
+
+function Textarea({ placeholder, name, value, onChange }) {
   return (
     <textarea
+      name={name}
+      value={value}
+      onChange={onChange}
       placeholder={placeholder}
       rows={4}
       className="w-full resize-none rounded-2xl bg-gray-100 px-5 py-3 text-sm outline-none focus:ring-2 focus:ring-[#FACC15]"
     />
   );
 }
+
