@@ -56,7 +56,7 @@ export const projects = [
   },
 
   {
-    id: "islamabad-prime-builder",
+    id: "prime-mall-and-suites",
     status: "On Going Project",
     availability: "Booking Available",
     location: "TopCity-1",
@@ -72,6 +72,7 @@ export const projects = [
     studios: "36",
     bedrooms: "24",
     restaurant: "3",
+    gym: "2",
     commencementDate: "12 Mar, 2026",
 
     description: [

@@ -9,9 +9,11 @@ import {
   HiOutlineMapPin,
   HiOutlineClock,
 } from "react-icons/hi2";
-import { FaInstagram, FaYoutube , FaFacebookF } from "react-icons/fa6";
+import { FaInstagram, FaYoutube, FaFacebookF } from "react-icons/fa6";
 import { MdArrowOutward } from "react-icons/md";
 import FooterSection from "@/Component/Footer/footer";
+import toast, { Toaster } from "react-hot-toast";
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -90,10 +92,54 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // handle form submission
+
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+
+    if (!formData.email.endsWith("@gmail.com")) {
+      toast.error("Please use a @gmail.com address.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:8000/api/add-message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success("Message sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        toast.error(data.message || "Failed to send message.");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast.error("Server connection error.");
+    } finally {
+      setLoading(false);
+    }
   };
+
 
   const fadeUpSoft = {
     hidden: { opacity: 0, y: 35 },
@@ -158,7 +204,9 @@ export default function ContactPage() {
 
       {/* SCROLLING CONTENT (comes up and hides the hero) */}
       <div className="relative z-20 mt-[170px] lg:mt-[-90px] bg-white rounded-t-3xl lg:rounded-t-[60px] px-4 lg:px-8 pt-12">
+        <Toaster position="top-right" />
         <hr className="border-gray-700 mt-5 lg:mt-10" />
+
         <div className="max-w-7xl mx-auto px-3 md:px-12">
           <div className="grid lg:grid-cols-2 mt-20 gap-16 overflow-hidden">
             {/* LEFT — Contact Info */}
@@ -372,6 +420,7 @@ export default function ContactPage() {
                     <div className="grid place-items-center sm:place-items-end">
                       <motion.button
                         type="submit"
+                        disabled={loading}
                         whileHover={{ scale: 1.01 }}
                         whileTap={{ scale: 0.97 }}
                         transition={{
@@ -379,13 +428,16 @@ export default function ContactPage() {
                           stiffness: 300,
                           damping: 20,
                         }}
-                        className="inline-flex items-center gap-3 rounded-full bg-[#e2ceab] px-7 py-4 text-sm font-bold text-black hover:shadow-lg hover:shadow-[#eed498]/30 transition-shadow cursor-pointer"
+                        className={`inline-flex items-center gap-3 rounded-full bg-[#e2ceab] px-7 py-4 text-sm font-bold text-black hover:shadow-lg hover:shadow-[#eed498]/30 transition-shadow cursor-pointer ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
                       >
-                        Send Message
-                        <span className="grid place-items-center h-8 w-8 rounded-full ">
-                          <MdArrowOutward />
-                        </span>
+                        {loading ? "Sending..." : "Send Message"}
+                        {!loading && (
+                          <span className="grid place-items-center h-8 w-8 rounded-full ">
+                            <MdArrowOutward />
+                          </span>
+                        )}
                       </motion.button>
+
                     </div>
                   </motion.div>
                 </form>
