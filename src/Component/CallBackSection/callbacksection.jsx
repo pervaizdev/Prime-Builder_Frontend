@@ -70,7 +70,7 @@ export default function CallBackSection() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8000/api/add-message", {
+      const response = await fetch("https://islamabad-prime-builder-backend-production-05e2.up.railway.app/api/add-message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
