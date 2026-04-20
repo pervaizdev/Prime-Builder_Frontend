@@ -258,11 +258,11 @@ export default function Navbar() {
                     transition={{ delay: NAV_ITEMS.length * 0.05 + 0.1 }}
                   >
                     <Link
-                      href="/contact"
+                      href="https://islamabad-prime-builder-dashboard.vercel.app"
                       onClick={closeMenu}
                       className="mt-4 flex items-center justify-center rounded-2xl primary-bg px-4 py-4 text-base font-bold text-gray-900 transition-all hover:shadow-lg hover:shadow-yellow-500/20 active:scale-[0.98]"
                     >
-                      Get In Touch
+                      Client Portal
                     </Link>
                   </motion.div>
                 </div>
