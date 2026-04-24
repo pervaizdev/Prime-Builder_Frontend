@@ -44,7 +44,7 @@ const socials = [
   {
     icon: FaFacebookF,
     label: "Facebook",
-    href: "https://www.facebook.com/", // <-- replace with your real link
+    href: "https://www.facebook.com/islamabadprimebuilders", // <-- replace with your real link
     color: "#1877F2",
   },
 ];
