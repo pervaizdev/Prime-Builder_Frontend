@@ -83,7 +83,7 @@ export const projects = [
     keyDetails: [
       {
         label: "Location",
-        text: "Plot # 5, Kunwar TopCity-1, Sahara Kashmir Rd, Islamabad.",
+        text: "Plot # 3, K-Block TopCity-1, Islamabad.",
       },
       {
         label: "Number of Floors",
